@@ -50,5 +50,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-// watched video 21:38
