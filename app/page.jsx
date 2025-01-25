@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
-import Social from "@/components/ui/Social";
 import { FiDownload } from "react-icons/fi";
+
+import Photo from "@/components/ui/Photo";
+import Social from "@/components/ui/Social";
+import Stats from "@/components/ui/Stats";
 
 const Home = () => {
   return (
@@ -9,9 +12,11 @@ const Home = () => {
         {/* Flex container to handle layout for desktop and mobile */}
         <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
           {/* Text content */}
-          <div className="text-center xl:text-left xl:mr-12">
-            {/* Added xl:text-left for left alignment on desktop */}
-            <span className="text-xl">Software Developer / Cloud Engineer</span>
+          <div
+            className="text-center xl:text-left xl:mr-12 order-2 xl:order-1"
+            // Changed xl:order-none to xl:order-1 for desktop so the text appears first on the left
+          >
+            <span className="text-xl">Software Developer</span>
             <br />
             <h1 className="h1 mb-6">
               Hello I'm <span className="text-accent">Mark Tamang</span>
@@ -31,24 +36,28 @@ const Home = () => {
                 <FiDownload className="text-xl" />
               </Button>
               {/* Social links added inside a flex container */}
-              <div className="mb-8 xl:mb:0">
+              <div className="mb-8 xl:mb-0">
                 <Social
                   containerStyles="flex gap-6"
                   iconStyles="w-9 h-9 border-accent rounded-full
-                   flex justify-center iutems-center text-accent text-base hover:bg-accent
+                   flex justify-center items-center text-accent text-base hover:bg-accent
                     hover:text-primary hover:transition-all duration-500"
                 />
               </div>
             </div>
           </div>
           {/* Image Section */}
-          <div>photo</div>
+          <div
+            className="order-1 xl:order-2 mb-8 xl:mb-0"
+            // Changed xl:order-none to xl:order-2 for desktop so the image appears on the right
+          >
+            <Photo />
+          </div>
         </div>
       </div>
+      <Stats />
     </section>
   );
 };
 
 export default Home;
-
-// video watched 1:01:46
