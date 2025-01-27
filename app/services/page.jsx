@@ -1,7 +1,5 @@
-const Services = () => {
-  return <div>Services page</div>;
+const services = () => {
+  return <div>services page</div>;
 };
 
-export default Services;
-
-// video watched 1:20:00
+export default services;
