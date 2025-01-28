@@ -244,4 +244,4 @@ const Resume = () => {
 };
 
 export default Resume;
-// video watched 2:01:01 service page missed
+// resume page finished
