@@ -204,7 +204,7 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="#02a312] w-full h-full py-6 px-10 rounded-xl
+                          className="bg-[#02a312] h-full py-6 px-10 rounded-xl
                         flex flex-col justify-center items-center lg:items-start gap-1"
                         >
                           <span className="text-accent">{item.duration}</span>
@@ -216,7 +216,7 @@ const Resume = () => {
                           </h3>
                           <div className="flex items-center gap-3">
                             {/* dot */}
-                            <span className="w-[6px] h-[6px] rounded-full bg-accent"></span>
+                            <span className="w-[5px] h-[5px] rounded-full bg-accent"></span>
                             <p className="text-white/70">{item.company}</p>
                           </div>
                         </li>
