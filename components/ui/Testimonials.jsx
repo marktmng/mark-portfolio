@@ -199,7 +199,7 @@ const TestimonialCarousel = () => {
 
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312] focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312]/10 focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
             aria-label="Previous testimonial"
           >
             <FaChevronLeft className="w-6 h-6 text-[#02a312]" />
@@ -207,7 +207,7 @@ const TestimonialCarousel = () => {
 
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312] focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312]/10 focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
             aria-label="Next testimonial"
           >
             <FaChevronRight className="w-6 h-6 text-[#02a312]" />
