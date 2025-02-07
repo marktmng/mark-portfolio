@@ -4,6 +4,7 @@ import { FiDownload } from "react-icons/fi";
 import Photo from "@/components/ui/Photo";
 import Social from "@/components/ui/Social";
 import Stats from "@/components/ui/Stats";
+import Testimonials from "@/components/ui/Testimonials";
 
 const Home = () => {
   return (
@@ -32,8 +33,10 @@ const Home = () => {
                 size="lg"
                 className="uppercase bg-accent/30 text-white hover:bg-accent/10 hover:text-accent"
               >
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
+                <a href="/CV.pdf" className="flex items-center gap-2" download>
+                  <span>Download CV</span>
+                  <FiDownload />
+                </a>
               </Button>
               {/* Social links added inside a flex container */}
               <div className="mb-8 xl:mb-0">
@@ -56,6 +59,7 @@ const Home = () => {
         </div>
       </div>
       <Stats />
+      <Testimonials />
     </section>
   );
 };
