@@ -234,5 +234,3 @@ const TestimonialCarousel = () => {
 };
 
 export default TestimonialCarousel;
-
-// made chages in feedback buttons
