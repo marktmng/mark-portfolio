@@ -172,7 +172,7 @@ const TestimonialCarousel = () => {
 
   return (
     <div
-      className="relative w-full py-24 bg-background"
+      className="relative w-full bg-background"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
       onKeyDown={handleKeyDown}
@@ -199,7 +199,7 @@ const TestimonialCarousel = () => {
 
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312] focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312] focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
             aria-label="Previous testimonial"
           >
             <FaChevronLeft className="w-6 h-6 text-[#02a312]" />
@@ -207,7 +207,7 @@ const TestimonialCarousel = () => {
 
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312] focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312] focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
             aria-label="Next testimonial"
           >
             <FaChevronRight className="w-6 h-6 text-[#02a312]" />
@@ -222,7 +222,7 @@ const TestimonialCarousel = () => {
               className={`h-2 rounded-full transition-all duration-300 ${
                 currentIndex === index
                   ? "bg-[#02a312] w-8"
-                  : "bg-gray-300 w-2 hover:bg-accent"
+                  : "bg-[#02a312] w-2 hover:bg-accent"
               }`}
               aria-label={`Go to testimonial ${index + 1}`}
             />
