@@ -172,7 +172,7 @@ const TestimonialCarousel = () => {
 
   return (
     <div
-      className="relative w-full py-24 bg-background"
+      className="relative w-full bg-background"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
       onKeyDown={handleKeyDown}

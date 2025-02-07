@@ -58,8 +58,29 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Stats />
-      <Testimonials />
+      <div className="flex flex-col gap-20 mx-auto">
+        <Stats />
+        <div className="bg-[#02a312]/40 flex justify-center py-8">
+          <div className="container flex flex-col xl:flex-col items-center xl:items-start gap-8">
+            <p className="text-center">
+              If I have the opportunity to work with you on a project or as part
+              of your company, I would greatly appreciate your feedback. Please
+              click the{" "}
+              <Button
+                className="uppercase bg-yellow-400 text-[#24292f]/70 
+              hover:bg-accent/10 hover:text-accent 
+              focus:bg-accent/10 focus:text-accent 
+              active:bg-accent/10 active:text-accent"
+              >
+                feedback
+              </Button>{" "}
+              button to share your thoughts on my performance. Your insights
+              will be invaluable in helping me grow and improve.
+            </p>
+          </div>
+        </div>
+        <Testimonials />
+      </div>
     </section>
   );
 };
