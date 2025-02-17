@@ -1,16 +1,29 @@
 "use client";
 
+import { AiOutlineDatabase } from "react-icons/ai";
 import {
+  FaAws,
+  FaBootstrap,
   FaCss3,
+  FaDatabase,
   FaFigma,
+  FaGithub,
   FaHtml5,
   FaJs,
   FaNodeJs,
+  FaPython,
   FaReact,
 } from "react-icons/fa";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+import {
+  SiCircleci,
+  SiDotnet,
+  SiKotlin,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiVercel,
+} from "react-icons/si";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import {
@@ -20,7 +33,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
-
+import { TbBrandReactNative } from "react-icons/tb";
+import { VscAzure } from "react-icons/vsc";
 // about data
 const about = {
   title: "About me",
@@ -130,38 +144,84 @@ const skills = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   skillList: [
     {
-      icon: <FaHtml5 />,
-      name: "html 5",
+      icon: <VscAzure />,
+      name: "Azure",
     },
     {
-      icon: <FaCss3 />,
-      name: "css 3",
+      icon: <FaAws />,
+      name: "AWS",
     },
     {
-      icon: <FaJs />,
-      name: "javascript",
+      icon: <SiDotnet />,
+      name: ".NET",
+    },
+    {
+      icon: <FaPython />,
+      name: "Python",
     },
     {
       icon: <FaReact />,
       name: "React.js",
     },
-
+    {
+      icon: <TbBrandReactNative />,
+      name: "React Native",
+    },
+    {
+      icon: <FaJs />,
+      name: "Javascript",
+    },
+    {
+      icon: <SiKotlin />,
+      name: "Kotlin",
+    },
+    {
+      icon: <FaNodeJs />,
+      name: "Node.js",
+    },
+    {
+      icon: <SiNextdotjs />,
+      name: "Node.js",
+    },
+    {
+      icon: <FaHtml5 />,
+      name: "html 5",
+    },
+    {
+      icon: <FaCss3 />,
+      name: "Css",
+    },
+    {
+      icon: <FaBootstrap />,
+      name: "Bootstrap",
+    },
     {
       icon: <FaFigma />,
       name: "figma",
     },
     {
-      icon: <FaNodeJs />,
-      name: "node.js",
-    },
-
-    {
-      icon: <SiNextdotjs />,
-      name: "node.js",
-    },
-    {
       icon: <SiTailwindcss />,
-      name: "tailwind.css",
+      name: "Tailwind.css",
+    },
+    {
+      icon: <FaDatabase />,
+      name: "SQL Server",
+    },
+    {
+      icon: <AiOutlineDatabase />,
+      name: "Azure Data Studio",
+    },
+    {
+      icon: <SiVercel />,
+      name: "Vercel",
+    },
+    {
+      icon: <SiCircleci />,
+      name: "Circleci",
+    },
+    {
+      icon: <FaGithub />,
+      name: "Github",
     },
   ],
 };
