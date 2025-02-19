@@ -164,6 +164,10 @@ const skills = {
       name: "React.js",
     },
     {
+      icon: <SiNextdotjs />,
+      name: "Next.js",
+    },
+    {
       icon: <TbBrandReactNative />,
       name: "React Native",
     },
@@ -177,10 +181,6 @@ const skills = {
     },
     {
       icon: <FaNodeJs />,
-      name: "Node.js",
-    },
-    {
-      icon: <SiNextdotjs />,
       name: "Node.js",
     },
     {
