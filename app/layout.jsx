@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
+import ParticlesComponent from "@/components/ParticlesComponent";
 import StairTransition from "@/components/StairTransition";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <Header />
         <StairTransition />
         <PageTransition>{children}</PageTransition>
+        <ParticlesComponent id="particles" />
       </body>
     </html>
   );

@@ -25,3 +25,20 @@
   }
 }
 
+.particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Send particles to the background */
+  pointer-events: none; /* Allow clicks to pass through */
+}
+
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
