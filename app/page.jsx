@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useState } from "react";
 import { FiDownload } from "react-icons/fi";
+import "./globals.css";
 
 import FeedbackForm from "@/components/ui/FeedbackForm";
 import Photo from "@/components/ui/Photo";
@@ -74,12 +75,15 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <Testimonials />
-        <div
-          className="h-10 bg-[#02a312]/40 text-center py-2 text-sm hover:text-accent hover:cursor-pointer"
-          onClick={() => window.location.reload()}
-        >
-          <Link href="/">© 2025 Mark's Portfolio</Link>
+        <Testimonials className="mb-10" />
+        <div>
+          <br />
+          <div
+            className="sticky-footer h-10 bg-[#02a312]/40 text-center py-2 text-sm hover:text-accent hover:cursor-pointer"
+            onClick={() => window.location.reload()}
+          >
+            <Link href="/">© 2025 Mark's Portfolio</Link>
+          </div>
         </div>
       </div>
       {/* Feedback Modal */}
