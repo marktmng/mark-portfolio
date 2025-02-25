@@ -8,7 +8,6 @@ import {
   FaDatabase,
   FaFigma,
   FaGithub,
-  FaHtml5,
   FaJs,
   FaNodeJs,
   FaPython,
@@ -39,7 +38,7 @@ import { VscAzure } from "react-icons/vsc";
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "I am a highly motivated and detail-oriented software developer with expertise in modern web technologies, cloud computing, and software development. With a strong foundation in programming and a passion for continuous learning, I thrive on building scalable and efficient solutions that align with industry best practices.",
   info: [
     {
       fieldName: "Name",
@@ -81,7 +80,7 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "With a strong foundation in software development, UI/UX design, and technology-driven problem-solving, I have contributed to various projects across multiple industries. My experience ranges from front-end development and backend development to code review and graphic design, allowing me to bring a well-rounded perspective to every project.",
   items: [
     {
       company: "Source Infinity",
@@ -91,7 +90,7 @@ const experience = {
     {
       company: "Oulier AI",
       position: "Contract Code Reviewer",
-      duration: "2024 - Present",
+      duration: "2024 - 2025",
     },
     {
       company: "Brunton NZ",
@@ -111,7 +110,7 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "I have pursued a strong academic foundation in software development and information technology, complemented by continuous learning through industry-recognized certifications. My education reflects my commitment to mastering cutting-edge technologies and refining my problem-solving skills.",
   items: [
     {
       institute: "Auckland Institute of Technology",
@@ -141,7 +140,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "With a strong proficiency in various technologies, I have developed expertise in cloud platforms, programming languages, frameworks, and tools that enable me to build efficient and scalable software solutions. Below is a comprehensive list of my technical skills that I continue to enhance as I grow in my career.",
   skillList: [
     {
       icon: <VscAzure />,
@@ -182,10 +181,6 @@ const skills = {
     {
       icon: <FaNodeJs />,
       name: "Node.js",
-    },
-    {
-      icon: <FaHtml5 />,
-      name: "html 5",
     },
     {
       icon: <FaCss3 />,
@@ -255,7 +250,7 @@ const Resume = () => {
             <TabsContent value="experience" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{experience.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0">
                   {experience.description}
                 </p>
                 <ScrollArea className="h-[400px] w-full">
@@ -290,7 +285,7 @@ const Resume = () => {
             <TabsContent value="education" className="w-full">
               <div className="flex flex-col gap-[30px] text-center xl:text-left">
                 <h3 className="text-4xl font-bold">{education.title}</h3>
-                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0">
                   {education.description}
                 </p>
                 <ScrollArea className="h-[400px] w-full">
@@ -326,7 +321,7 @@ const Resume = () => {
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                  <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0">
                     {skills.description}
                   </p>
                 </div>
@@ -366,7 +361,7 @@ const Resume = () => {
             >
               <div className="flex flex-col gap-[30px]">
                 <h3 className="text-4xl font-bold">{about.title}</h3>
-                <p className="max-w-[500px] text-white/60 mx-auto xl:mx-0">
+                <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0">
                   {about.description}
                 </p>
                 <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-5 max-w-[80vh] mx-auto xl:mx-0">

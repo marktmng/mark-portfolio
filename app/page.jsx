@@ -26,9 +26,13 @@ const Home = () => {
             <h1 className="h1 mb-6">
               Hello I'm <span className="text-accent">Mark Tamang</span>
             </h1>
-            <p className="max-w-[500px] mb-9 text-white/80">
-              I excel at crafting elegant experiences and I am proficient in
-              various programming languages and technologies.
+            <p className="max-w-[550px] mb-10 text-white/80">
+              "As a proficient software developer, I specialize in a diverse
+              range of advanced programming languages and emerging technologies.
+              This portfolio, meticulously developed using Next.js, serves as a
+              live demonstration of my technical expertise. It reflects my
+              commitment to delivering innovative, scalable solutions that align
+              with the highest industry standards."
             </p>
             {/* Download CV & Social */}
             <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8">
@@ -61,9 +65,9 @@ const Home = () => {
         <div className="bg-[#02a312]/40 flex justify-center py-8">
           <div className="container flex flex-col xl:flex-col items-center xl:items-start gap-8">
             <p className="text-center">
-              If I have the opportunity to work with you on a project or as part
-              of your company, I would greatly appreciate your feedback. Please
-              click the{" "}
+              If I ever had the opportunity to work with you on a project or as
+              part of your company, I would greatly appreciate your feedback.
+              Please click the{" "}
               <Button
                 onClick={() => setIsOpen(true)}
                 className="uppercase bg-yellow-400 text-[#24292f]/70 hover:bg-accent/10 hover:text-accent focus:bg-accent/10 focus:text-accent active:bg-accent/10 active:text-accent rounded-[0px]"

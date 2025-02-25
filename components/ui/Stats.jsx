@@ -6,18 +6,21 @@ const stats = [
   {
     num: 2,
     text: "Years of experience",
-  },
-  {
-    num: 26,
-    text: "Projects completed",
+    suffix: "+", // add "+" symbol after the number
   },
   {
     num: 8,
+    text: "Projects completed",
+  },
+  {
+    num: 10,
     text: "Technology mastered",
+    suffix: "+", // add "+" symbol after the number
   },
   {
     num: 500,
     text: "Code commits",
+    suffix: "+", // add "+" symbol after the number
   },
 ];
 
@@ -38,6 +41,7 @@ const Stats = () => {
                   duration={5}
                   delay={2}
                   className="text-4xl xl:text-6xl font-extrabold"
+                  suffix={item.suffix || ""} // use the suffic if available
                 />
                 <p
                   className={`${
