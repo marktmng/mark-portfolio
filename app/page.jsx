@@ -86,6 +86,7 @@ const Home = () => {
               </p>
             </div>
           </div>
+          <br />
           <Testimonials className="mb-10" />
           <div>
             <br />

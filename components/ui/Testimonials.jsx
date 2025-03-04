@@ -150,6 +150,7 @@ const TestimonialCarousel = () => {
               <FaChevronRight className="w-6 h-6 text-[#02a312]" />
             </button>
           </div>
+          <br />
           {/* Testimonial Indicators */}
           <div className="flex justify-center mt-4 space-x-2">
             {testimonials.map((_, index) => (
