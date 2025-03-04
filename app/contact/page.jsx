@@ -1,40 +1,81 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
-const info = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "(+64) 380 3511",
-  },
-  {
-    icon: <FaEnvelope />,
-    title: "Email",
-    description: "youremail@example.com",
-  },
-  {
-    icon: <FaMapMarkerAlt />,
-    title: "Address",
-    description: "3 Adam Place Sunde, Auckland",
-  },
-];
-
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const info = [
+    {
+      icon: <FaPhoneAlt />,
+      title: "Phone",
+      description: "(+64) 380 3511",
+    },
+    {
+      icon: <FaEnvelope />,
+      title: "Email",
+      description: "mailsareaccepting@gmail.com",
+    },
+    {
+      icon: <FaMapMarkerAlt />,
+      title: "Address",
+      description: "3 Adam Place Sunde, Auckland",
+    },
+  ];
+
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+
+  // Handle Input Change
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle Form Submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch("api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      setLoading(false);
+
+      if (data.success) {
+        setSuccess("Message sent successfully!");
+        setFormData({
+          firstname: "",
+          lastname: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSuccess("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setLoading(false);
+      setSuccess("An error occurred. Please try again.");
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -46,43 +87,80 @@ const Contact = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
-          {/* form */}
           <div className="xl:h-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-5 p-10 bg-[#02a312]/30 rounded-xl">
-              <h3 className="text-3xl text-accent">Let's work together</h3>
-              <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. eiusmod
-                nihil sapiente pariatur id totam.
-              </p>
-              {/* input */}
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-5 p-10 bg-[#02a312]/30 rounded-xl"
+            >
+              <h3 className="text-3xl text-accent">
+                Excited to Join Your Team!😊
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <Input type="firstname" placeholder="First name" />
-                <Input type="lastname" placeholder="Last name" />
-                <Input type="email" placeholder="Email address" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  type="text"
+                  name="firstname"
+                  placeholder="First name"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last name"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+                {/* <Input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                /> */}
+
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Mobile number"
+                  pattern="^\+?[1-9]\d{1,14}$"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+                <Input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                />
               </div>
-              {/* select */}
-              <Select>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Web development</SelectItem>
-                    <SelectItem value="cst">UI/UX Design</SelectItem>
-                    <SelectItem value="mst">Logo Design</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              {/* text area */}
-              <Textarea className="h-[200px]" placeholder="Your message" />
+              <Textarea
+                className="h-[150px]"
+                name="message"
+                placeholder="Your message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
               <Button
-                // size="md"
+                type="submit"
                 className="max-w-40 h-[50px] bg-accent/30 text-white hover:bg-accent/10"
               >
-                Send message
+                {loading ? "Sending..." : "Send message"}
               </Button>
+              {success && <p className="text-white/60 mt-2">{success}</p>}
             </form>
           </div>
           {/* info */}
