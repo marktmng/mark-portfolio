@@ -67,8 +67,8 @@ const FeedbackForm = ({ setIsOpen }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-[95%] md:w-[400px] relative">
+    <div className="fixed top-0 w-full min-w-screen min-h-screen bg-black bg-opacity-70 flex justify-center items-center overflow-y-auto py-10 z-50">
+      <div className="bg-white p-6 pt-10 rounded-lg shadow-lg w-[95%] md:w-[400px] relative overflow-auto">
         <button
           onClick={() => setIsOpen(false)}
           className="absolute top-3 right-3 bg-red-300 hover:bg-red-500 text-red-500 hover:text-white rounded-[5px] p-1"

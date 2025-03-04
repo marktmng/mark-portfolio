@@ -14,6 +14,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as feedback from "../feedback.js";
+import type * as Schema from "../Schema.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -25,6 +26,7 @@ import type * as feedback from "../feedback.js";
  */
 declare const fullApi: ApiFromModules<{
   feedback: typeof feedback;
+  Schema: typeof Schema;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

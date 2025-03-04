@@ -50,11 +50,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "12+",
-    },
-    {
-      fieldName: "Skype",
-      fieldValue: "mark.001",
+      fieldValue: "2+",
     },
     {
       fieldName: "Nationality",
@@ -364,7 +360,7 @@ const Resume = () => {
                 <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0">
                   {about.description}
                 </p>
-                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-5 max-w-[80vh] mx-auto xl:mx-0">
+                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-4 gap-x-4 max-w-[100vh] mx-auto xl:mx-0">
                   {about.info.map((item, index) => {
                     return (
                       <li

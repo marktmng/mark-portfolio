@@ -20,12 +20,12 @@ const info = [
   {
     icon: <FaPhoneAlt />,
     title: "Phone",
-    description: "(+64) 380 3511",
+    description: "(+64) 22 380 3511",
   },
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "youremail@example.com",
+    description: "mailsareaccepting@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
