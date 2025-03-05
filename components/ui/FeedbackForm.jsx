@@ -87,6 +87,7 @@ const FeedbackForm = ({ setIsOpen }) => {
           placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
+          required
         />
         <input
           type="text"
@@ -101,6 +102,7 @@ const FeedbackForm = ({ setIsOpen }) => {
           placeholder="Subtitle (optional)"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
+          required
         />
 
         {/* Image Upload */}
@@ -126,6 +128,7 @@ const FeedbackForm = ({ setIsOpen }) => {
           placeholder="Your feedback..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          required
         />
 
         {/* Rating Section with Hover Effect */}
