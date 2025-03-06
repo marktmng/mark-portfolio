@@ -18,55 +18,47 @@ import { Swiper, SwiperSlide } from "swiper/react"; // command to install swiper
 const projects = [
   {
     num: "01",
+    category: "Fultstack Developer",
+    title: "Portfolio Web App",
+    desription:
+      "This Portfolio app is developed to display information about me and showcase my projects and skills to potential employers. It is built using Next.js, TypeScript, and Tailwind CSS, integrated with the Convex database to store and retrieve data, and deployed on Vercel.",
+    stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
+    image: "/assets/work/portfolio.png",
+    live: "#",
+    github: "https://github.com/marktmng/mark-portfolio.git",
+  },
+  {
+    num: "02",
     category: "frontend",
     title: "Scheduler Web App",
     desription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    stack: [
-      { name: "Html " },
-      { name: "Css" },
-      {
-        name: "JavaScript",
-      },
-      { name: "React" },
-    ],
-    image: "/assets/work/thumb1.png",
+      "This Scheduler app was developed for Brunton NZ to help employees book appointments with team members, add tasks to the calendar, track their progress, and manage their leave. It also enables managers to monitor employee progress using a color-coded system for each team member. The app is built with React and styled using CSS.",
+    stack: [{ name: "React" }, { name: "Css" }, { name: "HTML" }],
+    image: "/assets/work/scheduler.png",
     live: "#",
     github: "https://github.com/marktmng/Scheduler-BruntonNZ.git",
   },
   {
-    num: "02",
+    num: "03",
     category: "software developer",
     title: "Ecommerce Web App",
     desription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    stack: [
-      { name: "Liquid" },
-      { name: "Css" },
-      {
-        name: "JavaScript",
-      },
-    ],
-    image: "/assets/work/thumb2.png",
+      "THis Ecommerce app was developer for client to sell their beauty products online during my internship at Source Infinity. The app is built with Shopify and styled using CSS.",
+    stack: [{ name: "Liquid" }, { name: "Css" }, { name: "JavaScript" }],
+    image: "/assets/work/shopify.png",
     live: "#",
-    github: "#",
+    github: "https://github.com/marktmng/just_another_beauty_product.git",
   },
   {
-    num: "03",
+    num: "04",
     category: "Software Developer",
-    title: "Portfolio Web App",
+    title: "Desktop App",
     desription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    stack: [
-      { name: "Html 5" },
-      { name: "Css 3" },
-      {
-        name: "JavaScript",
-      },
-    ],
-    image: "/assets/work/thumb3.png",
+      "This Desktop app was developed for VShipping LTD to help employees manage their shipping orders. The app is built with C# and TSQL.",
+    stack: [{ name: "C#" }, { name: "TSQL" }],
+    image: "/assets/work/desktopapp.png",
     live: "#",
-    github: "#",
+    github: "https://github.com/marktmng/VShippingLTD.git",
   },
 ];
 
