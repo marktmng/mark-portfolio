@@ -28,14 +28,15 @@ const Home = () => {
               <h1 className="h1 mb-6">
                 Hello I'm <span className="text-accent">Mark Tamang</span>
               </h1>
-              <p className="max-w-[550px] mb-10 text-white/80">
-                "As a proficient software developer, I specialize in a diverse
-                range of advanced programming languages and emerging
-                technologies. This portfolio, meticulously developed using
-                Next.js, serves as a live demonstration of my technical
-                expertise. It reflects my commitment to delivering innovative,
-                scalable solutions that align with the highest industry
-                standards."
+              <p className="max-w-[550px] text-justify mb-10 text-white/80">
+                "As a dedicated software developer, I focus on creating robust,
+                scalable solutions using a variety of programming languages and
+                cloud technologies. This portfolio, built with Next.js,
+                integrates Convex for database management and is deployed on
+                Vercel, highlighting my full-stack development skills. With
+                extensive experience in cloud platforms such as AWS, Azure, and
+                GCP, I am passionate about staying at the forefront of emerging
+                technologies to deliver efficient and innovative applications."
               </p>
               {/* Download CV & Social */}
               <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8">
@@ -71,7 +72,7 @@ const Home = () => {
           {/* Feedback Section */}
           <div className="bg-[#02a312]/40 flex justify-center py-8">
             <div className="container flex flex-col xl:flex-col items-center xl:items-start gap-8">
-              <p className="text-center">
+              <p className="text-justify">
                 If I ever had the opportunity to work with you on a project or
                 as part of your company, I would greatly appreciate your
                 feedback. Please click the{" "}

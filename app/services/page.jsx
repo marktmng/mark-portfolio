@@ -9,37 +9,37 @@ const services = [
     num: "01",
     title: "Web Development",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "This is a web development service. You can find the source code on GitHub, where I developed a fully functional web app using ASP.Net MVC, Entity Framework (C#), HTML, CSS, and JavaScript with my other team members. Additionally, there are other repositories containing source code for various web development projects I worked on as an intern for different companies.",
+    href: "https://github.com/marktmng/mmltonga_shopping_app.git",
   },
   {
     num: "02",
     title: "Mobile App Development",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "This is a mobile app development service. You can find the quiz app source code on GitHub, where I contributed as a team member with Kotlin programming language. I am also planning to start a new mobile app project soon.",
+    href: "https://github.com/Jasbac0002/MobileApp.git",
   },
   {
     num: "03",
     title: "Cloud Computing",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "In this link, you will find a demo video showcasing my cloud application skills, where I deployed a web app on AWS and Azure. Unfortunately, I don’t have the source code for this project, as it is a paid service, and I am unable to keep it live after deployment.",
+    href: "https://drive.google.com/drive/folders/1mK-HDOT-Pl9yV-Y0wYsx6ty2hkq-MshE?usp=drive_link",
   },
   {
     num: "04",
     title: "UI/UX Design",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "I don’t currently have a completed UI/UX design project to showcase, but I have provided a draft link to demonstrate my UI/UX design skills using Figma. You can interact with the prototype and explore the design of the web app. Additionally, as a Graphic Designer, I have included my design portfolio in the Graphic Design link.",
+    href: "https://www.figma.com/design/P5DjezlzAIMa4MnBAHzg2e/webApp?node-id=0-1&p=f&t=h3YbfnMxgJXVs0Q6-0",
   },
 
   {
     num: "05",
     title: "Graphic Design",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    href: "#",
+      "I have provided my design portfolio, showcasing over four years of experience in graphic design. My work includes projects such as storybooks, poster designs, logos, brochures, social media designs, and illustrations. You can view my portfolio on Google Drive.",
+    href: "https://drive.google.com/file/d/1Sn0B2ATZ5sCDTjHyLuB68wYLrffPlGG1/view?usp=drive_link",
   },
 ];
 
