@@ -47,23 +47,30 @@ const FeedbackForm = ({ setIsOpen }) => {
       return;
     }
 
-    await createFeedback({
-      firstName,
-      lastName,
-      description,
-      rating,
-      imageUrl: image || "",
-      subtitle,
-    });
+    try {
+      await createFeedback({
+        firstName,
+        lastName,
+        description,
+        rating,
+        imageUrl: image || "",
+        subtitle,
+      });
 
-    // Reset form
-    setFirstName("");
-    setLastName("");
-    setDescription("");
-    setRating(0);
-    setImage(null);
-    setSubtitle("");
-    setIsOpen(false);
+      // Reset form
+      setFirstName("");
+      setLastName("");
+      setDescription("");
+      setRating(0);
+      setImage(null);
+      setSubtitle("");
+      setIsOpen(false);
+    } catch (error) {
+      console.error("Error creating feedback:", error);
+      alert(
+        "An error occurred while submitting your feedback. Please try again."
+      );
+    }
   };
 
   return (
@@ -102,7 +109,6 @@ const FeedbackForm = ({ setIsOpen }) => {
           placeholder="Subtitle (optional)"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
-          required
         />
 
         {/* Image Upload */}
@@ -134,7 +140,11 @@ const FeedbackForm = ({ setIsOpen }) => {
         {/* Rating Section with Hover Effect */}
         <div className="flex mb-4">
           {[1, 2, 3, 4, 5].map((star) => (
-            <label key={star} className="cursor-pointer">
+            <label
+              key={star}
+              className="cursor-pointer"
+              aria-label={`Rate ${star} star${star > 1 ? "s" : ""}`}
+            >
               <input
                 type="radio"
                 name="rating"

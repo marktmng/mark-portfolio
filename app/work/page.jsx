@@ -23,15 +23,16 @@ const projects = [
     desription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     stack: [
-      { name: "Html 5" },
-      { name: "Css 3" },
+      { name: "Html " },
+      { name: "Css" },
       {
         name: "JavaScript",
       },
+      { name: "React" },
     ],
     image: "/assets/work/thumb1.png",
     live: "#",
-    github: "#",
+    github: "https://github.com/marktmng/Scheduler-BruntonNZ.git",
   },
   {
     num: "02",
