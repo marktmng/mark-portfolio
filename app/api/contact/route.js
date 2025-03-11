@@ -11,7 +11,7 @@ export async function POST(req) {
       service: "gmail",
       auth: {
         user: "mailsareaccepting@gmail.com", // Your Gmail
-        pass: "jnat kxjs bjgx nfnk", // Generate App Password from Google
+        pass: "bpuv cgsg bdga dqts", // Generate App Password from Google
       },
     });
 
@@ -31,10 +31,11 @@ export async function POST(req) {
       message: "Email sent successfully!",
     });
   } catch (error) {
+    console.error("Error sending email:", error); // Log the error for debugging
     return NextResponse.json({
       success: false,
       message: "Error sending email",
-      error,
+      error: error.message, // Include the error message in the response
     });
   }
 }
