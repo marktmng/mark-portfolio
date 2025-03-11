@@ -48,7 +48,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("api/contact", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -68,11 +68,11 @@ const Contact = () => {
           message: "",
         });
       } else {
-        setSuccess("Failed to send message. Please try again.");
+        setSuccess(`Failed to send message: ${data.message}`);
       }
     } catch (error) {
       setLoading(false);
-      setSuccess("An error occurred. Please try again.");
+      setSuccess(`An error occurred: ${error.message}`);
     }
   };
 
@@ -119,15 +119,6 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                 />
-                {/* <Input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                /> */}
-
                 <Input
                   type="tel"
                   name="phone"
