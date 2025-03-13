@@ -3,6 +3,7 @@ import PageTransition from "@/components/PageTransition";
 import ParticlesComponent from "@/components/ParticlesComponent";
 import StairTransition from "@/components/StairTransition";
 import { JetBrains_Mono } from "next/font/google";
+import Head from "next/head";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -19,6 +20,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        {/* Custom PNG Favicon */}
+        <link rel="icon" type="image/png" href="/mark.png" />
+      </Head>
       <body className={jetbrainsMono.className}>
         <Header />
         <StairTransition />
