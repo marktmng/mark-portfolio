@@ -13,15 +13,16 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata = {
   title: "Mark Tmng",
-  // description: "Portfolio of software development",
+  description: "Portfolio of software development highlights",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/mark.png" type="image/png" />
+        <link rel="icon" href="/mark.ico" type="image/x-icon" />
         <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
       </head>
       <body className={jetbrainsMono.className}>
         <Header />
