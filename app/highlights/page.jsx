@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowDownRight } from "react-icons/bs";
 
-const services = [
+const highlights = [
   {
     num: "01",
     title: "Web Development",
@@ -43,7 +43,7 @@ const services = [
   },
 ];
 
-const Services = () => {
+const Highlights = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12">
       <div className="container mx-auto">
@@ -55,7 +55,7 @@ const Services = () => {
           }}
           className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
-          {services.map((service, index) => {
+          {highlights.map((service, index) => {
             return (
               <div
                 key={index}
@@ -96,4 +96,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Highlights;
