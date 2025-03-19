@@ -22,7 +22,7 @@ const ParticlesComponent = (props) => {
   const options = useMemo(
     () => ({
       background: {
-        // color: { value: "#1a341a" },
+        color: { value: "transparent" }, // Keep the background transparent
       },
       fpsLimit: 120,
       interactivity: {
@@ -41,21 +41,26 @@ const ParticlesComponent = (props) => {
           color: "#FFFFFF",
           distance: 150,
           enable: true,
-          opacity: 0.3,
-          width: 1,
+          opacity: 0.1, // Make links more transparent
+          width: 0.5,
         },
         move: {
           direction: "none",
           enable: true,
           outModes: { default: "bounce" },
           random: true,
-          speed: 1,
+          speed: 0.3,
           straight: false,
         },
-        number: { density: { enable: true }, value: 150 },
-        opacity: { value: 1.0 },
-        shape: { type: "circle" },
-        size: { value: { min: 1, max: 3 } },
+        number: { density: { enable: true }, value: 100 },
+        opacity: { value: 0 }, // Reduce opacity for transparency
+        shape: { type: "star" },
+        size: { value: { min: 1, max: 4 } }, // Increase size for blur effect
+        shadow: {
+          enable: true,
+          color: "#ffffff",
+          blur: 10, // Increase blur effect
+        },
       },
       detectRetina: true,
     }),
