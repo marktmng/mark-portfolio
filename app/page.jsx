@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiDownload } from "react-icons/fi";
+import { Element } from "react-scroll";
 import { ConvexClientProvider } from "./ConvexClientProvider";
 import "./globals.css";
 
@@ -15,6 +16,45 @@ import Testimonials from "@/components/ui/Testimonials";
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const fadeInElements = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in");
+            entry.target.classList.remove("fade-out");
+          } else {
+            entry.target.classList.add("fade-out");
+            entry.target.classList.remove("fade-in");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    fadeInElements.current.forEach((el) => {
+      if (el) {
+        observer.observe(el);
+      }
+    });
+
+    // Ensure elements are visible on page load
+    fadeInElements.current.forEach((el) => {
+      if (el) {
+        el.classList.add("fade-in");
+      }
+    });
+
+    return () => {
+      fadeInElements.current.forEach((el) => {
+        if (el) {
+          observer.unobserve(el);
+        }
+      });
+    };
+  }, []);
 
   return (
     <ConvexClientProvider>
@@ -25,10 +65,16 @@ const Home = () => {
             <div className="text-center xl:text-left xl:mr-12 order-2 xl:order-1">
               <span className="text-xl">Software Developer</span>
               <br />
-              <h1 className="h1 mb-6">
+              <h1
+                className="h1 mb-6"
+                ref={(el) => (fadeInElements.current[0] = el)}
+              >
                 Hello I'm <span className="text-accent">Mark Tamang</span>
               </h1>
-              <p className="max-w-[550px] text-justify mb-10 text-white/80">
+              <p
+                className="max-w-[550px] text-justify mb-10 text-white/80"
+                ref={(el) => (fadeInElements.current[1] = el)}
+              >
                 "As a dedicated software developer, I focus on creating robust,
                 scalable solutions using a variety of programming languages and
                 cloud technologies. This portfolio, built with Next.js,
@@ -68,27 +114,38 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-col gap-10 mx-auto">
-          <Stats />
-          {/* Feedback Section */}
-          <div className="bg-[#02a312]/40 flex justify-center py-8">
-            <div className="container flex flex-col xl:flex-col items-center xl:items-start gap-8">
-              <p className="text-justify">
-                If I ever had the opportunity to work with you on a project or
-                as part of your company, I would greatly appreciate your
-                feedback. Please click the{" "}
-                <Button
-                  onClick={() => setIsOpen(true)}
-                  className="uppercase bg-yellow-400 text-[#24292f]/70 hover:bg-accent/10 hover:text-accent focus:bg-accent/10 focus:text-accent active:bg-accent/10 active:text-accent rounded-[0px]"
-                >
-                  feedback
-                </Button>{" "}
-                button to share your thoughts on my performance. Your insights
-                will be invaluable in helping me grow and improve.
-              </p>
-            </div>
+          <div className="container mx-auto h-[20vh]">
+            <Stats />
           </div>
+          {/* Feedback Section */}
+          <Element name="feedback-section">
+            <div className="bg-[#02a312]/40 flex justify-center py-8">
+              <div
+                className="container flex flex-col xl:flex-col items-center xl:items-start gap-8 fade-in"
+                ref={(el) => (fadeInElements.current[2] = el)}
+              >
+                <p className="text-justify">
+                  If I ever had the opportunity to work with you on a project or
+                  as part of your company, I would greatly appreciate your
+                  feedback. Please click the{" "}
+                  <Button
+                    onClick={() => setIsOpen(true)}
+                    className="uppercase bg-yellow-400 text-[#24292f]/70 hover:bg-accent/10 hover:text-accent focus:bg-accent/10 focus:text-accent active:bg-accent/10 active:text-accent rounded-[0px]"
+                  >
+                    feedback
+                  </Button>{" "}
+                  button to share your thoughts on my performance. Your insights
+                  will be invaluable in helping me grow and improve.
+                </p>
+              </div>
+            </div>
+          </Element>
           <br />
-          <Testimonials className="mb-10" />
+          <div>
+            <Element name="testimonials-section ">
+              <Testimonials className="mb-10" />
+            </Element>
+          </div>
           <div>
             <br />
             <div
@@ -100,7 +157,9 @@ const Home = () => {
           </div>
         </div>
         {/* Feedback Modal */}
-        {isOpen && <FeedbackForm setIsOpen={setIsOpen} />}
+        {isOpen && (
+          <FeedbackForm setIsOpen={setIsOpen} className="feedback-form" />
+        )}
       </section>
     </ConvexClientProvider>
   );
