@@ -5,7 +5,7 @@ import { useMutation } from "convex/react";
 import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 
-const FeedbackForm = ({ setIsOpen }) => {
+const FeedbackForm = ({ setIsOpen, className }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [description, setDescription] = useState("");
@@ -74,7 +74,9 @@ const FeedbackForm = ({ setIsOpen }) => {
   };
 
   return (
-    <div className="fixed top-0 w-full min-w-screen min-h-screen bg-black bg-opacity-70 flex justify-center items-center overflow-y-auto py-10 z-50">
+    <div
+      className={`fixed top-0 w-full min-w-screen min-h-screen bg-black bg-opacity-70 flex justify-center items-center overflow-y-auto py-10 z-50 ${className}`}
+    >
       <div className="bg-white p-6 pt-10 rounded-lg shadow-lg w-[95%] md:w-[400px] relative overflow-auto">
         <button
           onClick={() => setIsOpen(false)}
