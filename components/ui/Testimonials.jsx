@@ -111,7 +111,7 @@ const TestimonialCarousel = () => {
   useEffect(() => {
     let intervalId;
     if (isAutoPlaying && testimonials && testimonials.length > 0) {
-      intervalId = setInterval(nextSlide, 5000);
+      intervalId = setInterval(nextSlide, 10000); // Change slide every 10 seconds
     }
     return () => clearInterval(intervalId);
   }, [isAutoPlaying, testimonials, nextSlide]);
