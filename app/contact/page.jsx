@@ -42,6 +42,11 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // Format Phone Number
+  const onInput = (e) => {
+    e.target.value = e.target.value.replace(/[^0-9+]/g, ""); // Remove non-numeric characters
+  };
+
   // Handle Form Submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -126,6 +131,10 @@ const Contact = () => {
                   pattern="^\+?[1-9]\d{1,14}$"
                   value={formData.phone}
                   onChange={handleChange}
+                  onInput={onInput}
+                  // onInput={(e) => {
+                  //   e.target.value = e.target.value.replace(/[^0-9+]/g, "");
+                  // }}
                   required
                 />
                 <Input
