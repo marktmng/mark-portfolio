@@ -28,7 +28,7 @@ const MobileNav = () => {
     <Sheet>
       {/* Menu Trigger */}
       <SheetTrigger className="flex justify-center items-center">
-        <CiMenuFries className="text-[32px] text-accent" />
+        <CiMenuFries className="text-[30px] text-accent" />
       </SheetTrigger>
 
       {/* Sheet Content */}
@@ -41,7 +41,7 @@ const MobileNav = () => {
         </SheetHeader>
 
         {/* Logo */}
-        <div className="mt-32 mb-40 text-center text-2xl">
+        <div className="mt-32 text-center text-2xl">
           <Link href="/">
             <h1 className="text-4xl font-semibold">
               Mark<span className="text-accent">.</span>
@@ -50,7 +50,7 @@ const MobileNav = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex flex-col justify-center items-center gap-8">
+        <nav className="mt-20 flex flex-col justify-center items-center gap-8">
           {links.map((link, index) => (
             <Link
               href={link.path}
