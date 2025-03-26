@@ -16,6 +16,12 @@ import {
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
+  SiAdobeaftereffects,
+  SiAdobeillustrator,
+  SiAdobeindesign,
+  SiAdobelightroom,
+  SiAdobephotoshop,
+  SiAdobepremierepro,
   SiCircleci,
   SiDotnet,
   SiKotlin,
@@ -139,14 +145,6 @@ const skills = {
     "With a strong proficiency in various technologies, I have developed expertise in cloud platforms, programming languages, frameworks, and tools that enable me to build efficient and scalable software solutions. Below is a comprehensive list of my technical skills that I continue to enhance as I grow in my career.",
   skillList: [
     {
-      icon: <VscAzure />,
-      name: "Azure",
-    },
-    {
-      icon: <FaAws />,
-      name: "AWS",
-    },
-    {
       icon: <SiDotnet />,
       name: ".NET",
     },
@@ -203,6 +201,14 @@ const skills = {
       name: "Azure Data Studio",
     },
     {
+      icon: <VscAzure />,
+      name: "Azure",
+    },
+    {
+      icon: <FaAws />,
+      name: "AWS",
+    },
+    {
       icon: <SiVercel />,
       name: "Vercel",
     },
@@ -213,6 +219,30 @@ const skills = {
     {
       icon: <FaGithub />,
       name: "Github",
+    },
+    {
+      icon: <SiAdobeillustrator />,
+      name: "Adobe Illustrator",
+    },
+    {
+      icon: <SiAdobeindesign />,
+      name: "Adobe InDesign",
+    },
+    {
+      icon: <SiAdobephotoshop />,
+      name: "Adobe Photoshop",
+    },
+    {
+      icon: <SiAdobepremierepro />,
+      name: "Adobe Premiere Pro",
+    },
+    {
+      icon: <SiAdobeaftereffects />,
+      name: "Adobe After Effects",
+    },
+    {
+      icon: <SiAdobelightroom />,
+      name: "Adobe Lightroom",
     },
   ],
 };
