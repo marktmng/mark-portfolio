@@ -108,9 +108,10 @@ const FeedbackForm = ({ setIsOpen, className }) => {
         <input
           type="text"
           className="text-black w-full border p-2 mb-2 rounded"
-          placeholder="Subtitle (optional)"
+          placeholder="Position"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
+          required
         />
 
         {/* Image Upload */}
