@@ -25,7 +25,11 @@ const StarRating = ({ rating }) => {
   );
 };
 
-const TestimonialCard = ({ testimonial }) => {
+const TestimonialCard = ({
+  testimonial,
+  onPauseAutoPlay,
+  onResumeAutoPlay,
+}) => {
   const { firstName, lastName, description, rating, subtitle, image } =
     testimonial;
   const [isExpanded, setIsExpanded] = useState(false);
@@ -42,9 +46,17 @@ const TestimonialCard = ({ testimonial }) => {
     setImageError(true);
   };
 
-  // Function to get initials from first and last name
   const getInitials = () => {
     return `${firstName.charAt(0)}${lastName.charAt(0)}`;
+  };
+
+  const handleReadMoreClick = () => {
+    if (isExpanded) {
+      onResumeAutoPlay(); // Resume auto-slide when "Read Less" is clicked
+    } else {
+      onPauseAutoPlay(); // Pause auto-slide when "Read More" is clicked
+    }
+    setIsExpanded(!isExpanded);
   };
 
   return (
@@ -64,12 +76,12 @@ const TestimonialCard = ({ testimonial }) => {
         )}
         <FaQuoteLeft className="text-4xl text-accent mb-4" />
         <div className="flex-1 text-center">
-          <p className="text-white text-lg leading-relaxed mb-6">
+          <p className="text-white text-[12px] leading-relaxed mb-5">
             {displayText}
             {shouldShowReadMore && (
               <button
-                onClick={() => setIsExpanded(!isExpanded)}
-                className="ml-2 text-[#02a312] hover:text-accent font-medium focus:outline-none"
+                onClick={handleReadMoreClick}
+                className="ml-3 text-[#02a312] hover:text-accent font-medium focus:outline-none"
               >
                 {isExpanded ? "Read Less" : "Read More"}
               </button>
@@ -108,6 +120,14 @@ const TestimonialCarousel = () => {
     }
   };
 
+  const handlePauseAutoPlay = () => {
+    setIsAutoPlaying(false);
+  };
+
+  const handleResumeAutoPlay = () => {
+    setIsAutoPlaying(true);
+  };
+
   useEffect(() => {
     let intervalId;
     if (isAutoPlaying && testimonials && testimonials.length > 0) {
@@ -119,8 +139,10 @@ const TestimonialCarousel = () => {
   const handleKeyDown = (e) => {
     if (e.key === "ArrowRight") {
       nextSlide();
+      // handleResumeAutoPlay(); // Resume auto-slide
     } else if (e.key === "ArrowLeft") {
       prevSlide();
+      // handleResumeAutoPlay(); // Resume auto-slide
     }
   };
 
@@ -135,15 +157,25 @@ const TestimonialCarousel = () => {
         <>
           <div className="flex justify-center space-x-4">
             <button
-              onClick={prevSlide}
+              onClick={() => {
+                prevSlide();
+                handleResumeAutoPlay(); // Resume auto-slide
+              }}
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312]/10 focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
               aria-label="Previous testimonial"
             >
               <FaChevronLeft className="w-6 h-6 text-[#02a312]" />
             </button>
-            <TestimonialCard testimonial={testimonials[currentIndex]} />
+            <TestimonialCard
+              testimonial={testimonials[currentIndex]}
+              onPauseAutoPlay={handlePauseAutoPlay}
+              onResumeAutoPlay={handleResumeAutoPlay}
+            />
             <button
-              onClick={nextSlide}
+              onClick={() => {
+                nextSlide();
+                handleResumeAutoPlay(); // Resume auto-slide
+              }}
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312]/10 focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
               aria-label="Next testimonial"
             >
@@ -156,7 +188,10 @@ const TestimonialCarousel = () => {
             {testimonials.map((_, index) => (
               <button
                 key={index}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => {
+                  setCurrentIndex(index);
+                  handleResumeAutoPlay(); // Resume auto-slide
+                }}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   currentIndex === index
                     ? "bg-[#02a312] w-8"
@@ -169,7 +204,7 @@ const TestimonialCarousel = () => {
         </>
       ) : (
         <div className="text-white text-center p-6">
-          No testimonials available.
+          No feedbacks available.
         </div>
       )}
     </div>
