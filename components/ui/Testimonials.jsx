@@ -35,7 +35,7 @@ const TestimonialCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  const maxLength = 150;
+  const maxLength = 180;
   const shouldShowReadMore = description.length > maxLength;
   const displayText =
     shouldShowReadMore && !isExpanded
@@ -61,7 +61,7 @@ const TestimonialCard = ({
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-[#02a312]/45 rounded-2xl shadow-xl p-10 transition-all duration-300 hover:shadow-2xl hover:scale-105">
-      <div className="flex flex-col items-center gap-6">
+      <div className="flex flex-col items-center gap-4">
         {!imageError && image ? (
           <img
             src={image}
@@ -87,12 +87,12 @@ const TestimonialCard = ({
               </button>
             )}
           </p>
-          <div className="w-16 h-1 bg-[#02a312] mx-auto mb-6"></div>
+          <div className="w-10 h-1 bg-[#02a312] mx-auto mb-6"></div>
           <StarRating rating={rating} />
-          <h3 className="text-2xl font-bold mt-4 text-white/70">
+          <h3 className="text-xl font-bold mt-2 text-white/70">
             {firstName} {lastName}
           </h3>
-          <p className="text-accent font-medium mt-2">{subtitle}</p>
+          <p className="text-accent font-medium mt-1 text-[14px]">{subtitle}</p>
         </div>
       </div>
     </div>
