@@ -49,21 +49,32 @@ const MobileNav = () => {
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links with Dot */}
         <nav className="mt-20 flex flex-col justify-center items-center gap-8">
-          {links.map((link, index) => (
-            <Link
-              href={link.path}
-              key={index}
-              className={`${
-                link.path === pathname
-                  ? "text-accent border-b-2 border-accent"
-                  : ""
-              } text-xl capitalize hover:text-accent transition-all`}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {links.map((link, index) => {
+            const isActive = link.path === pathname;
+
+            return (
+              <div
+                key={index}
+                className="flex flex-col items-center group cursor-pointer"
+              >
+                <Link
+                  href={link.path}
+                  className={`text-xl capitalize font-medium transition-all ${
+                    isActive ? "text-accent" : "hover:text-accent"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+                {/* Dot indicator */}
+                <span
+                  className={`w-1.5 h-1.5 mt-1 rounded-full transition-all duration-200
+                    ${isActive ? "bg-accent" : "bg-accent/0 group-hover:bg-accent"}`}
+                />
+              </div>
+            );
+          })}
         </nav>
       </SheetContent>
     </Sheet>
