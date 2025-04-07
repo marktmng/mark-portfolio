@@ -5,44 +5,40 @@ import { usePathname } from "next/navigation";
 
 // routes
 const links = [
-  {
-    name: "home",
-    path: "/",
-  },
-  {
-    name: "about",
-    path: "/about",
-  },
-  {
-    name: "highlights",
-    path: "/highlights",
-  },
-  {
-    name: "work",
-    path: "/work",
-  },
-  {
-    name: "contact",
-    path: "/contact",
-  },
+  { name: "home", path: "/" },
+  { name: "about", path: "/about" },
+  { name: "highlights", path: "/highlights" },
+  { name: "work", path: "/work" },
+  { name: "contact", path: "/contact" },
 ];
 
 const Nav = () => {
   const pathname = usePathname();
-  console.log(pathname);
+
   return (
     <nav className="flex gap-8">
       {links.map((link, index) => {
+        const isActive = link.path === pathname;
+
         return (
-          <Link
-            href={link.path}
+          <div
             key={index}
-            className={`${
-              link.path === pathname && "text-accent border-b-2 border-accent"
-            } capitalize font-medium hover:text-accent transition-all`}
+            className="flex flex-col items-center group cursor-pointer"
           >
-            {link.name}
-          </Link>
+            <Link
+              href={link.path}
+              className={`capitalize font-medium transition-all ${
+                isActive ? "text-accent" : "hover:text-accent"
+              }`}
+            >
+              {link.name}
+            </Link>
+            {/* Dot indicator */}
+            <span
+              className={`w-1.5 h-1.5 mt-1 rounded-full transition-all duration-200
+                ${isActive ? "bg-accent" : "bg-accent/0 group-hover:bg-accent"}`}
+            />
+          </div>
         );
       })}
     </nav>
