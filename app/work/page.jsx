@@ -18,17 +18,37 @@ import { Swiper, SwiperSlide } from "swiper/react"; // command to install swiper
 const projects = [
   {
     num: "01",
-    category: "Fultstack Developer",
-    title: "Portfolio Web App",
+    category: "software developer",
+    title: "Infinite Cloud Service",
     desription:
-      "This Portfolio app is developed to display information about me and showcase my projects and skills to potential employers. It is built using Next.js, TypeScript, and Tailwind CSS, integrated with the Convex database to store and retrieve data, and deployed on Vercel.",
-    stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
-    image: "/assets/work/portfolio.png",
+      "This project is being developed using ASP.NET and React. The goal is to create Source Infinity’s own drive application, which will also include cloud storage services. The app is designed to be user-friendly and efficient, allowing users to easily manage their files and access cloud storage services. The project is currently in progress, and the team is working hard to ensure that it meets the needs of its users.",
+    stack: [
+      { name: "React.Js" },
+      { name: "Vite" },
+      { name: "MUI" },
+      { name: "React Router" },
+      { name: "ASP.NET" },
+      { name: "C#" },
+      { name: "TSQL" },
+      { name: "Docker" },
+    ],
+    image: "/assets/work/drive.png",
     live: "#",
-    github: "https://github.com/marktmng/mark-portfolio.git",
+    github: "https://github.com/sourceinfinitynz/Infinite-Cloud-Service.git",
   },
   {
     num: "02",
+    category: "Fultstack Developer",
+    title: "Portfolio Web App",
+    desription:
+      "This Portfolio is developed and live on the internet to display information about me and showcase my projects and skills to potential employers. It is built using Next.js, TypeScript, and Tailwind CSS, integrated with the Convex database to store and retrieve data, and deployed on Vercel.",
+    stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
+    image: "/assets/work/portfolio.png",
+    live: "https://www.marktmng.com/",
+    github: "https://github.com/marktmng/mark-portfolio.git",
+  },
+  {
+    num: "03",
     category: "frontend",
     title: "Scheduler Web App",
     desription:
@@ -39,7 +59,7 @@ const projects = [
     github: "https://github.com/marktmng/Scheduler-BruntonNZ.git",
   },
   {
-    num: "03",
+    num: "04",
     category: "software developer",
     title: "Ecommerce Web App",
     desription:
@@ -50,7 +70,7 @@ const projects = [
     github: "https://github.com/marktmng/just_another_beauty_product.git",
   },
   {
-    num: "04",
+    num: "05",
     category: "Software Developer",
     title: "Desktop App",
     desription:
