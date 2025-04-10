@@ -87,7 +87,7 @@ const experience = {
     {
       company: "Source Infinity",
       position: "Software Developer Intern",
-      duration: "2024 - Present",
+      duration: "2024 - 2025",
     },
     {
       company: "Oulier AI",
