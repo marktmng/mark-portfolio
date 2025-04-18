@@ -78,11 +78,12 @@ const Home = () => {
                 "As a dedicated software developer, I focus on creating robust,
                 scalable solutions using a variety of programming languages and
                 cloud technologies. This portfolio, built with Next.js,
-                integrates Convex for database management and is deployed on
-                Vercel, highlighting my full-stack development skills. With
-                extensive experience in cloud platforms such as AWS, Azure, and
-                GCP, I am passionate about staying at the forefront of emerging
-                technologies to deliver efficient and innovative applications."
+                Typescript, Tailwind CSS, and integrates Convex for database
+                management and is deployed on Vercel, highlighting my full-stack
+                development skills. With extensive experience in cloud platforms
+                such as AWS, Azure, and GCP, I am passionate about staying at
+                the forefront of emerging technologies to deliver efficient and
+                innovative applications."
               </p>
               {/* Download CV & Social */}
               <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8">
