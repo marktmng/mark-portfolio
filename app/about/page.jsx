@@ -116,24 +116,24 @@ const education = {
   items: [
     {
       institute: "Auckland Institute of Technology",
+      degree:
+        "Graduate Diploma in Information Technology (software development)",
+      duration: "2023 - 2024",
+    },
+    {
+      institute: "Auckland Institute of Technology",
       degree: "Masters in Information Technology (software development)",
       duration: "2024 - Present",
     },
     {
       institute: "Udemy",
-      degree: "Python Data Structures and Algorithm",
-      duration: "Present",
+      degree: "C# .Net Beginner to Master",
+      duration: "24 hours",
     },
     {
       institute: "Udemy",
-      degree: "C# .Net Beginner to Master",
+      degree: "Python Data Structures and Algorithm",
       duration: "Present",
-    },
-    {
-      institute: "Auckland Institute of Technology",
-      degree:
-        "Graduate Diploma in Information Technology (software development)",
-      duration: "2023 - 2024",
     },
   ],
 };

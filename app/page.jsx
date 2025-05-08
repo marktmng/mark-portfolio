@@ -11,7 +11,6 @@ import "./globals.css";
 import FeedbackForm from "@/components/ui/FeedbackForm";
 import Photo from "@/components/ui/Photo";
 import Social from "@/components/ui/Social";
-import Stats from "@/components/ui/Stats";
 import Testimonials from "@/components/ui/Testimonials";
 
 const Home = () => {
@@ -115,9 +114,9 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-col gap-10 mx-auto">
-          <div className="container mx-auto h-[20vh]">
+          {/* <div className="container mx-auto h-[20vh]">
             <Stats />
-          </div>
+          </div> */}
           {/* Feedback Section */}
           <Element name="feedback-section">
             <div className="bg-[#02a312]/40 flex justify-center py-8">
