@@ -39,7 +39,7 @@ const highlights = [
     title: "Graphic Design",
     description:
       "I have provided my design portfolio, showcasing over four years of experience in graphic design. My work includes projects such as storybooks, poster designs, logos, brochures, social media designs, and illustrations. You can view my portfolio on Google Drive.",
-    href: "https://drive.google.com/file/d/1Sn0B2ATZ5sCDTjHyLuB68wYLrffPlGG1/view?usp=drive_link",
+    href: "https://drive.google.com/file/d/16r1WFlN14RVM8JINAJaEDRpjer8iNFRr/view?usp=sharing",
   },
 ];
 
