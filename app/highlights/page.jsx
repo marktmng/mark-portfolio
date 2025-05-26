@@ -82,7 +82,9 @@ const Highlights = () => {
                           <BsArrowDownRight className="text-primary text-3xl" />
                         </Link>
                       </TooltipTrigger>
-                      <TooltipContent side="top">Live</TooltipContent>
+                      <TooltipContent side="top">
+                        Click arrow to view
+                      </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </div>
