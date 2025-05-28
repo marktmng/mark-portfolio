@@ -30,7 +30,7 @@ const Contact = () => {
     {
       icon: <FaMapMarkerAlt />,
       title: "Address",
-      description: "3 Adam Place Sunde, Auckland",
+      description: "Glen Eden, Auckland, New Zealand",
     },
   ];
 
