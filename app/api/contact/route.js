@@ -14,13 +14,40 @@ export async function POST(req) {
         pass: process.env.GMAIL_PASS, // Use environment variable
       },
     });
+    // HTML Email Content with Table
+    const htmlContent = `
+      <h2>New Message Received</h2>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message.replace(/\n/g, "<br>")}</p>
+      <br />
+      <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse;">
+        <tr style="background-color: #f2f2f2;">
+          <th align="left">Field</th>
+          <th align="left">Details</th>
+        </tr>
+        <tr>
+          <td><strong>Name</strong></td>
+          <td>${firstname} ${lastname}</td>
+        </tr>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td>${email}</td>
+        </tr>
+        <tr>
+          <td><strong>Phone</strong></td>
+          <td>${phone}</td>
+        </tr>
+      </table>
+    `;
 
     // Email Content
     const mailOptions = {
       from: email,
       to: process.env.GMAIL_USER, // Use environment variable
       subject: `New Message: ${subject}`,
-      text: `${message}\n\nName: ${firstname} ${lastname}\nEmail: ${email}\nPhone: ${phone}`,
+      // text: `${message}\n\nName: ${firstname} ${lastname}\nEmail: ${email}\nPhone: ${phone}`,
+      html: htmlContent, // Send HTML email instead of plain text
     };
 
     // Send Email
