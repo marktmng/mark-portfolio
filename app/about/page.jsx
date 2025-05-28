@@ -56,7 +56,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "2+",
+      fieldValue: "Intermediate",
     },
     {
       fieldName: "Nationality",
@@ -67,12 +67,16 @@ const about = {
       fieldValue: "marktmg.info@gmail.com",
     },
     {
-      fieldName: "Part-time",
-      fieldValue: "Available",
+      fieldName: "Availability",
+      fieldValue: "Part-time 20 hours/week",
     },
     {
       fieldName: "Languages",
       fieldValue: "Nepali, English",
+    },
+    {
+      fieldName: "Address",
+      fieldValue: "Glen Eden, Auckland, New Zealand",
     },
   ],
 };
