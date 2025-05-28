@@ -16,9 +16,6 @@ export async function POST(req) {
     });
     // HTML Email Content with Table
     const htmlContent = `
-      <h2>New Message Received</h2>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong></p>
       <p>${message.replace(/\n/g, "<br>")}</p>
       <br />
       <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse;">
