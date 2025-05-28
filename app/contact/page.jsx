@@ -63,7 +63,7 @@ const Contact = () => {
       setLoading(false);
 
       if (data.success) {
-        setSuccess("Message sent successfully!");
+        setSuccess("Thanks for reaching out — I’ll be in touch shortly!");
         setFormData({
           firstname: "",
           lastname: "",
