@@ -164,7 +164,7 @@ const Contact = () => {
               >
                 {loading ? "Sending..." : "Send message"}
               </Button>
-              {success && <p className="text-white/60 mt-2">{success}</p>}
+              {success && <p className="text-[#171717]/75 mt-2">{success}</p>}
             </form>
           </div>
           {/* info */}
