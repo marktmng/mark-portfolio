@@ -18,22 +18,22 @@ export async function POST(req) {
     const htmlContent = `
       <p>${message.replace(/\n/g, "<br>")}</p>
       <br />
-      <table cellpadding="10" cellspacing="0" style="border-collapse: collapse; border: 2px solid #fac70f;">
+      <table cellpadding="10" cellspacing="0" style="border-collapse: collapse; border: 1px solid #171717;">
         <tr style="background-color: #171717; color: #fac70f;">
           <th align="left">Field</th>
           <th  align="left">Details</th>
         </tr>
         <tr>
-          <td style="border: 1px solid #fac70f;"><strong>Name</strong></td>
-          <td style="border: 1px solid #fac70f;">${firstname} ${lastname}</td>
+          <td style="border: 1px solid #171717;"><strong>Name</strong></td>
+          <td style="border: 1px solid #171717;">${firstname} ${lastname}</td>
         </tr>
         <tr>
-          <td style="border: 1px solid #fac70f;"><strong>Email</strong></td>
-          <td style="border: 1px solid #fac70f;">${email}</td>
+          <td style="border: 1px solid #171717;"><strong>Email</strong></td>
+          <td style="border: 1px solid #171717;">${email}</td>
         </tr>
         <tr>
-          <td style="border: 1px solid #fac70f;"><strong>Phone</strong></td>
-          <td style="border: 1px solid #fac70f;">${phone}</td>
+          <td style="border: 1px solid #171717;"><strong>Phone</strong></td>
+          <td style="border: 1px solid #171717;">${phone}</td>
         </tr>
       </table>
     `;
