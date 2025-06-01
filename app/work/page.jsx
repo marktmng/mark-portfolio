@@ -18,6 +18,17 @@ import { Swiper, SwiperSlide } from "swiper/react"; // command to install swiper
 const projects = [
   {
     num: "01",
+    category: "Fultstack Developer",
+    title: "Portfolio Web App",
+    desription:
+      "This Portfolio is developed and live on the internet to display information about me and showcase my projects and skills to potential employers. It is built using Next.js, TypeScript, and Tailwind CSS, integrated with the Convex database to store and retrieve data, and deployed on Vercel.",
+    stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
+    image: "/assets/work/portfolio.png",
+    live: "https://www.marktmng.com/",
+    github: "https://github.com/marktmng/mark-portfolio.git",
+  },
+  {
+    num: "02",
     category: "software developer",
     title: "Infinite Cloud Service",
     desription:
@@ -35,17 +46,6 @@ const projects = [
     image: "/assets/work/drive.png",
     live: "#",
     github: "https://github.com/sourceinfinitynz/Infinite-Cloud-Service.git",
-  },
-  {
-    num: "02",
-    category: "Fultstack Developer",
-    title: "Portfolio Web App",
-    desription:
-      "This Portfolio is developed and live on the internet to display information about me and showcase my projects and skills to potential employers. It is built using Next.js, TypeScript, and Tailwind CSS, integrated with the Convex database to store and retrieve data, and deployed on Vercel.",
-    stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
-    image: "/assets/work/portfolio.png",
-    live: "https://www.marktmng.com/",
-    github: "https://github.com/marktmng/mark-portfolio.git",
   },
   {
     num: "03",
@@ -181,7 +181,10 @@ const Work = () => {
                     items-center bg-pink-50/20 "
                     >
                       {/* overlay */}
-                      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/15 to-transparent z-10"></div>
+                      <div
+                        className="absolute top-0 left-0 w-full h-full 
+                      bg-gradient-to-b from-black/15 to-transparent z-10"
+                      ></div>
 
                       {/* image */}
                       <div className="relative w-full h-full">
@@ -198,9 +201,11 @@ const Work = () => {
               })}
               {/* slider buttons */}
               <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-[#02a312] hover:bg-accent-hover/30 text-primary text-[22px] w-
-            [44px] h-[30px] flex justify-center items-center transition-all"
+                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%)] xl:bottom-0 z-20 
+                w-full justify-between xl:w-max xl:justify-none"
+                btnStyles="bg-[#fac70f] hover:bg-transparent border border-[#fac70f] 
+                text-[#171717] hover:text-[#fac70f] text-[22px] w-[44px] 
+                h-[30px] flex justify-center items-center transition-all"
               />
             </Swiper>
           </div>

@@ -95,13 +95,14 @@ const Contact = () => {
           <div className="xl:h-[54%] order-2 xl:order-none">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-5 p-10 bg-[#02a312]/30 rounded-xl"
+              className="flex flex-col gap-5 p-10 bg-[#fac70f] rounded-xl"
             >
-              <h3 className="text-3xl text-accent">
+              <h3 className="text-3xl text-[#171717]">
                 Excited to Join Your Team!😊
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Input
+                  className="text-[#fac70f]"
                   type="text"
                   name="firstname"
                   placeholder="First name"
@@ -110,6 +111,7 @@ const Contact = () => {
                   required
                 />
                 <Input
+                  className="text-[#fac70f]"
                   type="text"
                   name="lastname"
                   placeholder="Last name"
@@ -117,6 +119,7 @@ const Contact = () => {
                   onChange={handleChange}
                 />
                 <Input
+                  className="text-[#fac70f]"
                   type="email"
                   name="email"
                   placeholder="Your email"
@@ -125,6 +128,7 @@ const Contact = () => {
                   required
                 />
                 <Input
+                  className="text-[#fac70f]"
                   type="tel"
                   name="phone"
                   placeholder="Mobile number"
@@ -156,7 +160,7 @@ const Contact = () => {
               />
               <Button
                 type="submit"
-                className="max-w-40 h-[50px] bg-accent/30 text-white hover:bg-accent/10"
+                className="max-w-40 h-[50px] bg-[#171717] text-white hover:bg-[#171717]/50"
               >
                 {loading ? "Sending..." : "Send message"}
               </Button>

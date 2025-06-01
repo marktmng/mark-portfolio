@@ -77,22 +77,22 @@ const FeedbackForm = ({ setIsOpen, className }) => {
     <div
       className={`fixed top-0 w-full min-w-screen min-h-screen bg-black bg-opacity-70 flex justify-center items-center overflow-y-auto py-10 z-50 ${className}`}
     >
-      <div className="bg-white p-6 pt-10 rounded-lg shadow-lg w-[95%] md:w-[400px] relative overflow-auto">
+      <div className="bg-[#fac70f] p-6 pt-10 rounded-lg shadow-lg w-[95%] md:w-[400px] relative overflow-auto">
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-3 right-3 bg-red-300 hover:bg-red-500 text-red-500 hover:text-white rounded-[5px] p-1"
+          className="absolute top-3 right-3 bg-[#171717]/50 hover:bg-[#171717] text-[#fac70f] hover:text-white rounded-[5px] p-1"
           aria-label="Close feedback form"
         >
           [x]
         </button>
-        <h2 className="text-xl font-semibold mb-4 text-[#02a312]">Feedback</h2>
-        <p className="text-[#02a312] mb-4">
+        <h2 className="text-xl font-semibold mb-4 text-[#171717]">Feedback</h2>
+        <p className="text-[#171717] mb-4">
           We value your feedback. Please fill out the form below:
         </p>
 
         <input
           type="text"
-          className="text-black w-full border p-2 mb-2 rounded"
+          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
@@ -100,14 +100,14 @@ const FeedbackForm = ({ setIsOpen, className }) => {
         />
         <input
           type="text"
-          className="text-black w-full border p-2 mb-2 rounded"
+          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           placeholder="Last Name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
           type="text"
-          className="text-black w-full border p-2 mb-2 rounded"
+          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           placeholder="Position"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
@@ -115,24 +115,33 @@ const FeedbackForm = ({ setIsOpen, className }) => {
         />
 
         {/* Image Upload */}
-        <input
-          type="file"
-          accept="image/*"
-          className="w-full border p-2 mb-2 rounded"
-          onChange={handleImage}
-        />
+        <div className="mb-2">
+          <label
+            htmlFor="file-upload"
+            className="w-full cursor-pointer inline-block bg-[#171717] text-[#fac70f] rounded-lg px-4 py-2 hover:bg-[#171717]/70 select-none"
+          >
+            Upload Profile Picture
+          </label>
+          <input
+            id="file-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleImage}
+            className="hidden"
+          />
+        </div>
 
         {/* Display Image Preview */}
         {image && (
           <img
             src={image}
             alt="Preview"
-            className="w-full max-h-40 object-cover border p-2 mb-2 rounded"
+            className="w-full max-h-40 object-cover p-2 mb-2 rounded border-none"
           />
         )}
 
         <textarea
-          className="text-black w-full border p-2 mb-2 rounded"
+          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           rows="3"
           placeholder="Your feedback..."
           value={description}
@@ -159,9 +168,7 @@ const FeedbackForm = ({ setIsOpen, className }) => {
               <FaStar
                 size={24}
                 className={`${
-                  (hover || rating) >= star
-                    ? "text-yellow-400"
-                    : "text-gray-400"
+                  (hover || rating) >= star ? "text-white-400" : "text-gray-400"
                 } transition duration-200`}
                 onMouseEnter={() => setHover(star)}
                 onMouseLeave={() => setHover(null)}
@@ -172,7 +179,7 @@ const FeedbackForm = ({ setIsOpen, className }) => {
 
         <button
           onClick={handleSubmit}
-          className="w-full bg-[#02a312] text-white px-4 py-2 rounded hover:bg-[#02a312]/70"
+          className="w-full bg-[#171717] text-white px-4 py-2 rounded hover:bg-[#171717]/50"
         >
           Submit
         </button>

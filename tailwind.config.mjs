@@ -23,9 +23,9 @@ export default {
     },
     extend: {
       colors: {
-        primary: "#133605", // #1c1c22
+        primary: "#171717", // #133605
         accent: {
-          DEFAULT: "#00ff99", // #00ff99
+          DEFAULT: "#fac70f", // #fac70f
           hover: "#00e187", // #00e187
         },
       },

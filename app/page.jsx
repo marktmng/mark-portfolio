@@ -1,7 +1,6 @@
 "use client"; // Important for using useState
 
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FiDownload } from "react-icons/fi";
 import { Element } from "react-scroll";
@@ -119,18 +118,18 @@ const Home = () => {
           </div> */}
           {/* Feedback Section */}
           <Element name="feedback-section">
-            <div className="bg-[#02a312]/40 flex justify-center py-8">
+            <div className="bg-[#fac70f] flex justify-center py-8">
               <div
                 className="container flex flex-col xl:flex-col items-center xl:items-start gap-8 fade-in"
                 ref={(el) => (fadeInElements.current[2] = el)}
               >
-                <p className="text-justify">
+                <p className="text-justify text-[#151515]">
                   If I ever had the opportunity to work with you on a project or
                   as part of your company, I would greatly appreciate your
                   feedback. Please click the{" "}
                   <Button
                     onClick={() => setIsOpen(true)}
-                    className="uppercase bg-yellow-400 text-[#24292f]/70 hover:bg-accent/10 hover:text-accent focus:bg-accent/10 focus:text-accent active:bg-accent/10 active:text-accent rounded-[0px]"
+                    className="uppercase bg-[#171717] text-[#fac70f] hover:bg-[#171717]/15 hover:text-[#171717] active:bg-accent/10 active:text-accent rounded-[0px]"
                   >
                     feedback
                   </Button>{" "}
@@ -148,12 +147,12 @@ const Home = () => {
           </div>
           <div>
             <br />
-            <div
-              className="sticky-footer h-10 bg-[#02a312]/40 text-center py-2 text-sm hover:text-accent hover:cursor-pointer"
+            {/* <div
+              className="sticky-footer h-10 bg-[#24292f]/40 text-center py-2 text-sm hover:text-accent hover:cursor-pointer"
               onClick={() => window.location.reload()}
             >
               <Link href="/">© Mark's Portfolio</Link>
-            </div>
+            </div> */}
           </div>
         </div>
         {/* Feedback Modal */}

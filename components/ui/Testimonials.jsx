@@ -17,7 +17,7 @@ const StarRating = ({ rating }) => {
         <FaStar
           key={index}
           className={`${
-            index < rating ? "text-yellow-400" : "text-gray-300"
+            index < rating ? "text-white" : "text-gray-300"
           } w-5 h-5`}
         />
       ))}
@@ -60,39 +60,39 @@ const TestimonialCard = ({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto bg-[#02a312]/45 rounded-2xl shadow-xl p-10 transition-all duration-300 hover:shadow-2xl hover:scale-105">
+    <div className="w-full max-w-2xl mx-auto bg-[#fac70f] rounded-2xl shadow-xl p-10 transition-all duration-300 hover:shadow-2xl hover:scale-105">
       <div className="flex flex-col items-center gap-4">
         {!imageError && image ? (
           <img
             src={image}
             alt={`${firstName} ${lastName}`}
-            className="w-20 h-20 rounded-full object-cover border-2 border-[#02a312]"
+            className="w-30 h-20 rounded-full object-cover shadow-md"
             onError={handleImageError}
           />
         ) : (
-          <div className="w-20 h-20 rounded-full bg-[#02a312] flex items-center justify-center text-white text-2xl font-bold">
+          <div className="w-20 h-20 rounded-full bg-[#262525] flex items-center justify-center text-white text-2xl font-bold">
             {getInitials()}
           </div>
         )}
-        <FaQuoteLeft className="text-4xl text-accent mb-4" />
+        <FaQuoteLeft className="text-4xl text-[#262525] mb-4" />
         <div className="flex-1 text-center">
-          <p className="text-white text-[12px] leading-relaxed mb-5">
+          <p className="text-[#262525] text-[12px] leading-relaxed mb-5">
             {displayText}
             {shouldShowReadMore && (
               <button
                 onClick={handleReadMoreClick}
-                className="ml-3 text-[#02a312] hover:text-accent font-medium focus:outline-none"
+                className="ml-3 text-[#262525]/30 hover:text-[#262525] font-medium focus:outline-none"
               >
                 {isExpanded ? "Read Less" : "Read More"}
               </button>
             )}
           </p>
-          <div className="w-10 h-1 bg-[#02a312] mx-auto mb-6"></div>
-          <StarRating rating={rating} />
-          <h3 className="text-xl font-bold mt-2 text-white/70">
+          <div className="w-10 h-1 bg-[#262525] mx-auto mb-6"></div>
+          <StarRating className="" rating={rating} />
+          <h3 className="text-xl font-bold mt-2 text-[#262525]">
             {firstName} {lastName}
           </h3>
-          <p className="text-accent font-medium mt-1 text-[14px]">{subtitle}</p>
+          <p className="text-white font-medium mt-1 text-[14px]">{subtitle}</p>
         </div>
       </div>
     </div>
@@ -161,10 +161,10 @@ const TestimonialCarousel = () => {
                 prevSlide();
                 handleResumeAutoPlay(); // Resume auto-slide
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312]/10 focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#fac70f] p-4 rounded-full shadow-lg hover:bg-[#171717]/10 focus:outline-none focus:ring-2 focus:ring-[#171717] transition-all duration-300"
               aria-label="Previous testimonial"
             >
-              <FaChevronLeft className="w-6 h-6 text-[#02a312]" />
+              <FaChevronLeft className="w-6 h-6 text-[#262525] hover:text-[#fac70f]" />
             </button>
             <TestimonialCard
               testimonial={testimonials[currentIndex]}
@@ -176,10 +176,10 @@ const TestimonialCarousel = () => {
                 nextSlide();
                 handleResumeAutoPlay(); // Resume auto-slide
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-accent p-4 rounded-full shadow-lg hover:bg-[#02a312]/10 focus:outline-none focus:ring-2 focus:ring-[#02a312] transition-all duration-300"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#fac70f] p-4 rounded-full shadow-lg hover:bg-[#171717]/10 focus:outline-none focus:ring-2 focus:ring-[#171717] transition-all duration-300"
               aria-label="Next testimonial"
             >
-              <FaChevronRight className="w-6 h-6 text-[#02a312]" />
+              <FaChevronRight className="w-6 h-6 text-[#262525] hover:text-[#fac70f]" />
             </button>
           </div>
           <br />
@@ -194,8 +194,8 @@ const TestimonialCarousel = () => {
                 }}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   currentIndex === index
-                    ? "bg-[#02a312] w-8"
-                    : "bg-[#02a312] w-2 hover:bg-accent"
+                    ? "bg-[#fac70f] w-8"
+                    : "bg-[#f5da78] w-2 hover:bg-[#fac70f]/30 hover:w-4"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

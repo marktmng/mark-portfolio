@@ -18,22 +18,22 @@ export async function POST(req) {
     const htmlContent = `
       <p>${message.replace(/\n/g, "<br>")}</p>
       <br />
-      <table border="1" cellpadding="10" cellspacing="0" style="border-collapse: collapse;">
-        <tr style="background-color: #f2f2f2;">
+      <table cellpadding="10" cellspacing="0" style="border-collapse: collapse; border: 2px solid #fac70f;">
+        <tr style="background-color: #171717; color: #fac70f;">
           <th align="left">Field</th>
-          <th align="left">Details</th>
+          <th  align="left">Details</th>
         </tr>
         <tr>
-          <td><strong>Name</strong></td>
-          <td>${firstname} ${lastname}</td>
+          <td style="border: 1px solid #fac70f;"><strong>Name</strong></td>
+          <td style="border: 1px solid #fac70f;">${firstname} ${lastname}</td>
         </tr>
         <tr>
-          <td><strong>Email</strong></td>
-          <td>${email}</td>
+          <td style="border: 1px solid #fac70f;"><strong>Email</strong></td>
+          <td style="border: 1px solid #fac70f;">${email}</td>
         </tr>
         <tr>
-          <td><strong>Phone</strong></td>
-          <td>${phone}</td>
+          <td style="border: 1px solid #fac70f;"><strong>Phone</strong></td>
+          <td style="border: 1px solid #fac70f;">${phone}</td>
         </tr>
       </table>
     `;
