@@ -102,7 +102,7 @@ const Contact = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Input
-                  className="text-[#fac70f]"
+                  className="text-white"
                   type="text"
                   name="firstname"
                   placeholder="First name"
@@ -111,7 +111,7 @@ const Contact = () => {
                   required
                 />
                 <Input
-                  className="text-[#fac70f]"
+                  className="text-white"
                   type="text"
                   name="lastname"
                   placeholder="Last name"
@@ -119,7 +119,7 @@ const Contact = () => {
                   onChange={handleChange}
                 />
                 <Input
-                  className="text-[#fac70f]"
+                  className="text-white"
                   type="email"
                   name="email"
                   placeholder="Your email"
@@ -128,7 +128,7 @@ const Contact = () => {
                   required
                 />
                 <Input
-                  className="text-[#fac70f]"
+                  className="text-white"
                   type="tel"
                   name="phone"
                   placeholder="Mobile number"
