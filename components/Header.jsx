@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
 import Nav from "./Nav";
@@ -8,9 +9,16 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/">
-          <h1 className="text-4xl font-semibold">
+          {/* <h1 className="text-4xl font-semibold">
             Mark<span className="text-accent">.</span>
-          </h1>
+          </h1> */}
+          <Image
+            src="/assets/mark.png"
+            alt="Mark Logo"
+            width={100}
+            height={200}
+            className="object-contain"
+          />
         </Link>
         {/* Desktop and Hire me button */}
         <div className="hidden xl:flex items-center gap-8">
