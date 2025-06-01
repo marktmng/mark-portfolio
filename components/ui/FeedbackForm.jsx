@@ -87,12 +87,12 @@ const FeedbackForm = ({ setIsOpen, className }) => {
         </button>
         <h2 className="text-xl font-semibold mb-4 text-[#171717]">Feedback</h2>
         <p className="text-[#171717] mb-4">
-          We value your feedback. Please fill out the form below:
+          Your feedback is valuable to me. Kindly fill out the form below:
         </p>
 
         <input
           type="text"
-          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
+          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           placeholder="First Name"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
@@ -100,14 +100,14 @@ const FeedbackForm = ({ setIsOpen, className }) => {
         />
         <input
           type="text"
-          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
+          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           placeholder="Last Name"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
         <input
           type="text"
-          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
+          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           placeholder="Position"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
@@ -118,7 +118,7 @@ const FeedbackForm = ({ setIsOpen, className }) => {
         <div className="mb-2">
           <label
             htmlFor="file-upload"
-            className="w-full cursor-pointer inline-block bg-[#171717] text-[#fac70f] rounded-lg px-4 py-2 hover:bg-[#171717]/70 select-none"
+            className="w-full cursor-pointer inline-block bg-[#171717] text-white rounded-lg px-4 py-2 hover:bg-[#171717]/70 select-none"
           >
             Upload Profile Picture
           </label>
@@ -141,7 +141,7 @@ const FeedbackForm = ({ setIsOpen, className }) => {
         )}
 
         <textarea
-          className="bg-[#171717] text-[#fac70f] w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
+          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
           rows="3"
           placeholder="Your feedback..."
           value={description}
