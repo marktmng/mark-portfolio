@@ -66,7 +66,7 @@ const TestimonialCard = ({
           <img
             src={image}
             alt={`${firstName} ${lastName}`}
-            className="w-30 h-20 rounded-full object-cover shadow-md"
+            className="w-20 h-20 rounded-full object-cover shadow-md"
             onError={handleImageError}
           />
         ) : (
