@@ -65,10 +65,10 @@ const Highlights = () => {
             return (
               <div
                 key={index}
-                className="flex-1 flex flex-col justify-center gap-5 group"
+                className="grid grid-cols-1 justify-center gap-2 group"
               >
                 {/* top */}
-                <div className="flex w-full flew justify-between items-center">
+                <div className="flex w-full flex-row justify-between items-center ">
                   <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
                     {service.num}
                   </div>
