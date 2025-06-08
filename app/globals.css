@@ -71,3 +71,13 @@
   opacity: 1;
   animation: fadeOut 3s ease-in-out backwards;
 }
+
+/* for page transition */
+@keyframes shimmer {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
+}
