@@ -12,6 +12,7 @@ const Contact = () => {
     lastname: "",
     email: "",
     phone: "",
+    company: "",
     subject: "",
     message: "",
   });
@@ -69,6 +70,7 @@ const Contact = () => {
           lastname: "",
           email: "",
           phone: "",
+          company: "",
           subject: "",
           message: "",
         });
@@ -140,6 +142,14 @@ const Contact = () => {
                   //   e.target.value = e.target.value.replace(/[^0-9+]/g, "");
                   // }}
                   required
+                />
+                <Input
+                  type="text"
+                  name="company"
+                  placeholder="Company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  // required
                 />
                 <Input
                   type="text"
