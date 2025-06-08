@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
-    const { firstname, lastname, email, phone, subject, message } =
+    const { firstname, lastname, email, phone, subject, company, message } =
       await req.json();
 
     // Nodemailer Transporter
@@ -34,6 +34,10 @@ export async function POST(req) {
         <tr>
           <td style="border: 1px solid #171717;"><strong>Phone</strong></td>
           <td style="border: 1px solid #171717;">${phone}</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #171717;"><strong>Company</strong></td>
+          <td style="border: 1px solid #171717;">${company}</td>
         </tr>
       </table>
     `;
