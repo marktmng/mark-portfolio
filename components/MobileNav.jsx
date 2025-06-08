@@ -3,6 +3,7 @@
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import {
   Sheet,
@@ -23,14 +24,21 @@ const links = [
 
 const MobileNav = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false); // control the sheet open state
+
+  // automatically close the sheet when the pathname changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
-    <Sheet>
+    // Sheet component for mobile navigation and automatically closing it when the pathname changes
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      {" "}
       {/* Menu Trigger */}
       <SheetTrigger className="flex justify-center items-center">
         <CiMenuFries className="text-[30px] text-accent" />
       </SheetTrigger>
-
       {/* Sheet Content */}
       <SheetContent className="flex flex-col">
         {/* Dialog Header with Title */}

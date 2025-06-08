@@ -106,7 +106,7 @@ const experience = {
     {
       company: "ECEC Innovation in Education",
       position: "Graphic Designer",
-      duration: "2019 - May 2023",
+      duration: "2019 - 2023",
     },
   ],
 };
@@ -120,14 +120,19 @@ const education = {
   items: [
     {
       institute: "Auckland Institute of Technology",
+      degree: "Masters in Information Technology (software development)",
+      duration: "2024 - Present",
+    },
+    {
+      institute: "Auckland Institute of Technology",
       degree:
         "Graduate Diploma in Information Technology (software development)",
       duration: "2023 - 2024",
     },
     {
-      institute: "Auckland Institute of Technology",
-      degree: "Masters in Information Technology (software development)",
-      duration: "2024 - Present",
+      institute: "Campion College",
+      degree: "Bachelor of Arts in Social Work",
+      duration: "2017-2020",
     },
     {
       institute: "Udemy",
