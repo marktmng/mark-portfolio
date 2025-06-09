@@ -42,7 +42,7 @@ export async function POST(req) {
       </table>
     `;
 
-    // Email Content
+    // reciever email options
     const mailOptions = {
       from: email,
       to: process.env.GMAIL_USER, // Use environment variable
@@ -51,8 +51,25 @@ export async function POST(req) {
       html: htmlContent, // Send HTML email instead of plain text
     };
 
-    // Send Email
-    await transporter.sendMail(mailOptions);
+    // confirmation email to sender
+    const confirmationMail = {
+      from: `"Mark Tamang" <${process.env.GMAIL_USER}>`, // Use environment variable
+      to: email,
+      subject: "Thank you for reaching Mark!",
+      html: `
+      <p style="color: #171717">Kia Ora ${firstname},
+      <br/>Thank you for reaching out to me. I have received your message and will get back to you as soon as possible.</p>
+        <strong text-color: #171717>Ngā mihi nui / Best regards,</strong>
+        <br/>
+        <p style="color: #171717">Mark Tamang
+        <br/>(+64) 22 380 3511
+        <br/>${process.env.GMAIL_USER}
+        <br/>www.marktmng.com</p>`,
+    };
+
+    // Email
+    await transporter.sendMail(mailOptions); // receive email
+    await transporter.sendMail(confirmationMail); // confirmation email to sender
 
     return NextResponse.json({
       success: true,
