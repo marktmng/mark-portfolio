@@ -73,15 +73,17 @@ const Home = () => {
                 className="max-w-[550px] text-justify mb-10 text-white/80"
                 ref={(el) => (fadeInElements.current[1] = el)}
               >
-                "As a dedicated software developer, I focus on creating robust,
-                scalable solutions using a variety of programming languages and
-                cloud technologies. This portfolio, built with Next.js,
-                Typescript, Tailwind CSS, and integrates Convex for database
-                management and is deployed on Vercel, highlighting my full-stack
-                development skills. With extensive experience in cloud platforms
-                such as AWS, Azure, and GCP, I am passionate about staying at
-                the forefront of emerging technologies to deliver efficient and
-                innovative applications."
+                "I am a Software Developer with hands-on experience in frontend
+                and backend development, cloud platforms, and CI/CD workflows.
+                With a background in Graphic Design, I bring a unique blend of
+                creativity and technical expertise to every project. I’m
+                passionate about building impactful, user-centric solutions and
+                continuously expanding my skill set by exploring new and
+                emerging technologies.
+                <br />
+                <br />
+                Feel free to connect with me via the Contact/Hire section in the
+                navigation bar or send me an email directly."
               </p>
               {/* Download CV & Social */}
               <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8">
