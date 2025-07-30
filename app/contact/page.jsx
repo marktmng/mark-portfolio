@@ -21,7 +21,7 @@ const Contact = () => {
     {
       icon: <FaPhoneAlt />,
       title: "Phone",
-      description: "(+64) 380 3511",
+      description: "(+64) 22 380 3511",
     },
     {
       icon: <FaEnvelope />,
