@@ -5,34 +5,59 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"; // command to install tooltip: npm install @radix-ui/react-tooltip
+} from "@/components/ui/tooltip";
 import WorkSliderBtns from "@/components/ui/WorkSliderBtns";
-import { motion } from "framer-motion"; // command to install framer motion: npm install framer-motion
-import Image from "next/image"; // command to install next image: npm install next-image
-import Link from "next/link"; // command to install next link: npm install next-link
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
-import { BsArrowUpRight, BsGithub } from "react-icons/bs"; // command to install react icons: npm install react-icons
+import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 import "swiper/css";
-import { Swiper, SwiperSlide } from "swiper/react"; // command to install swiper: npm install swiper
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const projects = [
   {
     num: "01",
-    category: "Fultstack Developer",
+    category: "Fullstack Developer",
     title: "Portfolio Web App",
     desription:
-      "This Portfolio is developed and live on the internet to display information about me and showcase my projects and skills to potential employers. It is built using Next.js, TypeScript, and Tailwind CSS, integrated with the Convex database to store and retrieve data, and deployed on Vercel.",
+      "This portfolio website was developed and deployed to showcase my projects, skills, and experience to potential employers. Built with Next.js, TypeScript, and Tailwind CSS, it integrates with a Convex database for dynamic content and is hosted on Vercel.",
     stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
     image: "/assets/work/portfolio.png",
     live: "https://www.marktmng.com/",
-    github: "https://github.com/marktmng/mark-portfolio.git",
+    github: {
+      frontend: "https://github.com/marktmng/mark-portfolio.git",
+    },
   },
   {
     num: "02",
-    category: "software developer",
+    category: "Fullstack Developer",
+    title: "Handi-Hub Web App",
+    desription:
+      "This e-commerce web application was developed as part of my Master's degree in Information Technology. I built the complete backend with secure JWT-based authentication and the frontend using React.js, delivering a fully functional and scalable online shopping platform.",
+    stack: [
+      { name: "ASP.NET" },
+      { name: "C#" },
+      { name: "React.Js" },
+      { name: "MUI" },
+      { name: "CSS" },
+      { name: "HTML" },
+      { name: "JavaScript" },
+      { name: "MySQL Server" },
+    ],
+    image: "/assets/work/handihub.png",
+    live: "#",
+    github: {
+      backend: "https://github.com/marktmng/handi_hub.git",
+      frontend: "https://github.com/marktmng/handi-hub-front.git",
+    },
+  },
+  {
+    num: "03",
+    category: "Software Developer",
     title: "Infinite Cloud Service",
     desription:
-      "This project is being developed using ASP.NET and React. The goal is to create Source Infinity’s own drive application, which will also include cloud storage services. The app is designed to be user-friendly and efficient, allowing users to easily manage their files and access cloud storage services. The project is currently in progress, and the team is working hard to ensure that it meets the needs of its users.",
+      "This project is being developed using ASP.NET and React. The goal is to create Source Infinity’s own drive application with integrated cloud storage services. Designed to be user-friendly and efficient, the project is currently in progress.",
     stack: [
       { name: "React.Js" },
       { name: "Vite" },
@@ -45,50 +70,56 @@ const projects = [
     ],
     image: "/assets/work/drive.png",
     live: "#",
-    github: "https://github.com/sourceinfinitynz/Infinite-Cloud-Service.git",
-  },
-  {
-    num: "03",
-    category: "frontend",
-    title: "Scheduler Web App",
-    desription:
-      "This Scheduler app was developed for Brunton NZ to help employees book appointments with team members, add tasks to the calendar, track their progress, and manage their leave. It also enables managers to monitor employee progress using a color-coded system for each team member. The app is built with React and styled using CSS.",
-    stack: [{ name: "React" }, { name: "Css" }, { name: "HTML" }],
-    image: "/assets/work/scheduler.png",
-    live: "#",
-    github: "https://github.com/marktmng/Scheduler-BruntonNZ.git",
+    github: {
+      full: "https://github.com/sourceinfinitynz/Infinite-Cloud-Service.git",
+    },
   },
   {
     num: "04",
-    category: "software developer",
-    title: "Ecommerce Web App",
+    category: "Frontend Developer",
+    title: "Scheduler Web App",
     desription:
-      "THis Ecommerce app was developer for client to sell their beauty products online during my internship at Source Infinity. The app is built with Shopify and styled using CSS.",
-    stack: [{ name: "Liquid" }, { name: "Css" }, { name: "JavaScript" }],
-    image: "/assets/work/shopify.png",
+      "This Scheduler app was developed for Brunton NZ to help employees manage appointments, tasks, progress, and leave. It also provides managers with a color-coded dashboard to track team performance.",
+    stack: [{ name: "React" }, { name: "CSS" }, { name: "HTML" }],
+    image: "/assets/work/scheduler.png",
     live: "#",
-    github: "https://github.com/marktmng/just_another_beauty_product.git",
+    github: {
+      frontend: "https://github.com/marktmng/Scheduler-BruntonNZ.git",
+    },
   },
   {
     num: "05",
     category: "Software Developer",
+    title: "E-commerce Web App",
+    desription:
+      "This e-commerce app was developed for a client to sell beauty products online during my internship at Source Infinity. Built with Shopify, it provides a responsive and user-friendly shopping experience.",
+    stack: [{ name: "Liquid" }, { name: "CSS" }, { name: "JavaScript" }],
+    image: "/assets/work/shopify.png",
+    live: "#",
+    github: {
+      frontend: "https://github.com/marktmng/just_another_beauty_product.git",
+    },
+  },
+  {
+    num: "06",
+    category: "Software Developer",
     title: "Desktop App",
     desription:
-      "This Desktop app was developed for VShipping LTD to help employees manage their shipping orders. The app is built with C# and TSQL.",
+      "This desktop app was developed for VShipping LTD to help employees manage their shipping orders efficiently. Built with C# and TSQL.",
     stack: [{ name: "C#" }, { name: "TSQL" }],
     image: "/assets/work/desktopapp.png",
     live: "#",
-    github: "https://github.com/marktmng/VShippingLTD.git",
+    github: {
+      backend: "https://github.com/marktmng/VShippingLTD.git",
+    },
   },
 ];
 
 const Work = () => {
-  const [project, setProject] = useState(projects[0]); // ✅ Define the active project state
+  const [project, setProject] = useState(projects[0]);
 
   const handleSlideChange = (swiper) => {
-    // get current slide index
     const currentIndex = swiper.activeIndex;
-    // update project state based on current slide index
     setProject(projects[currentIndex]);
   };
 
@@ -103,22 +134,23 @@ const Work = () => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+          {/* LEFT SECTION - DETAILS */}
           <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
             <div className="flex flex-col gap-[30px] h-[50%]">
-              {/* Outline num */}
-              <div
-                className="text-8xl leading-none font-extrabold text-transparent 
-              text-outline"
-              >
+              {/* Outline number */}
+              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
                 {project.num}
               </div>
+
               {/* Category */}
               <h2 className="text-[42px] font-bold leading-none text-white capitalize">
                 {project.category} project
               </h2>
+
               {/* Description */}
               <p className="text-white/60">{project.desription}</p>
-              {/* Stack */}
+
+              {/* Tech Stack */}
               <ul className="flex flex-wrap gap-4">
                 {project.stack.map((item, index) => (
                   <li key={index} className="text-xl text-accent">
@@ -127,18 +159,16 @@ const Work = () => {
                   </li>
                 ))}
               </ul>
-              {/* Border */}
+
               <div className="border-b border-white/20"></div>
-              {/* Button with Tooltip */}
+
+              {/* Buttons */}
               <div className="flex items-center gap-4">
-                {/* live project button */}
-                <Link href={project.live}>
+                {/* Live project button */}
+                <Link href={project.live} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger
-                        className="w-[70px] h-[70px] rounded-full
-                    bg-white/5 flex justify-center items-center group"
-                      >
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
                         <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent side="right">
@@ -147,25 +177,49 @@ const Work = () => {
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-                {/* guithub project button */}
-                <Link href={project.github}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger
-                        className="w-[70px] h-[70px] rounded-full
-                    bg-white/5 flex justify-center items-center group"
+
+                {/* GitHub button with dropdown */}
+                <div className="relative group">
+                  <div className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center cursor-pointer group-hover:bg-accent/10 transition">
+                    <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                  </div>
+
+                  {/* Hover dropdown */}
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 bg-[#111] border border-white/20 rounded-lg shadow-lg p-2 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto z-20">
+                    {project.github?.frontend && (
+                      <Link
+                        href={project.github.frontend}
+                        target="_blank"
+                        className="block text-white hover:text-accent text-sm px-2 py-1 whitespace-nowrap"
                       >
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent side="right">
-                        <p>Github project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                        🖥️ Frontend Repository
+                      </Link>
+                    )}
+                    {project.github?.backend && (
+                      <Link
+                        href={project.github.backend}
+                        target="_blank"
+                        className="block text-white hover:text-accent text-sm px-2 py-1 whitespace-nowrap"
+                      >
+                        ⚙️ Backend Repository
+                      </Link>
+                    )}
+                    {project.github?.full && (
+                      <Link
+                        href={project.github.full}
+                        target="_blank"
+                        className="block text-white hover:text-accent text-sm px-2 py-1 whitespace-nowrap"
+                      >
+                        📦 Full Project Repository
+                      </Link>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          {/* RIGHT SECTION - SLIDER */}
           <div className="w-full xl:w-[50%]">
             <Swiper
               spaceBetween={30}
@@ -173,33 +227,23 @@ const Work = () => {
               className="xl:h-[520px] mb-12"
               onSlideChange={handleSlideChange}
             >
-              {projects.map((project, index) => {
-                return (
-                  <SwiperSlide key={index} className="w-full">
-                    <div
-                      className="h-[460px] realtive group flex justify-center 
-                    items-center bg-pink-50/20 "
-                    >
-                      {/* overlay */}
-                      <div
-                        className="absolute top-0 left-0 w-full h-full 
-                      bg-gradient-to-b from-black/15 to-transparent z-10"
-                      ></div>
-
-                      {/* image */}
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={project.image}
-                          fill
-                          className="object-cover"
-                          alt=""
-                        />
-                      </div>
+              {projects.map((project, index) => (
+                <SwiperSlide key={index} className="w-full">
+                  <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                    <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/15 to-transparent z-10"></div>
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={project.image}
+                        fill
+                        className="object-cover"
+                        alt={project.title}
+                      />
                     </div>
-                  </SwiperSlide>
-                );
-              })}
-              {/* slider buttons */}
+                  </div>
+                </SwiperSlide>
+              ))}
+
+              {/* Slider buttons */}
               <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%)] xl:bottom-0 z-20 
                 w-full justify-between xl:w-max xl:justify-none"
