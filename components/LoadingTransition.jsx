@@ -44,7 +44,7 @@ const StairTransition = () => {
           animate={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 0.3, ease: "easeInOut" },
+            transition: { duration: 0.2, ease: "easeInOut" },
           }}
         >
           <span className="text-4xl font-bold bg-gradient-to-r from-[#171717] via-[#FAC70F] to-white bg-clip-text text-transparent animate-[shimmer_2s_infinite_linear] tracking-widest">
