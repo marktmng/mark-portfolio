@@ -14,9 +14,9 @@ const projects = [
       "This portfolio website was developed and deployed to showcase my projects, skills, and experience to potential employers. Built with Next.js, TypeScript, and Tailwind CSS, it integrates with a Convex database for dynamic content and is hosted on Vercel.",
     stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
     image: "/assets/work/portfolio.png",
-    live: "https://www.marktmng.com/",
+    live: "https://marktmg.com/",
     github: { full: "https://github.com/marktmng/mark-portfolio.git" },
-    // demo: "https://www.marktmng.com/",
+    demo: "https://marktmg.com/",
   },
   {
     num: "02",
