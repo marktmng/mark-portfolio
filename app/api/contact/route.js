@@ -64,7 +64,7 @@ export async function POST(req) {
         <p style="color: #171717">Mark Tamang
         <br/>(+64) 22 380 3511
         <br/>${process.env.GMAIL_USER}
-        <br/>www.marktmng.com</p>`,
+        <br/>marktmg.com</p>`,
     };
 
     // Email
