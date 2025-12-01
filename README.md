@@ -1,6 +1,6 @@
 # 🌐 Mark Portfolio Website
 
-Welcome to the source code of **[marktmg.com](marktmg.com)** — my personal portfolio website, built to showcase my **full-stack web development skills**, projects, and professional experience.
+Welcome to the source code of **[marktmg.com](https://marktmg.com/)** — my personal portfolio website, built to showcase my **full-stack web development skills**, projects, and professional experience.
 
 This project is more than just a website — it’s a demonstration of my ability to **design, develop, and deploy** modern, scalable web applications using a cutting-edge technology stack.
 
@@ -14,7 +14,7 @@ This portfolio was created to:
 - 🌟 Demonstrate my ability to build responsive, performant, and user-friendly applications  
 - 📬 Provide a way for potential employers, clients, and collaborators to connect with me  
 
-🔗 **Live Website:** [www.marktmng.com](https://www.marktmng.com)  
+🔗 **Live Website:** [marktmg.com](https://marktmg.com/)  
 ☁️ **Deployment:** Hosted and deployed with **[Vercel](https://vercel.com)** using automated CI/CD.
 
 ---
