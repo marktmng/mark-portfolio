@@ -7,13 +7,12 @@ import { Element } from "react-scroll";
 import { ConvexClientProvider } from "./ConvexClientProvider";
 import "./globals.css";
 
-import FeedbackForm from "@/components/ui/FeedbackForm";
 import Photo from "@/components/ui/Photo";
 import Social from "@/components/ui/Social";
 import Testimonials from "@/components/ui/Testimonials";
 
 const Home = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
   const fadeInElements = useRef([]);
 
   useEffect(() => {
@@ -119,7 +118,7 @@ const Home = () => {
             <Stats />
           </div> */}
           {/* Feedback Section */}
-          <Element name="feedback-section">
+          {/* <Element name="feedback-section">
             <div className="bg-[#fac70f] flex justify-center py-8">
               <div
                 className="container flex flex-col xl:flex-col items-center xl:items-start gap-8 fade-in"
@@ -140,7 +139,7 @@ const Home = () => {
                 </p>
               </div>
             </div>
-          </Element>
+          </Element> */}
           <br />
           <div>
             <Element name="testimonials-section ">
@@ -158,9 +157,9 @@ const Home = () => {
           </div>
         </div>
         {/* Feedback Modal */}
-        {isOpen && (
+        {/* {isOpen && (
           <FeedbackForm setIsOpen={setIsOpen} className="feedback-form" />
-        )}
+        )} */}
       </section>
     </ConvexClientProvider>
   );
