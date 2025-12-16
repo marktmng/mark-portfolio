@@ -73,12 +73,12 @@ const FeedbackPage = () => {
               transition={{ duration: 0.8 }}
               className="text-5xl md:text-7xl font-bold"
             >
-              Share Your <span className="text-[#fac70f]">Feedback</span>
+              Share Your <span className="text-[#fac70f]">Review</span>
             </motion.h1>
 
             <p className="text-white/60 text-lg max-w-2xl mx-auto mt-6">
-              If we’ve worked together, I’d genuinely appreciate your thoughts.
-              Your feedback helps me grow and improve.
+              I would genuinely appreciate your review. Your insights help me
+              continuously improve.
             </p>
           </div>
 
@@ -108,7 +108,7 @@ const FeedbackPage = () => {
 
                 <input
                   className="w-full bg-[#171717] text-white p-3 rounded-lg"
-                  placeholder="Position / Company"
+                  placeholder="Profession"
                   value={subtitle}
                   onChange={(e) => setSubtitle(e.target.value)}
                 />
