@@ -1,7 +1,8 @@
 "use client"; // Important for using useState
 
 import { Button } from "@/components/ui/button";
-import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
 import { FiDownload } from "react-icons/fi";
 import { Element } from "react-scroll";
 import { ConvexClientProvider } from "./ConvexClientProvider";
@@ -81,8 +82,14 @@ const Home = () => {
                 emerging technologies.
                 <br />
                 <br />
-                Feel free to connect with me via the Contact/Hire section in the
-                navigation bar or send me an email directly."
+                Feel free to connect with me via the{" "}
+                <Link
+                  href="/contact"
+                  className="text-accent hover:text-accent/50"
+                >
+                  Contact
+                </Link>{" "}
+                section in the navigation bar or send me an email directly."
               </p>
               {/* Download CV & Social */}
               <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8">
@@ -101,8 +108,8 @@ const Home = () => {
                 </Button>
                 <div className="mb-8 xl:mb-0">
                   <Social
-                    containerStyles="flex gap-6"
-                    iconStyles="w-9 h-9 border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
+                    containerStyles="flex gap-8"
+                    iconStyles="w-8 h-8 border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
                   />
                 </div>
               </div>
@@ -114,32 +121,6 @@ const Home = () => {
           </div>
         </div>
         <div className="flex flex-col gap-10 mx-auto">
-          {/* <div className="container mx-auto h-[20vh]">
-            <Stats />
-          </div> */}
-          {/* Feedback Section */}
-          {/* <Element name="feedback-section">
-            <div className="bg-[#fac70f] flex justify-center py-8">
-              <div
-                className="container flex flex-col xl:flex-col items-center xl:items-start gap-8 fade-in"
-                ref={(el) => (fadeInElements.current[2] = el)}
-              >
-                <p className="text-justify text-[#151515]">
-                  If I ever had the opportunity to work with you on a project or
-                  as part of your company, I would greatly appreciate your
-                  feedback. Please click the{" "}
-                  <Button
-                    onClick={() => setIsOpen(true)}
-                    className="uppercase bg-[#171717] text-[#fac70f] hover:bg-[#171717]/15 hover:text-[#171717] active:bg-accent/10 active:text-accent rounded-[0px]"
-                  >
-                    feedback
-                  </Button>{" "}
-                  button to share your thoughts on my performance. Your insights
-                  will be invaluable in helping me grow and improve.
-                </p>
-              </div>
-            </div>
-          </Element> */}
           <br />
           <div>
             <Element name="testimonials-section ">
@@ -148,18 +129,8 @@ const Home = () => {
           </div>
           <div>
             <br />
-            {/* <div
-              className="sticky-footer h-10 bg-[#24292f]/40 text-center py-2 text-sm hover:text-accent hover:cursor-pointer"
-              onClick={() => window.location.reload()}
-            >
-              <Link href="/">© Mark's Portfolio</Link>
-            </div> */}
           </div>
         </div>
-        {/* Feedback Modal */}
-        {/* {isOpen && (
-          <FeedbackForm setIsOpen={setIsOpen} className="feedback-form" />
-        )} */}
       </section>
     </ConvexClientProvider>
   );

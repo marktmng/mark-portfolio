@@ -14,37 +14,44 @@ import { BsArrowDownRight } from "react-icons/bs";
 const highlights = [
   {
     num: "01",
-    title: "Web Development",
+    title: "Web App Development",
     description:
-      "This is a multi-layer, role-based e-commerce web application developed for my Master of Information Technology research project. It was built using .NET Web API with Entity Framework to create a RESTful backend, and React.js for the frontend interface. The application was deployed on Azure (backend) and Vercel (frontend) for demonstration to my supervisor, and later removed due to limited hosting plans. I followed Agile Methodology throughout the development process.",
+      "A portfolio of multi-layer, role-based web applications developed as part of my Master of Information Technology research and personal projects. Built using ASP.NET Web API with Entity Framework for RESTful backends, and React.js or Next.js for frontends. All projects, including their repositories, are available for review via the link. Deployed on Azure and Vercel for demonstration, following Agile methodology throughout the development lifecycle.",
     href: "https://lnk.bio/marktmng",
   },
   {
     num: "02",
     title: "Mobile App Development",
     description:
-      "This is a mobile app development service. You can find the quiz app source code on GitHub, where I contributed as a team member with Kotlin programming language. I am also planning to start a new mobile app project soon.",
+      "Collaborated as a team member on a mobile application developed using Kotlin. Contributed to feature implementation and code integration while gaining experience in mobile app development practices. The source code is available on GitHub.",
     href: "https://github.com/Jasbac0002/MobileApp.git",
   },
   {
     num: "03",
     title: "Cloud Computing",
     description:
-      "In this link, you will find a demo video showcasing my cloud application skills, where I deployed a web app on AWS and Azure. Unfortunately, I don’t have the source code for this project, as it is a paid service, and I am unable to keep it live after deployment.",
+      "Hands-on experience deploying web applications on AWS and Azure, including cloud configuration and environment setup. A demo video is provided to showcase deployment workflows and cloud application functionality. Source code is not publicly available due to service limitations.",
     href: "https://drive.google.com/drive/folders/1mK-HDOT-Pl9yV-Y0wYsx6ty2hkq-MshE?usp=drive_link",
   },
   {
     num: "04",
-    title: "UI/UX Design",
+    title: "Desktop App Development",
     description:
-      "I don’t currently have a completed UI/UX design project to showcase, but I have provided a draft link to demonstrate my UI/UX design skills using Figma. You can interact with the prototype and explore the design of the web app. Additionally, as a Graphic Designer, I have included my design portfolio in the Graphic Design link.",
-    href: "https://www.figma.com/design/P5DjezlzAIMa4MnBAHzg2e/webApp?node-id=0-1&p=f&t=h3YbfnMxgJXVs0Q6-0",
+      "Developed a desktop application as an academic project for a shipping company scenario. The application was built using C# and T-SQL to manage shipping orders and operational records, focusing on data integrity, usability, and efficient workflows.",
+    href: "https://github.com/marktmng/VShippingLTD.git",
   },
   {
     num: "05",
+    title: "IT Support & Systems",
+    description:
+      "Provided IT support alongside development roles, including software installation, system troubleshooting, basic networking support, and assisting users with technical issues. This experience strengthened my problem-solving skills and understanding of real-world IT environments.",
+    href: "#",
+  },
+  {
+    num: "06",
     title: "Graphic Design",
     description:
-      "I have provided my design portfolio, showcasing over four years of experience in graphic design. My work includes projects such as storybooks, poster designs, logos, brochures, social media designs, and illustrations. You can view my portfolio on Google Drive.",
+      "Over four years of professional experience in graphic design, producing storybooks, posters, logos, brochures, social media content, and illustrations. Skilled in delivering visually consistent designs while collaborating with clients and stakeholders across multiple projects.",
     href: "https://drive.google.com/file/d/16r1WFlN14RVM8JINAJaEDRpjer8iNFRr/view?usp=sharing",
   },
 ];

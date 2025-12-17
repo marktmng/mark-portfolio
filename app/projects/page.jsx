@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Github, X } from "lucide-react";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { PiVideoFill } from "react-icons/pi";
 
@@ -350,10 +351,14 @@ const Work = () => {
       {/* Footer */}
       <div className="relative py-24 px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Let's Work <span className="text-[#fac70f]">Together</span>
+          Think I’d Be a Good Fit for Your{" "}
+          <span className="text-[#fac70f]">Team?</span>
         </h2>
         <p className="text-white/60 text-lg">
-          Have a project in mind? Let's create something amazing!
+          To get in touch, head over to the{" "}
+          <span className="text-[#fac70f] underline underline-offset-4 hover:text-accent transition-colors cursor-pointer">
+            <Link href="/contact">Contact</Link>
+          </span>
         </p>
       </div>
     </div>
