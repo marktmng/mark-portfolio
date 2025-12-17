@@ -44,7 +44,7 @@ import { VscAzure } from "react-icons/vsc";
 const about = {
   title: "About me",
   description:
-    "I am a highly motivated and detail-oriented software developer with expertise in modern web technologies, cloud computing, and software development. With a strong foundation in programming and a passion for continuous learning, I thrive on building scalable and efficient solutions that align with industry best practices.",
+    "I am a motivated and detail-oriented Software Developer and Cloud Engineer with a Master’s degree in Information Technology and hands-on experience gained through internships and academic projects. I enjoy building scalable and efficient solutions using modern web and cloud technologies while continuously learning and applying industry best practices.",
   info: [
     {
       fieldName: "Name",
@@ -68,7 +68,7 @@ const about = {
     },
     {
       fieldName: "Availability",
-      fieldValue: "Part-time 20 hours/week",
+      fieldValue: "Full-time",
     },
     {
       fieldName: "Languages",
@@ -81,12 +81,12 @@ const about = {
   ],
 };
 
-// experience dat
+// experience data
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "With a strong foundation in software development, UI/UX design, and technology-driven problem-solving, I have contributed to various projects across multiple industries. My experience ranges from front-end development and backend development to code review and graphic design, allowing me to bring a well-rounded perspective to every project.",
+    "With a strong foundation in software development and technology-driven problem-solving, I have contributed to projects across multiple industries. My experience spans front-end and back-end development, code review, and graphic design, allowing me to bring a well-rounded and detail-oriented perspective to each project.",
   items: [
     {
       company: "Source Infinity",
@@ -121,7 +121,7 @@ const education = {
     {
       institute: "Auckland Institute of Technology",
       degree: "Masters in Information Technology (software development)",
-      duration: "2024 - Present",
+      duration: "2024 - 2025",
     },
     {
       institute: "Auckland Institute of Technology",
@@ -134,16 +134,16 @@ const education = {
       degree: "Bachelor of Arts in Social Work",
       duration: "2017-2020",
     },
-    {
-      institute: "Udemy",
-      degree: "C# .Net Beginner to Master",
-      duration: "24 hours",
-    },
-    {
-      institute: "Udemy",
-      degree: "Python Data Structures and Algorithm",
-      duration: "Present",
-    },
+    // {
+    //   institute: "Udemy",
+    //   degree: "C# .Net Beginner to Master",
+    //   duration: "24 hours",
+    // },
+    // {
+    //   institute: "Udemy",
+    //   degree: "Python Data Structures and Algorithm",
+    //   duration: "Present",
+    // },
   ],
 };
 
@@ -163,11 +163,19 @@ const skills = {
     },
     {
       icon: <FaReact />,
-      name: "React.js",
+      name: "ReactJS",
     },
     {
       icon: <SiNextdotjs />,
-      name: "Next.js",
+      name: "NextJS",
+    },
+    {
+      icon: <FaAws />,
+      name: "AWS",
+    },
+    {
+      icon: <VscAzure />,
+      name: "Azure",
     },
     {
       icon: <TbBrandReactNative />,
@@ -208,14 +216,6 @@ const skills = {
     {
       icon: <AiOutlineDatabase />,
       name: "Azure Data Studio",
-    },
-    {
-      icon: <VscAzure />,
-      name: "Azure",
-    },
-    {
-      icon: <FaAws />,
-      name: "AWS",
     },
     {
       icon: <SiVercel />,
@@ -326,7 +326,7 @@ const Resume = () => {
                 <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0 text-justify">
                   {education.description}
                 </p>
-                <ScrollArea className="h-[400px] w-full">
+                <ScrollArea className="h-[250px] w-full">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
                     {education.items.map((item, index) => {
                       return (
@@ -367,13 +367,13 @@ const Resume = () => {
                     {skills.description}
                   </p>
                 </div>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[30px] gap-4">
+                <ul className="grid grid-cols- sm:grid-cols-3 md:grid-cols-5 gap-[30px] gap-4">
                   {skills.skillList.map((skill, index) => {
                     return (
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-[#fac70f] items-center flex justify-center group rounded-xl">
+                            <TooltipTrigger className="w-[100px] h-[100px] bg-[#fac70f] items-center flex justify-center group rounded-xl">
                               <div
                                 className="text-5xl group-hover:text-[#171717]
                               transition-all duration-300"
