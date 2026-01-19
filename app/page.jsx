@@ -98,7 +98,7 @@ const Home = () => {
                   className="uppercase bg-accent/30 text-white hover:bg-accent/10 hover:text-accent"
                 >
                   <a
-                    href="/CV.pdf"
+                    href="/MARK TAMANG CV.pdf"
                     className="flex items-center gap-2"
                     download
                   >
