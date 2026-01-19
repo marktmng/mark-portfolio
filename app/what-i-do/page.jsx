@@ -69,7 +69,7 @@ const HighlightCard = ({ service, index }) => {
   const scale = useTransform(
     scrollYProgress,
     [0, 0.2, 0.8, 1],
-    [0.9, 1, 1, 0.9]
+    [0.9, 1, 1, 0.9],
   );
 
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
