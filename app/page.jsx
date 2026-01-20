@@ -29,7 +29,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     fadeInElements.current.forEach((el) => {
@@ -98,7 +98,7 @@ const Home = () => {
                   className="uppercase bg-accent/30 text-white hover:bg-accent/10 hover:text-accent"
                 >
                   <a
-                    href="/MARK TAMANG CV.pdf"
+                    href="/MARK_TAMANG_CV.pdf"
                     className="flex items-center gap-2"
                     download
                   >
