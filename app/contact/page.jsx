@@ -24,7 +24,7 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      description: "marktmg.info@gmail.com",
+      description: "marktmg.com@gmail.com",
     },
     {
       icon: <FaMapMarkerAlt />,

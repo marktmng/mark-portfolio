@@ -64,7 +64,7 @@ const about = {
     },
     {
       fieldName: "Email",
-      fieldValue: "marktmg.info@gmail.com",
+      fieldValue: "marktmg.com@gmail.com",
     },
     {
       fieldName: "Availability",
