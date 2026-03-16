@@ -10,6 +10,28 @@ const projects = [
   {
     num: "01",
     category: "Fullstack Developer",
+    title: "Rossgrove Church Website",
+    description:
+      "This full-stack church website was designed and developed for Rossgrove Church to manage sermons, events, and church information online. Built with Next.js, TypeScript, and Tailwind CSS, it includes secure authentication, role-based admin access, and a dynamic dashboard for managing sermons and events. The application uses Prisma ORM with a PostgreSQL database hosted on Neon and is deployed on Vercel for scalable and reliable hosting.",
+    stack: [
+      { name: "Next.js" },
+      { name: "TypeScript" },
+      { name: "Tailwind CSS" },
+      { name: "Prisma ORM" },
+      { name: "PostgreSQL (Neon)" },
+      { name: "NextAuth" },
+      { name: "Vercel" },
+    ],
+    image: "/assets/work/rossgrove.png",
+    live: "https://rossgrovechurch.nz",
+    github: {
+      full: "https://github.com/marktmng/rossgrove_church_website.git",
+    },
+    demo: "#",
+  },
+  {
+    num: "02",
+    category: "Fullstack Developer",
     title: "Portfolio Web App",
     description:
       "This portfolio website was developed and deployed to showcase my projects, skills, and experience to potential employers. Built with Next.js, TypeScript, and Tailwind CSS, it integrates with a Convex database for dynamic content and is hosted on Vercel.",
@@ -20,7 +42,7 @@ const projects = [
     demo: "https://marktmg.com/",
   },
   {
-    num: "02",
+    num: "03",
     category: "Fullstack Developer",
     title: "Handi-Hub Web App",
     description:
@@ -44,7 +66,7 @@ const projects = [
     demo: "/assets/videos/handi-hub.mp4",
   },
   {
-    num: "03",
+    num: "04",
     category: "Software Developer",
     title: "Infinite Cloud Service",
     description:
@@ -67,7 +89,7 @@ const projects = [
     // demo: "",
   },
   {
-    num: "04",
+    num: "05",
     category: "Frontend Developer",
     title: "Scheduler Web App",
     description:
@@ -79,7 +101,7 @@ const projects = [
     demo: "/assets/videos/scheduler.mp4",
   },
   {
-    num: "05",
+    num: "06",
     category: "Software Developer",
     title: "E-commerce Web App",
     description:
@@ -93,7 +115,7 @@ const projects = [
     // demo: "",
   },
   {
-    num: "06",
+    num: "07",
     category: "Software Developer",
     title: "Desktop App",
     description:
@@ -118,7 +140,7 @@ const ProjectCard = ({ project, index }) => {
   const scale = useTransform(
     scrollYProgress,
     [0, 0.3, 0.7, 1],
-    [0.8, 1, 1, 0.8]
+    [0.8, 1, 1, 0.8],
   );
   const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -100]);
   const imageRotate = useTransform(scrollYProgress, [0, 0.5, 1], [5, 0, -5]);
@@ -318,7 +340,7 @@ const Work = () => {
   const progressBarWidth = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0%", "100%"]
+    ["0%", "100%"],
   );
 
   return (
