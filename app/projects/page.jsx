@@ -17,6 +17,8 @@ const projects = [
       { name: "Next.js" },
       { name: "TypeScript" },
       { name: "Tailwind CSS" },
+      { name: "Shadcn UI" },
+      { name: "Material UI" },
       { name: "Prisma ORM" },
       { name: "PostgreSQL (Neon)" },
       { name: "NextAuth" },
@@ -27,7 +29,7 @@ const projects = [
     github: {
       full: "https://github.com/marktmng/rossgrove_church_website.git",
     },
-    demo: "#",
+    demo: "/assets/videos/rossgrove-video.mp4",
   },
   {
     num: "02",
