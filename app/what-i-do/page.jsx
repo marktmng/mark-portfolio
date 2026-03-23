@@ -52,7 +52,7 @@ const highlights = [
     title: "Graphic Design",
     description:
       "Over four years of professional experience in graphic design, producing storybooks, posters, logos, brochures, social media content, and illustrations. Skilled in delivering visually consistent designs while collaborating with clients and stakeholders across multiple projects.",
-    href: "https://drive.google.com/file/d/16r1WFlN14RVM8JINAJaEDRpjer8iNFRr/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1Urt3mIWc8HxufjXpbn5rJ4beqI5yZInH/view?usp=drive_link",
   },
 ];
 
