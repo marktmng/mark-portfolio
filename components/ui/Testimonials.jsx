@@ -159,9 +159,12 @@ const TestimonialCarousel = () => {
 
   return (
     <>
-      <h2 className="text-3xl font-bold text-center text-white mb-8">
-        What People Say!
+      <h2 className="text-3xl font-bold text-center text-white">
+        Professional Endorsements
       </h2>
+      <p className="text-center text-gray-300 mt-2 mb-8">
+        Feedback from colleagues and people I’ve worked with
+      </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto p-8 items-stretch">
         {testimonials && testimonials.length > 0 ? (
