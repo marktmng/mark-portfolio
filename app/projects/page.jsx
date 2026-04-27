@@ -33,15 +33,18 @@ const projects = [
   },
   {
     num: "02",
-    category: "Fullstack Developer",
-    title: "Portfolio Web App",
+    category: "E-commerce Developer",
+    title: "Usthetik Online Store",
     description:
-      "This portfolio website was developed and deployed to showcase my projects, skills, and experience to potential employers. Built with Next.js, TypeScript, and Tailwind CSS, it integrates with a Convex database for dynamic content and is hosted on Vercel.",
-    stack: [{ name: "Next.Js" }, { name: "Typescript" }, { name: "Tailwind" }],
-    image: "/assets/work/portfolio.png",
-    live: "https://marktmg.com/",
-    github: { full: "https://github.com/marktmng/mark-portfolio.git" },
-    demo: "https://marktmg.com/",
+      "Usthetik is a modern e-commerce store designed and developed using Shopify. The store focuses on delivering a premium and minimal shopping experience with a strong emphasis on clean UI, responsive design, and smooth navigation. It includes optimized product pages, seamless checkout integration, and secure payment processing. Built to be scalable and user-friendly, the platform ensures efficient product management, reliable order handling, and a consistent brand experience across devices.",
+    stack: [
+      { name: "Shopify" },
+      { name: "Liquid" },
+      { name: "CSS" },
+      { name: "JavaScript" },
+    ],
+    image: "/assets/work/usthetik.png", // replace with your actual image path
+    live: "https://usthetik.com",
   },
   {
     num: "03",
@@ -220,44 +223,55 @@ const ProjectCard = ({ project, index }) => {
               </a>
 
               {/* GitHub */}
-              <div className="relative group">
-                <div className="w-16 h-16 rounded-full bg-white/5 border-2 border-[#fac70f]/50 flex justify-center items-center cursor-pointer hover:bg-[#fac70f]/10 transition-all shadow-lg">
-                  <Github className="text-white w-6 h-6 group-hover:text-[#fac70f] transition-colors" />
-                </div>
+              {project.github && Object.keys(project.github).length > 0 && (
+                <div className="relative group">
+                  {/* Icon */}
+                  <div className="w-16 h-16 rounded-full bg-white/5 border-2 border-[#fac70f]/50 flex justify-center items-center cursor-pointer hover:bg-[#fac70f]/10 transition-all shadow-lg">
+                    <Github className="text-white w-6 h-6 group-hover:text-[#fac70f] transition-colors" />
+                  </div>
 
-                <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-3 bg-[#171717] border border-[#fac70f]/30 rounded-xl shadow-2xl p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 scale-95 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto z-20 min-w-[200px]">
-                  {project.github?.frontend && (
-                    <a
-                      href={project.github.frontend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5 transition-colors whitespace-nowrap"
-                    >
-                      🖥️ Frontend Repository
-                    </a>
-                  )}
-                  {project.github?.backend && (
-                    <a
-                      href={project.github.backend}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5 transition-colors whitespace-nowrap"
-                    >
-                      ⚙️ Backend Repository
-                    </a>
-                  )}
-                  {project.github?.full && (
-                    <a
-                      href={project.github.full}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5 transition-colors whitespace-nowrap"
-                    >
-                      📦 Full Project Repository
-                    </a>
-                  )}
+                  {/* Invisible hover bridge (IMPORTANT) */}
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 h-4 w-full"></div>
+
+                  {/* Dropdown */}
+                  <div
+                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 bg-[#171717] border border-[#fac70f]/30 rounded-xl shadow-2xl p-3 
+                    opacity-0 group-hover:opacity-100 
+                    pointer-events-none group-hover:pointer-events-auto 
+                    transition-all duration-200 z-20 min-w-[180px]"
+                  >
+                    {project.github.frontend && (
+                      <a
+                        href={project.github.frontend}
+                        target="_blank"
+                        className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5"
+                      >
+                        Frontend
+                      </a>
+                    )}
+
+                    {project.github.backend && (
+                      <a
+                        href={project.github.backend}
+                        target="_blank"
+                        className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5"
+                      >
+                        Backend
+                      </a>
+                    )}
+
+                    {project.github.full && (
+                      <a
+                        href={project.github.full}
+                        target="_blank"
+                        className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5"
+                      >
+                        Fullstack
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Demo Button */}
               {project.demo && project.demo.endsWith(".mp4") ? (
@@ -292,15 +306,47 @@ const ProjectCard = ({ project, index }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: false, amount: 0.3 }}
-              whileHover={{ scale: 1.02 }}
-              style={{ scale: imageScale }}
-              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-[#fac70f]/10 border border-white/10"
+              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-[#fac70f]/10 border border-white/10 group"
             >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover"
-              />
+              {project.live && project.live !== "#" ? (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full"
+                >
+                  {/* Image */}
+                  <motion.img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300" />
+
+                  {/* Center icon */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <div className="w-14 h-14 rounded-full bg-[#fac70f] flex items-center justify-center shadow-lg">
+                      <ArrowUpRight className="text-black w-6 h-6" />
+                    </div>
+                  </div>
+
+                  {/* Bottom label */}
+                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center opacity-0 group-hover:opacity-100 transition duration-300">
+                    <span className="text-white text-sm font-medium tracking-wide">
+                      Visit Website
+                    </span>
+                    <span className="text-[#fac70f] text-xs">↗</span>
+                  </div>
+                </a>
+              ) : (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </motion.div>
           </motion.div>
         </div>
