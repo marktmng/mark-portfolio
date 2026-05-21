@@ -58,10 +58,10 @@ const about = {
       fieldName: "Experience",
       fieldValue: "Intermediate",
     },
-    {
-      fieldName: "Nationality",
-      fieldValue: "Nepalese",
-    },
+    // {
+    //   fieldName: "Nationality",
+    //   fieldValue: "Nepalese",
+    // },
     {
       fieldName: "Email",
       fieldValue: "marktmg.com@gmail.com",

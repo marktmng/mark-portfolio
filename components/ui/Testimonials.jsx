@@ -163,7 +163,7 @@ const TestimonialCarousel = () => {
         Professional Endorsements
       </h2>
       <p className="text-center text-gray-300 mt-2 mb-8">
-        Feedback from colleagues and people I’ve worked with
+        What people are saying about working with me.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto p-8 items-stretch">

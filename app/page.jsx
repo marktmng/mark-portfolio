@@ -61,7 +61,7 @@ const Home = () => {
           {/* Main content */}
           <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24">
             <div className="text-center xl:text-left xl:mr-12 order-2 xl:order-1">
-              <span className="text-xl">Software Developer</span>
+              <span className="text-xl">Software Engineer</span>
               <br />
               <h1
                 className="h1 mb-6"
@@ -73,13 +73,21 @@ const Home = () => {
                 className="max-w-[550px] text-justify mb-10 text-white/80"
                 ref={(el) => (fadeInElements.current[1] = el)}
               >
-                "I am a Software Developer with hands-on experience in frontend
-                and backend development, cloud platforms, and CI/CD workflows.
-                With a background in Graphic Design, I bring a unique blend of
-                creativity and technical expertise to every project. I’m
-                passionate about building impactful, user-centric solutions and
-                continuously expanding my skill set by exploring new and
-                emerging technologies.
+                I am a Software Engineer with hands-on experience building
+                full-stack web applications using ASP.NET Core, React, Next.js,
+                SQL Server, and cloud-based technologies. I enjoy developing
+                scalable and user-focused applications across both frontend and
+                backend environments, with experience working on REST APIs,
+                authentication systems, database integration, and CI/CD
+                workflows.
+                <br />
+                <br />
+                I have worked with technologies including Docker, GitHub
+                Actions, Azure, AWS, and PostgreSQL, and I’m continuously
+                improving my skills by building personal projects and exploring
+                modern development practices. My background in Graphic Design
+                also helps me approach development with strong attention to UI,
+                usability, and overall user experience.
                 <br />
                 <br />
                 Feel free to connect with me via the{" "}
@@ -89,7 +97,7 @@ const Home = () => {
                 >
                   Contact
                 </Link>{" "}
-                section in the navigation bar or send me an email directly."
+                section or send me an email directly.
               </p>
               {/* Download CV & Social */}
               <div className="flex flex-col xl:flex-row items-center xl:items-start gap-8">
