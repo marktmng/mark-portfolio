@@ -17,9 +17,9 @@ import {
 const links = [
   { name: "home", path: "/" },
   { name: "about", path: "/about" },
-  { name: "what-i-do", path: "/what-i-do" },
+  { name: "services", path: "/services" },
   { name: "projects", path: "/projects" },
-  { name: "contact/hire", path: "/contact" },
+  { name: "contact", path: "/contact" },
 ];
 
 const MobileNav = () => {
