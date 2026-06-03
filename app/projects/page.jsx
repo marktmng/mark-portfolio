@@ -10,6 +10,32 @@ const projects = [
   {
     num: "01",
     category: "Fullstack Developer",
+    title: "Pakhreen Business Website",
+    description:
+      "Pakhreen is a modern full-stack business website and content management system designed and developed from the ground up using Next.js, TypeScript, Prisma, and PostgreSQL. The platform includes a custom admin dashboard for managing blogs, services, projects, and website content through a rich text editor. It features secure role-based administration, dynamic content management, image uploads with cloudflare r2 storage, responsive design, and optimized performance. The application is deployed on Vercel with a PostgreSQL database and Prisma ORM, providing a scalable and maintainable solution for business growth.",
+    stack: [
+      { name: "Next.js" },
+      { name: "TypeScript" },
+      { name: "React" },
+      { name: "Tailwind CSS" },
+      { name: "Prisma ORM" },
+      { name: "PostgreSQL" },
+      { name: "Cloudflare R2" },
+      { name: "TipTap Editor" },
+      { name: "Framer Motion" },
+      { name: "Lucide React" },
+      { name: "Vercel" },
+    ],
+    image: "/assets/work/pakhreen.png",
+    live: "https://pakhrin.vercel.app",
+    github: {
+      full: "https://github.com/marktmng/pakhrin.git",
+    },
+    // demo: "/assets/videos/pakhreen-demo.mp4",
+  },
+  {
+    num: "02",
+    category: "Fullstack Developer",
     title: "Rossgrove Church Website",
     description:
       "This full-stack church website was designed and developed for Rossgrove Church to manage sermons, events, and church information online. Built with Next.js, TypeScript, and Tailwind CSS, it includes secure authentication, role-based admin access, and a dynamic dashboard for managing sermons and events. The application uses Prisma ORM with a PostgreSQL database hosted on Neon and is deployed on Vercel for scalable and reliable hosting.",
@@ -32,7 +58,7 @@ const projects = [
     demo: "/assets/videos/rossgrove-video.mp4",
   },
   {
-    num: "02",
+    num: "03",
     category: "E-commerce Developer",
     title: "Usthetik Online Store",
     description:
@@ -47,7 +73,7 @@ const projects = [
     live: "https://usthetik.com",
   },
   {
-    num: "03",
+    num: "04",
     category: "Fullstack Developer",
     title: "Handi-Hub Web App",
     description:
@@ -71,7 +97,7 @@ const projects = [
     demo: "/assets/videos/handi-hub.mp4",
   },
   {
-    num: "04",
+    num: "05",
     category: "Software Developer",
     title: "Infinite Cloud Service",
     description:
@@ -94,7 +120,7 @@ const projects = [
     // demo: "",
   },
   {
-    num: "05",
+    num: "06",
     category: "Frontend Developer",
     title: "Scheduler Web App",
     description:
@@ -106,7 +132,7 @@ const projects = [
     demo: "/assets/videos/scheduler.mp4",
   },
   {
-    num: "06",
+    num: "07",
     category: "Software Developer",
     title: "E-commerce Web App",
     description:
@@ -120,7 +146,7 @@ const projects = [
     // demo: "",
   },
   {
-    num: "07",
+    num: "08",
     category: "Software Developer",
     title: "Desktop App",
     description:
