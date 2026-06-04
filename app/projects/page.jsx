@@ -10,7 +10,7 @@ const projects = [
   {
     num: "01",
     category: "Fullstack Developer",
-    title: "Pakhreen Business Website",
+    title: "Pakhreen Company Website",
     description:
       "Pakhreen is a modern full-stack business website and content management system designed and developed from the ground up using Next.js, TypeScript, Prisma, and PostgreSQL. The platform includes a custom admin dashboard for managing blogs, services, projects, and website content through a rich text editor. It features secure role-based administration, dynamic content management, image uploads with cloudflare r2 storage, responsive design, and optimized performance. The application is deployed on Vercel with a PostgreSQL database and Prisma ORM, providing a scalable and maintainable solution for business growth.",
     stack: [
