@@ -9,10 +9,10 @@ import { PiVideoFill } from "react-icons/pi";
 const projects = [
   {
     num: "01",
-    category: "Fullstack Developer",
-    title: "Pakhreen Company Website",
+    category: "Full-Stack SaaS Development",
+    title: "Pakhreen Digital Solutions Platform",
     description:
-      "Pakhreen is a modern full-stack business website and content management system designed and developed from the ground up using Next.js, TypeScript, Prisma, and PostgreSQL. The platform includes a custom admin dashboard for managing blogs, services, projects, and website content through a rich text editor. It features secure role-based administration, dynamic content management, image uploads with cloudflare r2 storage, responsive design, and optimized performance. The application is deployed on Vercel with a PostgreSQL database and Prisma ORM, providing a scalable and maintainable solution for business growth.",
+      "Pakhreen is a production-ready full-stack digital solutions platform built with Next.js, TypeScript, Prisma, and PostgreSQL. Beyond a modern company website, it provides a powerful admin dashboard with secure Clerk authentication, role-based access control, blog and career management, inquiry management, Stripe payment integration, Cloudflare R2 media storage, and a scalable content management system. The platform features rich text editing, dynamic service pages, responsive UI, premium animations, SEO optimization, and cloud deployment using Vercel. Designed with scalability and maintainability in mind, Pakhreen serves as the digital foundation for managing clients, projects, content, careers, and future SaaS services from a single platform.",
     stack: [
       { name: "Next.js" },
       { name: "TypeScript" },
@@ -20,14 +20,17 @@ const projects = [
       { name: "Tailwind CSS" },
       { name: "Prisma ORM" },
       { name: "PostgreSQL" },
+      { name: "Clerk Authentication" },
+      { name: "Stripe" },
       { name: "Cloudflare R2" },
       { name: "TipTap Editor" },
       { name: "Framer Motion" },
       { name: "Lucide React" },
       { name: "Vercel" },
+      { name: "Cloudflare" },
     ],
     image: "/assets/work/pakhreen.png",
-    live: "https://pakhrin.vercel.app",
+    live: "https://pakhreen.com",
     github: {
       full: "https://github.com/marktmng/pakhrin.git",
     },
@@ -59,21 +62,6 @@ const projects = [
   },
   {
     num: "03",
-    category: "E-commerce Developer",
-    title: "Usthetik Online Store",
-    description:
-      "Usthetik is a modern e-commerce store designed and developed using Shopify. The store focuses on delivering a premium and minimal shopping experience with a strong emphasis on clean UI, responsive design, and smooth navigation. It includes optimized product pages, seamless checkout integration, and secure payment processing. Built to be scalable and user-friendly, the platform ensures efficient product management, reliable order handling, and a consistent brand experience across devices.",
-    stack: [
-      { name: "Shopify" },
-      { name: "Liquid" },
-      { name: "CSS" },
-      { name: "JavaScript" },
-    ],
-    image: "/assets/work/usthetik.png", // replace with your actual image path
-    live: "https://usthetik.com",
-  },
-  {
-    num: "04",
     category: "Fullstack Developer",
     title: "Handi-Hub Web App",
     description:
@@ -97,7 +85,7 @@ const projects = [
     demo: "/assets/videos/handi-hub.mp4",
   },
   {
-    num: "05",
+    num: "04",
     category: "Software Developer",
     title: "Infinite Cloud Service",
     description:
@@ -118,6 +106,21 @@ const projects = [
       full: "https://github.com/sourceinfinitynz/Infinite-Cloud-Service.git",
     },
     // demo: "",
+  },
+  {
+    num: "05",
+    category: "E-commerce Developer",
+    title: "Usthetik Online Store",
+    description:
+      "Usthetik is a modern e-commerce store designed and developed using Shopify. The store focuses on delivering a premium and minimal shopping experience with a strong emphasis on clean UI, responsive design, and smooth navigation. It includes optimized product pages, seamless checkout integration, and secure payment processing. Built to be scalable and user-friendly, the platform ensures efficient product management, reliable order handling, and a consistent brand experience across devices.",
+    stack: [
+      { name: "Shopify" },
+      { name: "Liquid" },
+      { name: "CSS" },
+      { name: "JavaScript" },
+    ],
+    image: "/assets/work/usthetik.png", // replace with your actual image path
+    live: "https://usthetik.com",
   },
   {
     num: "06",
