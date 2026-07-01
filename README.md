@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 Mark Portfolio Website
 
-## Getting Started
+Welcome to the source code of **[marktmg.com](https://marktmg.com/)** — my personal portfolio website, built to showcase my **full-stack web development skills**, projects, and professional experience.
 
-First, run the development server:
+This project is more than just a website — it’s a demonstration of my ability to **design, develop, and deploy** modern, scalable web applications using a cutting-edge technology stack.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 About the Project
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+This portfolio was created to:
+- 💼 Present my professional profile and career journey  
+- 🛠️ Showcase my **full-stack development skills** through real-world projects  
+- 🌟 Demonstrate my ability to build responsive, performant, and user-friendly applications  
+- 📬 Provide a way for potential employers, clients, and collaborators to connect with me  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🔗 **Live Website:** [marktmg.com](https://marktmg.com/)  
+☁️ **Deployment:** Hosted and deployed with **[Vercel](https://vercel.com)** using automated CI/CD.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧑‍💻 Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project leverages a modern and production-ready technology stack:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Frontend
+- **Next.js** – React framework for building fast, SEO-optimized web apps  
+- **React.js** – Component-based UI development  
+- **Tailwind CSS** – Utility-first CSS for responsive design  
+- **Framer Motion** – Smooth animations and transitions  
 
-## Deploy on Vercel
+### Backend & Database
+- **Node.js** – Server-side runtime environment  
+- **Convex** – Serverless database and backend logic layer for real-time data operations  
+- **API Routes / SSR** – Custom server-side rendering and backend integration
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Deployment
+- **Vercel** – Continuous deployment, hosting, and serverless infrastructure  
+- **GitHub** – Version control and collaborative development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📁 Features
+
+- ✨ **Personal Portfolio:** Highlights my skills, experience, and professional background  
+- 📂 **Projects Showcase:** A curated list of full-stack projects with links and details  
+- 📱 **Responsive Design:** Optimized for desktop, tablet, and mobile devices  
+- ⚡ **High Performance:** Fast loading, SEO-ready, and optimized for web performance  
+- 🗄️ **Real-Time Backend:** Data and content served dynamically using Convex  
+- 🎨 **Modern UI/UX:** Clean, minimal, and visually engaging interface  
