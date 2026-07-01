@@ -40,11 +40,12 @@ import {
 import { motion } from "framer-motion";
 import { TbBrandReactNative } from "react-icons/tb";
 import { VscAzure } from "react-icons/vsc";
+
 // about data
 const about = {
   title: "About me",
   description:
-    "I am a motivated and detail-oriented Software Developer and Cloud Engineer with a Master’s degree in Information Technology and hands-on experience gained through internships and academic projects. I enjoy building scalable and efficient solutions using modern web and cloud technologies while continuously learning and applying industry best practices.",
+    "Full Stack Software Engineer with expertise in ASP.NET Core, React, Next.js, and cloud technologies. Master of Information Technology graduate with hands-on experience in building scalable web applications, REST APIs, and implementing CI/CD pipelines.",
   info: [
     {
       fieldName: "Name",
@@ -58,10 +59,6 @@ const about = {
       fieldName: "Experience",
       fieldValue: "Intermediate",
     },
-    // {
-    //   fieldName: "Nationality",
-    //   fieldValue: "Nepalese",
-    // },
     {
       fieldName: "Email",
       fieldValue: "marktmg.com@gmail.com",
@@ -81,32 +78,40 @@ const about = {
   ],
 };
 
-// experience data
+// experience data - updated from CV (Kitchen Steward removed)
 const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "With a strong foundation in software development and technology-driven problem-solving, I have contributed to projects across multiple industries. My experience spans front-end and back-end development, code review, and graphic design, allowing me to bring a well-rounded and detail-oriented perspective to each project.",
+    "Full-stack software engineer with experience in ASP.NET Core, React, Next.js, and cloud technologies. Skilled in building scalable web applications, REST APIs, and implementing CI/CD pipelines.",
   items: [
+    {
+      company: "Pakhreen",
+      position: "Software Engineer & Founder",
+      duration: "Dec 2025 – Present",
+      description:
+        "Design and deliver custom software solutions from concept to production. Build full-stack applications, APIs, and cloud-based systems.",
+    },
     {
       company: "Source Infinity",
       position: "Software Developer Intern",
-      duration: "2024 - 2025",
-    },
-    {
-      company: "Oulier AI",
-      position: "Contract Code Reviewer",
-      duration: "2024 - 2025",
+      duration: "Sep 2024 – Apr 2025",
+      description:
+        "Developed full-stack features using ASP.NET Core, React, and SQL Server. Built RESTful APIs with Google Drive API integration. Implemented Docker-based deployments and CI/CD pipelines.",
     },
     {
       company: "Brunton NZ",
-      position: "Front-End Developer Intern",
-      duration: "February 2024 - May 2024",
+      position: "Frontend Developer Intern",
+      duration: "Feb 2024 – Apr 2024",
+      description:
+        "Developed responsive React.js interfaces with RESTful APIs. Built task scheduling feature and resolved frontend/API issues.",
     },
     {
       company: "ECEC Innovation in Education",
-      position: "Graphic Designer",
-      duration: "2019 - 2023",
+      position: "IT Specialist",
+      duration: "Jan 2019 – Apr 2023",
+      description:
+        "Provided IT support for hardware, software, and network issues. Performed system maintenance, troubleshooting, and technical support.",
     },
   ],
 };
@@ -119,31 +124,20 @@ const education = {
     "I have pursued a strong academic foundation in software development and information technology, complemented by continuous learning through industry-recognized certifications. My education reflects my commitment to mastering cutting-edge technologies and refining my problem-solving skills.",
   items: [
     {
-      institute: "Auckland Institute of Technology",
-      degree: "Masters in Information Technology (software development)",
+      institute: "Auckland Institute of Studies",
+      degree: "Master of Information Technology (Software Development)",
       duration: "2024 - 2025",
     },
     {
-      institute: "Auckland Institute of Technology",
-      degree:
-        "Graduate Diploma in Information Technology (software development)",
+      institute: "Auckland Institute of Studies",
+      degree: "Graduate Diploma in Information Technology",
       duration: "2023 - 2024",
     },
     {
-      institute: "Campion College",
-      degree: "Bachelor of Arts in Social Work",
-      duration: "2017-2020",
+      institute: "Campion College, Nepal",
+      degree: "Bachelor of Arts",
+      duration: "2017 - 2020",
     },
-    // {
-    //   institute: "Udemy",
-    //   degree: "C# .Net Beginner to Master",
-    //   duration: "24 hours",
-    // },
-    // {
-    //   institute: "Udemy",
-    //   degree: "Python Data Structures and Algorithm",
-    //   duration: "Present",
-    // },
   ],
 };
 
@@ -276,8 +270,6 @@ const Resume = () => {
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
-
-            {/* <TabsTrigger value="projects">Projects</TabsTrigger> */}
           </TabsList>
 
           {/* content */}
@@ -295,23 +287,29 @@ const Resume = () => {
                       return (
                         <li
                           key={index}
-                          className="bg-[#fac70f] h-full py-6 px-10 rounded-xl
+                          className="bg-[#fac70f] h-full py-6 px-8 rounded-xl
                         flex flex-col justify-center items-center lg:items-start gap-1"
                         >
-                          <span className="text-[#171717]">
+                          <span className="text-[#171717] font-medium text-sm">
                             {item.duration}
                           </span>
                           <h3
-                            className="text-xl max-w-[260px] min-h-[60px]
-                          text-center lg:text-left"
+                            className="text-lg font-semibold max-w-[280px] min-h-[50px]
+                          text-center lg:text-left text-[#171717]"
                           >
                             {item.position}
                           </h3>
                           <div className="flex items-center gap-3">
-                            {/* dot */}
                             <span className="w-[5px] h-[5px] rounded-full bg-[#171717]"></span>
-                            <p className="text-[#171717]/70">{item.company}</p>
+                            <p className="text-[#171717]/80 font-medium">
+                              {item.company}
+                            </p>
                           </div>
+                          {item.description && (
+                            <p className="text-[#171717]/70 text-xs mt-2 text-center lg:text-left leading-relaxed">
+                              {item.description}
+                            </p>
+                          )}
                         </li>
                       );
                     })}
@@ -326,7 +324,7 @@ const Resume = () => {
                 <p className="max-w-[700px] text-white/60 mx-auto xl:mx-0 text-justify">
                   {education.description}
                 </p>
-                <ScrollArea className="h-[250px] w-full">
+                <ScrollArea className="h-[300px] w-full">
                   <ul className="grid grid-cols-1 lg:grid-cols-2 gap-[20px]">
                     {education.items.map((item, index) => {
                       return (
@@ -335,19 +333,18 @@ const Resume = () => {
                           className="bg-[#fac70f] h-full py-6 px-10 rounded-xl
                         flex flex-col justify-center items-center lg:items-start gap-1"
                         >
-                          <span className="text-[#171717]">
+                          <span className="text-[#171717] font-medium">
                             {item.duration}
                           </span>
                           <h3
                             className="text-xl max-w-[260px] min-h-[60px]
-                          text-center lg:text-left"
+                          text-center lg:text-left text-[#171717]"
                           >
                             {item.degree}
                           </h3>
                           <div className="flex items-center gap-3">
-                            {/* dot */}
                             <span className="w-[5px] h-[5px] rounded-full bg-[#171717]"></span>
-                            <p className="text-[#171717]/70">
+                            <p className="text-[#171717]/70 font-medium">
                               {item.institute}
                             </p>
                           </div>
@@ -367,7 +364,7 @@ const Resume = () => {
                     {skills.description}
                   </p>
                 </div>
-                <ul className="grid grid-cols- sm:grid-cols-3 md:grid-cols-5 gap-[30px] gap-4">
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-[30px] gap-4">
                   {skills.skillList.map((skill, index) => {
                     return (
                       <li key={index}>
@@ -392,10 +389,6 @@ const Resume = () => {
                 </ul>
               </div>
             </TabsContent>
-            {/* projects */}
-            {/* <TabsContent value="projects" className="w-full">
-              projects
-            </TabsContent> */}
             {/* about */}
             <TabsContent
               value="about"
@@ -413,8 +406,6 @@ const Resume = () => {
                         key={index}
                         className="flex items-center justify-center xl:justify-start gap-2"
                       >
-                        {/* dot */}
-                        {/* <span className="w-[5px] h-[5px] rounded-full bg-accent"></span> */}
                         <span className="text-white/60 text-[14px]">
                           {item.fieldName}
                         </span>
