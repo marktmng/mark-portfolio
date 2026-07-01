@@ -105,9 +105,9 @@ const Home = () => {
                   size="lg"
                   className="uppercase bg-accent/30 text-white hover:bg-accent/10 hover:text-accent"
                 >
-                  {/* updated cv link */}
+                  {/* it focused cv link */}
                   <a
-                    href="https://pub-eab1a46333574948b55182f6d86cdd87.r2.dev/my-portfolio-web-resume/Mark_Tamang_CV.pdf"
+                    href="https://pub-eab1a46333574948b55182f6d86cdd87.r2.dev/my-portfolio-web-resume/Mark_Tamang_cv.pdf"
                     className="flex items-center gap-2"
                     download
                   >
