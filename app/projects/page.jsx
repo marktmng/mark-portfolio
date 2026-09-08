@@ -109,18 +109,24 @@ const projects = [
   },
   {
     num: "05",
-    category: "E-commerce Developer",
-    title: "Usthetik Online Store",
+    category: "Web Development UX/UI",
+    title: "3D Animation Webpage",
     description:
-      "Usthetik is a modern e-commerce store designed and developed using Shopify. The store focuses on delivering a premium and minimal shopping experience with a strong emphasis on clean UI, responsive design, and smooth navigation. It includes optimized product pages, seamless checkout integration, and secure payment processing. Built to be scalable and user-friendly, the platform ensures efficient product management, reliable order handling, and a consistent brand experience across devices.",
+      "This collection showcases a range of premium 3D and animated web experiences I designed and developed using modern web technologies and AI-assisted development tools. The projects focus on immersive visuals, interactive animations, smooth transitions, and creative UI/UX, demonstrating how modern frontend development can be combined with AI to create high-quality digital experiences. Explore some of my 3D web experiments and interactive projects through the link below.",
     stack: [
-      { name: "Shopify" },
-      { name: "Liquid" },
-      { name: "CSS" },
+      { name: "Next.Js" },
+      { name: "React" },
+      { name: "Tailwind" },
       { name: "JavaScript" },
+      { name: "Framer Motion" },
+      { name: "ChatGPT" },
+      { name: "Codex" },
+      { name: "Antigravity" },
+      { name: "Gemini" },
+      { name: "Kling" }
     ],
-    image: "/assets/work/usthetik.png", // replace with your actual image path
-    live: "https://usthetik.com",
+    image: "/assets/work/animations-web.png", // replace with your actual image path
+    live: "https://lnk.bio/mark3dweb",
   },
   {
     num: "06",
@@ -193,9 +199,8 @@ const ProjectCard = ({ project, index }) => {
         className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16"
       >
         <div
-          className={`max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-            isEven ? "" : "lg:grid-flow-dense"
-          }`}
+          className={`max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${isEven ? "" : "lg:grid-flow-dense"
+            }`}
         >
           {/* Content Section */}
           <motion.div
