@@ -75,50 +75,56 @@ const FeedbackForm = ({ setIsOpen, className }) => {
 
   return (
     <div
-      className={`fixed top-0 w-full min-w-screen min-h-screen bg-black bg-opacity-70 flex justify-center items-center overflow-y-auto py-10 z-50 ${className}`}
+      className={`fixed inset-0 min-w-screen min-h-screen bg-black/80 backdrop-blur-sm flex justify-center items-center overflow-y-auto py-10 z-[100] ${className}`}
     >
-      <div className="bg-[#fac70f] p-6 pt-10 rounded-lg shadow-lg w-[95%] md:w-[400px] relative overflow-auto">
+      <div className="bg-[#0a0a0a]/90 border border-white/10 p-8 sm:p-10 rounded-3xl shadow-2xl w-[95%] md:w-[450px] relative overflow-hidden flex flex-col gap-5 backdrop-blur-xl">
         <button
           onClick={() => setIsOpen(false)}
-          className="absolute top-3 right-3 bg-[#171717]/50 hover:bg-[#171717] text-[#fac70f] hover:text-white rounded-[5px] p-1"
+          className="absolute top-4 right-4 bg-white/5 hover:bg-[#B5892D]/20 text-white/50 hover:text-[#B5892D] rounded-full w-8 h-8 flex items-center justify-center transition-colors border border-white/10"
           aria-label="Close feedback form"
         >
-          [x]
+          ✕
         </button>
-        <h2 className="text-xl font-semibold mb-4 text-[#171717]">Feedback</h2>
-        <p className="text-[#171717] mb-4">
-          Your feedback is valuable to me. Kindly fill out the form below:
-        </p>
+        
+        <div className="flex flex-col gap-2 mb-2">
+          <h2 className="text-3xl font-light text-white tracking-tight">Leave <span className="text-[#B5892D]">Feedback</span></h2>
+          <p className="text-white/60 text-sm leading-relaxed">
+            Your feedback is incredibly valuable to me. Kindly share your thoughts below.
+          </p>
+        </div>
+
+        <div className="flex gap-3">
+          <input
+            type="text"
+            className="bg-transparent border border-white/20 text-white placeholder:text-white/40 focus:border-[#B5892D]/70 focus:ring-1 focus:ring-[#B5892D]/70 transition-all rounded-xl p-3 w-full outline-none"
+            placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            required
+          />
+          <input
+            type="text"
+            className="bg-transparent border border-white/20 text-white placeholder:text-white/40 focus:border-[#B5892D]/70 focus:ring-1 focus:ring-[#B5892D]/70 transition-all rounded-xl p-3 w-full outline-none"
+            placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
 
         <input
           type="text"
-          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="text"
-          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
-          placeholder="Position"
+          className="bg-transparent border border-white/20 text-white placeholder:text-white/40 focus:border-[#B5892D]/70 focus:ring-1 focus:ring-[#B5892D]/70 transition-all rounded-xl p-3 w-full outline-none"
+          placeholder="Position / Role"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
           required
         />
 
         {/* Image Upload */}
-        <div className="mb-2">
+        <div className="flex flex-col gap-2">
           <label
             htmlFor="file-upload"
-            className="w-full cursor-pointer inline-block bg-[#171717] text-white rounded-lg px-4 py-2 hover:bg-[#171717]/70 select-none"
+            className="w-full cursor-pointer flex items-center justify-center gap-2 bg-white/5 border border-white/10 text-white/80 rounded-xl px-4 py-3 hover:bg-white/10 hover:text-white transition-colors select-none text-sm font-medium"
           >
             Upload Profile Picture
           </label>
@@ -133,24 +139,25 @@ const FeedbackForm = ({ setIsOpen, className }) => {
 
         {/* Display Image Preview */}
         {image && (
-          <img
-            src={image}
-            alt="Preview"
-            className="w-full max-h-40 object-cover p-2 mb-2 rounded border-none"
-          />
+          <div className="w-20 h-20 rounded-full border border-[#B5892D]/50 mx-auto overflow-hidden my-2 shadow-lg">
+            <img
+              src={image}
+              alt="Preview"
+              className="w-full h-full object-cover"
+            />
+          </div>
         )}
 
         <textarea
-          className="bg-[#171717] text-white w-full p-2 mb-2 rounded-lg border-none focus:outline-none"
-          rows="3"
-          placeholder="Your feedback..."
+          className="bg-transparent border border-white/20 text-white placeholder:text-white/40 focus:border-[#B5892D]/70 focus:ring-1 focus:ring-[#B5892D]/70 transition-all rounded-xl p-3 w-full outline-none resize-none h-[100px]"
+          placeholder="Your thoughts..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         />
 
         {/* Rating Section with Hover Effect */}
-        <div className="flex mb-4">
+        <div className="flex justify-center gap-2 my-2">
           {[1, 2, 3, 4, 5].map((star) => (
             <label
               key={star}
@@ -166,10 +173,10 @@ const FeedbackForm = ({ setIsOpen, className }) => {
                 className="hidden"
               />
               <FaStar
-                size={24}
+                size={28}
                 className={`${
-                  (hover || rating) >= star ? "text-white-400" : "text-gray-400"
-                } transition duration-200`}
+                  (hover || rating) >= star ? "text-[#B5892D] drop-shadow-[0_0_8px_rgba(181,137,45,0.8)]" : "text-white/20"
+                } transition-all duration-300 hover:scale-110`}
                 onMouseEnter={() => setHover(star)}
                 onMouseLeave={() => setHover(null)}
               />
@@ -179,9 +186,9 @@ const FeedbackForm = ({ setIsOpen, className }) => {
 
         <button
           onClick={handleSubmit}
-          className="w-full bg-[#171717] text-white px-4 py-2 rounded hover:bg-[#171717]/50"
+          className="w-full mt-2 bg-[#B5892D] text-white rounded-full px-8 py-3 text-base font-semibold tracking-wide hover:bg-[#B5892D]/80 transition-all duration-300 shadow-[0_0_15px_rgba(181,137,45,0.3)] hover:shadow-[0_0_25px_rgba(181,137,45,0.5)]"
         >
-          Submit
+          Submit Feedback
         </button>
       </div>
     </div>

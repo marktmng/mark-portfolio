@@ -20,6 +20,8 @@ export default {
     },
     fontFamily: {
       primary: "var(--font-jetbrainsMono)",
+      inter: "var(--font-inter)",
+      pixel: ["basis33", "sans-serif"],
     },
     extend: {
       colors: {

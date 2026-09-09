@@ -31,10 +31,7 @@ const projects = [
     ],
     image: "/assets/work/pakhreen.png",
     live: "https://pakhreen.com",
-    github: {
-      full: "https://github.com/marktmng/pakhrin.git",
-    },
-    // demo: "/assets/videos/pakhreen-demo.mp4",
+    github: { full: "https://github.com/marktmng/pakhrin.git" },
   },
   {
     num: "02",
@@ -55,13 +52,32 @@ const projects = [
     ],
     image: "/assets/work/rossgrove.png",
     live: "https://rossgrovechurch.nz",
-    github: {
-      full: "https://github.com/marktmng/rossgrove_church_website.git",
-    },
+    github: { full: "https://github.com/marktmng/rossgrove_church_website.git" },
     demo: "/assets/videos/rossgrove-video.mp4",
   },
   {
     num: "03",
+    category: "Web Development UX/UI",
+    title: "3D Animation Webpage",
+    description:
+      "This collection showcases a range of premium 3D and animated web experiences I designed and developed using modern web technologies and AI-assisted development tools. The projects focus on immersive visuals, interactive animations, smooth transitions, and creative UI/UX, demonstrating how modern frontend development can be combined with AI to create high-quality digital experiences. Explore some of my 3D web experiments and interactive projects through the link below.",
+    stack: [
+      { name: "Next.Js" },
+      { name: "React" },
+      { name: "Tailwind" },
+      { name: "JavaScript" },
+      { name: "Framer Motion" },
+      { name: "ChatGPT" },
+      { name: "Codex" },
+      { name: "Antigravity" },
+      { name: "Gemini" },
+      { name: "Kling" },
+    ],
+    image: "/assets/work/animations-web.png",
+    live: "https://lnk.bio/mark3dweb",
+  },
+  {
+    num: "04",
     category: "Fullstack Developer",
     title: "Handi-Hub Web App",
     description:
@@ -85,7 +101,7 @@ const projects = [
     demo: "/assets/videos/handi-hub.mp4",
   },
   {
-    num: "04",
+    num: "05",
     category: "Software Developer",
     title: "Infinite Cloud Service",
     description:
@@ -102,31 +118,7 @@ const projects = [
     ],
     image: "/assets/work/drive.png",
     live: "#",
-    github: {
-      full: "https://github.com/sourceinfinitynz/Infinite-Cloud-Service.git",
-    },
-    // demo: "",
-  },
-  {
-    num: "05",
-    category: "Web Development UX/UI",
-    title: "3D Animation Webpage",
-    description:
-      "This collection showcases a range of premium 3D and animated web experiences I designed and developed using modern web technologies and AI-assisted development tools. The projects focus on immersive visuals, interactive animations, smooth transitions, and creative UI/UX, demonstrating how modern frontend development can be combined with AI to create high-quality digital experiences. Explore some of my 3D web experiments and interactive projects through the link below.",
-    stack: [
-      { name: "Next.Js" },
-      { name: "React" },
-      { name: "Tailwind" },
-      { name: "JavaScript" },
-      { name: "Framer Motion" },
-      { name: "ChatGPT" },
-      { name: "Codex" },
-      { name: "Antigravity" },
-      { name: "Gemini" },
-      { name: "Kling" }
-    ],
-    image: "/assets/work/animations-web.png", // replace with your actual image path
-    live: "https://lnk.bio/mark3dweb",
+    github: { full: "https://github.com/sourceinfinitynz/Infinite-Cloud-Service.git" },
   },
   {
     num: "06",
@@ -149,10 +141,7 @@ const projects = [
     stack: [{ name: "Liquid" }, { name: "CSS" }, { name: "JavaScript" }],
     image: "/assets/work/shopify.png",
     live: "#",
-    github: {
-      full: "https://github.com/marktmng/just_another_beauty_product.git",
-    },
-    // demo: "",
+    github: { full: "https://github.com/marktmng/just_another_beauty_product.git" },
   },
   {
     num: "08",
@@ -164,7 +153,6 @@ const projects = [
     image: "/assets/work/desktopapp.png",
     live: "#",
     github: { full: "https://github.com/marktmng/VShippingLTD.git" },
-    // demo: "#",
   },
 ];
 
@@ -176,132 +164,126 @@ const ProjectCard = ({ project, index }) => {
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0.8, 1, 1, 0.8],
-  );
-  const y = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [100, 0, 0, -100]);
-  const imageRotate = useTransform(scrollYProgress, [0, 0.5, 1], [5, 0, -5]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]);
+
+  // Parallax effects
+  const contentY = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const imageY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  const numScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
 
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  const smoothY = useSpring(y, springConfig);
+  const smoothOpacity = useSpring(opacity, springConfig);
   const smoothScale = useSpring(scale, springConfig);
+  const smoothContentY = useSpring(contentY, springConfig);
+  const smoothImageY = useSpring(imageY, springConfig);
+  const smoothNumScale = useSpring(numScale, springConfig);
+
   const isEven = index % 2 === 0;
+  const customEase = [0.25, 0.1, 0.25, 1.0];
 
   return (
     <>
       <motion.div
         ref={cardRef}
-        style={{ opacity, scale: smoothScale, y: smoothY }}
-        className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16"
+        style={{ opacity: smoothOpacity, scale: smoothScale }}
+        className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 py-20 relative z-10"
       >
-        <div
-          className={`max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${isEven ? "" : "lg:grid-flow-dense"
-            }`}
-        >
+        <div className={`max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center`}>
+
           {/* Content Section */}
           <motion.div
-            initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: false, amount: 0.3 }}
-            className={`space-y-6 ${isEven ? "" : "lg:col-start-2"}`}
+            style={{ y: smoothContentY }}
+            className={`space-y-6 z-10 lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2 lg:col-start-8"}`}
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, type: "spring" }}
-              viewport={{ once: false }}
-              className="text-8xl md:text-9xl font-extrabold text-transparent"
-              style={{
-                WebkitTextStroke: "2px #fac70f",
-                textShadow: "0 0 30px rgba(250, 199, 15, 0.3)",
-              }}
+            <div className="relative">
+              <motion.div
+                style={{ scale: smoothNumScale, WebkitTextStroke: "1px rgba(255,255,255,0.1)" }}
+                className="absolute -top-16 -left-8 text-8xl md:text-9xl font-extrabold text-transparent select-none z-[-1]"
+              >
+                {project.num}
+              </motion.div>
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: customEase }}
+                className="text-[#B5892D] font-medium tracking-widest uppercase text-xs md:text-sm"
+              >
+                {project.category}
+              </motion.h3>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.1, ease: customEase }}
+                className="text-3xl md:text-5xl font-light text-white mt-2 leading-tight tracking-tight"
+              >
+                {project.title}
+              </motion.h2>
+            </div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: customEase }}
+              className="text-white/60 text-base md:text-lg leading-relaxed bg-white/5 p-6 md:p-8 rounded-3xl border border-white/10 backdrop-blur-xl shadow-2xl font-light"
             >
-              {project.num}
-            </motion.div>
-            <motion.h3 className="text-3xl md:text-4xl font-bold text-white capitalize">
-              {project.category} project
-            </motion.h3>
-            <motion.h2 className="text-2xl md:text-3xl font-semibold text-[#fac70f]">
-              {project.title}
-            </motion.h2>
-            <motion.p className="text-white/80 text-base md:text-lg leading-relaxed">
               {project.description}
             </motion.p>
 
             {/* Tech Stack */}
-            <div className="flex flex-wrap gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3, ease: customEase }}
+              className="flex flex-wrap gap-2"
+            >
               {project.stack.map((item, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-2 bg-white/5 border border-[#fac70f]/30 rounded-full text-[#fac70f] text-sm font-medium hover:bg-[#fac70f]/10 transition-colors"
+                  className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[#B5892D] text-xs md:text-sm font-medium tracking-wide backdrop-blur-md"
                 >
                   {item.name}
                 </span>
               ))}
-            </div>
+            </motion.div>
 
             {/* Buttons */}
-            <div className="flex items-center gap-4 pt-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.4, ease: customEase }}
+              className="flex items-center gap-4 pt-6"
+            >
               <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-16 h-16 rounded-full bg-[#fac70f] flex justify-center items-center group shadow-lg shadow-[#fac70f]/20 hover:shadow-[#fac70f]/40 transition-all"
+                className="w-14 h-14 rounded-full bg-[#B5892D] flex justify-center items-center group shadow-[0_0_15px_rgba(181,137,45,0.3)] hover:shadow-[0_0_25px_rgba(181,137,45,0.5)] hover:scale-110 transition-all duration-300"
               >
-                <ArrowUpRight className="text-[#171717] w-6 h-6 group-hover:rotate-45 transition-transform" />
+                <ArrowUpRight className="text-white w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
               </a>
 
               {/* GitHub */}
               {project.github && Object.keys(project.github).length > 0 && (
                 <div className="relative group">
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-full bg-white/5 border-2 border-[#fac70f]/50 flex justify-center items-center cursor-pointer hover:bg-[#fac70f]/10 transition-all shadow-lg">
-                    <Github className="text-white w-6 h-6 group-hover:text-[#fac70f] transition-colors" />
+                  <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center cursor-pointer hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-md">
+                    <Github className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                   </div>
-
-                  {/* Invisible hover bridge (IMPORTANT) */}
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 h-4 w-full"></div>
-
-                  {/* Dropdown */}
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 bg-[#171717] border border-[#fac70f]/30 rounded-xl shadow-2xl p-3 
-                    opacity-0 group-hover:opacity-100 
-                    pointer-events-none group-hover:pointer-events-auto 
-                    transition-all duration-200 z-20 min-w-[180px]"
-                  >
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-20 min-w-[140px] translate-y-2 group-hover:translate-y-0">
                     {project.github.frontend && (
-                      <a
-                        href={project.github.frontend}
-                        target="_blank"
-                        className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5"
-                      >
-                        Frontend
-                      </a>
+                      <a href={project.github.frontend} target="_blank" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Frontend</a>
                     )}
-
                     {project.github.backend && (
-                      <a
-                        href={project.github.backend}
-                        target="_blank"
-                        className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5"
-                      >
-                        Backend
-                      </a>
+                      <a href={project.github.backend} target="_blank" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Backend</a>
                     )}
-
                     {project.github.full && (
-                      <a
-                        href={project.github.full}
-                        target="_blank"
-                        className="block text-white hover:text-[#fac70f] text-sm px-3 py-2 rounded hover:bg-white/5"
-                      >
-                        Fullstack
-                      </a>
+                      <a href={project.github.full} target="_blank" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Fullstack</a>
                     )}
                   </div>
                 </div>
@@ -311,76 +293,72 @@ const ProjectCard = ({ project, index }) => {
               {project.demo && project.demo.endsWith(".mp4") ? (
                 <button
                   onClick={() => setIsVideoOpen(true)}
-                  className="w-16 h-16 rounded-full bg-white/5 border-2 border-[#fac70f]/50 flex justify-center items-center hover:bg-[#fac70f]/10 transition-all shadow-lg"
+                  className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-md group"
                 >
-                  <PiVideoFill className="text-white w-6 h-6 hover:text-[#fac70f] transition-colors" />
+                  <PiVideoFill className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                 </button>
               ) : (
                 project.demo && (
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-16 h-16 rounded-full bg-white/5 border-2 border-[#fac70f]/50 flex justify-center items-center hover:bg-[#fac70f]/10 transition-all shadow-lg"
-                  >
-                    <PiVideoFill className="text-white w-6 h-6 hover:text-[#fac70f] transition-colors" />
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-md group">
+                    <PiVideoFill className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                   </a>
                 )
               )}
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Image Section */}
           <motion.div
-            style={{ rotate: imageRotate }}
-            className={`relative ${isEven ? "" : "lg:col-start-1 lg:row-start-1"}`}
+            style={{ y: smoothImageY }}
+            className={`relative lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1 lg:col-start-1"}`}
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: false, amount: 0.3 }}
-              className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-[#fac70f]/10 border border-white/10 group"
+              initial={{ opacity: 0, clipPath: isEven ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)" }}
+              whileInView={{ opacity: 1, clipPath: "inset(0 0 0 0)" }}
+              transition={{ duration: 1.2, ease: customEase }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#121212] group flex flex-col backdrop-blur-md"
             >
-              {project.live && project.live !== "#" ? (
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full h-full"
-                >
-                  {/* Image */}
-                  <motion.img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+              {/* Computer Screen Header */}
+              <div className="flex items-center px-4 py-3 bg-white/5 border-b border-white/10">
+                <div className="flex gap-2 absolute">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f56] shadow-sm"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#ffbd2e] shadow-sm"></div>
+                  <div className="w-3 h-3 rounded-full bg-[#27c93f] shadow-sm"></div>
+                </div>
 
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300" />
+                <div className="mx-auto w-1/2 bg-[#0a0a0a]/50 rounded-md px-3 py-1.5 text-[10px] md:text-xs text-white/40 flex items-center justify-center border border-white/5 overflow-hidden text-ellipsis whitespace-nowrap">
+                  {project.live !== "#" ? project.live.replace('https://', '') : `localhost:3000/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                </div>
+              </div>
 
-                  {/* Center icon */}
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <div className="w-14 h-14 rounded-full bg-[#fac70f] flex items-center justify-center shadow-lg">
-                      <ArrowUpRight className="text-black w-6 h-6" />
+              {/* Screen Content */}
+              <div className="relative aspect-video lg:aspect-[4/3] p-0 overflow-hidden bg-[#0a0a0a]">
+                {project.live && project.live !== "#" ? (
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative flex items-center justify-center">
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#0a0a0a]/40 backdrop-blur-[2px]">
+                      <div className="w-16 h-16 rounded-full bg-[#B5892D] flex items-center justify-center shadow-2xl scale-50 group-hover:scale-100 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
+                        <ArrowUpRight className="text-white w-8 h-8" />
+                      </div>
                     </div>
+                  </a>
+                ) : (
+                  <div className="w-full h-full relative flex items-center justify-center">
+                    <motion.img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
                   </div>
-
-                  {/* Bottom label */}
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center opacity-0 group-hover:opacity-100 transition duration-300">
-                    <span className="text-white text-sm font-medium tracking-wide">
-                      Visit Website
-                    </span>
-                    <span className="text-[#fac70f] text-xs">↗</span>
-                  </div>
-                </a>
-              ) : (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
-              )}
+                )}
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -389,23 +367,33 @@ const ProjectCard = ({ project, index }) => {
       {/* Video Modal */}
       {isVideoOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/90 flex justify-center items-center z-50"
+          initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
+          animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
+          exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+          className="fixed inset-0 bg-[#0a0a0a]/90 flex justify-center items-center z-50 p-4"
         >
-          <button
-            onClick={() => setIsVideoOpen(false)}
-            className="absolute top-6 right-6 text-white p-2 rounded-full hover:bg-white/10 transition"
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="relative w-full max-w-5xl"
           >
-            <X size={30} />
-          </button>
-          <video
-            src={project.demo}
-            controls
-            autoPlay
-            className="max-w-4xl w-full rounded-xl shadow-2xl"
-          />
+            <button
+              onClick={() => setIsVideoOpen(false)}
+              className="absolute -top-12 right-0 text-white/50 p-2 rounded-full hover:bg-white/10 hover:text-white transition-colors bg-white/5 border border-white/10"
+            >
+              <X size={24} />
+            </button>
+            <div className="rounded-3xl overflow-hidden shadow-2xl shadow-[#B5892D]/20 border border-white/10 bg-black">
+              <video
+                src={project.demo}
+                controls
+                autoPlay
+                className="w-full h-auto aspect-video"
+              />
+            </div>
+          </motion.div>
         </motion.div>
       )}
     </>
@@ -419,52 +407,74 @@ const Work = () => {
     offset: ["start start", "end end"],
   });
 
-  const progressBarWidth = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", "100%"],
-  );
+  const progressBarWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const customEase = [0.25, 0.1, 0.25, 1.0];
 
   return (
-    <div ref={containerRef} className="relative min-h-screen">
+    <div ref={containerRef} className="relative min-h-screen overflow-hidden">
+      {/* Background elements */}
+      <div className="fixed top-[10%] right-[-5%] w-[500px] h-[500px] bg-[#B5892D]/10 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="fixed bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-white/5 blur-[120px] rounded-full pointer-events-none z-0" />
+
       {/* Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 bg-white/10 z-50">
+      <motion.div className="fixed top-0 left-0 right-0 h-1 z-50 overflow-hidden bg-white/5">
         <motion.div
           style={{ width: progressBarWidth }}
-          className="h-full bg-gradient-to-r from-[#fac70f] to-[#f59e0b] shadow-lg shadow-[#fac70f]/50"
+          className="h-full bg-gradient-to-r from-[#B5892D]/50 to-[#B5892D] shadow-[0_0_10px_rgba(181,137,45,0.8)]"
         />
-      </div>
+      </motion.div>
 
       {/* Header */}
-      <div className="relative pt-32 pb-16 px-4 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
-          My <span className="text-[#fac70f]">Projects</span>
-        </h1>
-        <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto">
+      <div className="relative pt-32 pb-16 px-4 text-center z-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: customEase }}
+          className="text-5xl md:text-7xl font-light text-white mb-6 tracking-tight"
+        >
+          My <span className="text-[#B5892D] font-medium">Projects</span>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: customEase }}
+          className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto font-light"
+        >
           Scroll down to explore my journey through various development projects
-        </p>
+        </motion.p>
       </div>
 
       {/* Project Cards */}
-      <div className="space-y-0">
+      <div className="space-y-0 relative z-10">
+        <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/5 -translate-x-1/2 hidden lg:block" />
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} index={index} />
         ))}
       </div>
 
       {/* Footer */}
-      <div className="relative py-24 px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: customEase }}
+        className="relative py-32 px-4 text-center z-10"
+      >
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
           Think I’d Be a Good Fit for Your{" "}
-          <span className="text-[#fac70f]">Team?</span>
-        </h2>
-        <p className="text-white/60 text-lg">
-          To get in touch, head over to the{" "}
-          <span className="text-[#fac70f] underline underline-offset-4 hover:text-accent transition-colors cursor-pointer">
-            <Link href="/contact">Contact</Link>
+          <span className="text-[#B5892D] font-medium relative inline-block">
+            Team?
+            <div className="absolute -bottom-2 left-0 w-full h-[2px] bg-[#B5892D]/50"></div>
           </span>
+        </h2>
+        <p className="text-white/60 text-lg md:text-xl font-light">
+          To get in touch, head over to the{" "}
+          <Link href="/contact" className="text-[#B5892D] font-medium relative inline-block group">
+            Contact page
+            <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-[#B5892D] scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"></span>
+          </Link>
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
