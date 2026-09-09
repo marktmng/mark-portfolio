@@ -29,7 +29,7 @@ const Contact = () => {
     {
       icon: <FaMapMarkerAlt />,
       title: "Address",
-      description: "Glen Eden, Auckland, NZ",
+      description: "Auckland, New Zealand",
     },
   ];
 
@@ -82,20 +82,33 @@ const Contact = () => {
   };
 
   return (
-    <motion.section initial="hidden" animate="visible" className="py-12">
-      <div className="container mx-auto flex flex-col xl:flex-row gap-10">
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      className="min-h-[80vh] flex items-center justify-center pt-28 pb-16 xl:py-24 relative overflow-hidden"
+    >
+      {/* Background elements */}
+      <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-[#B5892D]/10 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-96 h-96 bg-white/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto flex flex-col xl:flex-row gap-12 xl:gap-[60px] relative z-10 px-4">
         {/* Form */}
         <motion.form
           onSubmit={handleSubmit}
-          className="flex-1 flex flex-col gap-5 p-10 bg-[#fac70f] rounded-xl shadow-lg"
+          className="flex-1 flex flex-col gap-6 p-6 sm:p-12 bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl"
           variants={formVariant}
         >
-          <motion.h3 className="text-3xl text-[#171717]" variants={itemVariant}>
-            Excited to Join Your Team! 😊
-          </motion.h3>
+          <motion.div variants={itemVariant} className="flex flex-col gap-2 mb-2 sm:mb-4">
+            <h3 className="text-4xl sm:text-5xl font-light text-white tracking-tight">
+              Let's work <span className="text-[#B5892D]">together.</span>
+            </h3>
+            <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+              Excited to join your team! Fill out the form and I'll get back to you shortly.
+            </p>
+          </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 gap-5"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5"
             variants={formVariant}
           >
             {[
@@ -115,7 +128,7 @@ const Contact = () => {
                   onChange={handleChange}
                   onInput={field.name === "phone" ? onInput : undefined}
                   required={field.name !== "company"}
-                  className="text-white"
+                  className="bg-transparent border border-white/20 text-white placeholder:text-white/40 focus:border-[#B5892D]/70 focus:ring-1 focus:ring-[#B5892D]/70 transition-all rounded-xl py-6"
                 />
               </motion.div>
             ))}
@@ -123,7 +136,7 @@ const Contact = () => {
 
           <motion.div variants={itemVariant}>
             <Textarea
-              className="h-[150px]"
+              className="h-[120px] sm:h-[150px] bg-transparent border border-white/20 text-white placeholder:text-white/40 focus:border-[#B5892D]/70 focus:ring-1 focus:ring-[#B5892D]/70 transition-all rounded-xl resize-none"
               name="message"
               placeholder="Your Message"
               value={formData.message}
@@ -135,7 +148,7 @@ const Contact = () => {
           <motion.div variants={itemVariant}>
             <Button
               type="submit"
-              className="bg-[#171717] text-white hover:bg-[#171717]/70 hover:scale-105 transition-transform duration-300"
+              className="w-full sm:w-auto mt-2 bg-[#B5892D] text-white hover:bg-[#B5892D]/80 rounded-full px-8 py-6 text-base font-semibold tracking-wide transition-all duration-300"
             >
               {loading ? "Sending..." : "Send Message"}
             </Button>
@@ -143,7 +156,7 @@ const Contact = () => {
 
           {success && (
             <motion.p
-              className="text-[#171717]/75 mt-2"
+              className="text-[#B5892D] mt-2 font-medium"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
@@ -154,21 +167,19 @@ const Contact = () => {
         </motion.form>
 
         {/* Info Section */}
-        <motion.div className="flex-1 flex flex-col gap-8">
+        <motion.div className="flex-1 flex flex-col justify-center gap-8 xl:gap-12" variants={formVariant}>
           {info.map((item, i) => (
             <motion.div
               key={i}
-              className="flex gap-5 items-center"
+              className="flex gap-6 items-center group"
               variants={itemVariant}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
             >
-              <div className="w-[60px] h-[60px] bg-[#27272] text-accent rounded-md flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-[25px]">{item.icon}</div>
+              <div className="w-[70px] h-[70px] bg-white/5 border border-white/10 text-[#B5892D] rounded-2xl flex items-center justify-center group-hover:bg-[#B5892D] group-hover:text-white transition-all duration-500 shadow-lg">
+                <div className="text-[28px]">{item.icon}</div>
               </div>
-              <div>
-                <p className="text-white/60">{item.title}</p>
-                <h3 className="text-[14px]">{item.description}</h3>
+              <div className="flex flex-col gap-1">
+                <p className="text-white/50 text-sm tracking-widest uppercase font-semibold">{item.title}</p>
+                <h3 className="text-xl text-white/90 font-light tracking-wide">{item.description}</h3>
               </div>
             </motion.div>
           ))}

@@ -8,15 +8,15 @@ const PageTransition = ({ children }) => {
     <AnimatePresence>
       <div key={pathname}>
         <motion.div
-          intitial={{ opacity: 1 }}
+          initial={{ opacity: 1 }}
           animate={{
             opacity: 0,
             transition: { delay: 1, duration: 0.3, ease: "easeInOut" },
           }}
-          className="h-screen w-screen fixed bg-primary top-0 pointer-events-none"
+          className="h-screen w-screen fixed bg-primary top-0 pointer-events-none z-40"
         />
+        {children}
       </div>
-      {children}
     </AnimatePresence>
   );
 };
