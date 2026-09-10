@@ -65,7 +65,7 @@ const projects = [
     ],
     image: "/assets/work/rossgrove.png",
     live: "https://rossgrovechurch.nz",
-    github: { full: "https://github.com/marktmng/rossgrove_church_website.git" },
+    // github: { full: "https://github.com/marktmng/rossgrove_church_website.git" },
     demo: "/assets/videos/rossgrove-video.mp4",
   },
   {
@@ -171,6 +171,8 @@ const projects = [
 
 const ProjectCard = ({ project, index, isMobile }) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [isGithubOpen, setIsGithubOpen] = useState(false);
+  const githubRef = useRef(null);
   const cardRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: cardRef,
@@ -186,6 +188,19 @@ const ProjectCard = ({ project, index, isMobile }) => {
 
   const isEven = index % 2 === 0;
   const customEase = [0.25, 0.1, 0.25, 1.0];
+
+  // Close github dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (githubRef.current && !githubRef.current.contains(e.target)) {
+        setIsGithubOpen(false);
+      }
+    };
+    if (isGithubOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [isGithubOpen]);
 
   return (
     <>
@@ -265,35 +280,41 @@ const ProjectCard = ({ project, index, isMobile }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: 0.2, ease: customEase }}
-              className="flex items-center gap-4 pt-6"
+              className="flex flex-wrap items-center gap-3 sm:gap-4 pt-6 relative z-20"
             >
               <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 rounded-full bg-[#B5892D] flex justify-center items-center group shadow-[0_0_15px_rgba(181,137,45,0.3)] hover:shadow-[0_0_25px_rgba(181,137,45,0.5)] hover:scale-110 transition-all duration-300"
+                className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#B5892D] flex justify-center items-center group shadow-[0_0_15px_rgba(181,137,45,0.3)] hover:shadow-[0_0_25px_rgba(181,137,45,0.5)] hover:scale-110 transition-all duration-300 shrink-0"
               >
-                <ArrowUpRight className="text-white w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
+                <ArrowUpRight className="text-white w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-45 transition-transform duration-300" />
               </a>
 
               {/* GitHub */}
               {project.github && Object.keys(project.github).length > 0 && (
-                <div className="relative group">
-                  <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center cursor-pointer hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl">
-                    <Github className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
+                <div className="relative" ref={githubRef}>
+                  <div
+                    onClick={() => setIsGithubOpen(!isGithubOpen)}
+                    className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 border flex justify-center items-center cursor-pointer hover:bg-white/10 hover:scale-110 transition-all duration-300 shadow-xl shrink-0 ${isGithubOpen ? 'border-[#B5892D]/50' : 'border-white/10 hover:border-[#B5892D]/50'
+                      }`}
+                  >
+                    <Github className={`w-5 h-5 transition-colors duration-300 ${isGithubOpen ? 'text-[#B5892D]' : 'text-white'
+                      }`} />
                   </div>
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 h-4 w-full"></div>
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 bg-[#0a0a0a]/95 border border-white/10 rounded-xl shadow-2xl p-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-20 min-w-[140px] translate-y-2 group-hover:translate-y-0 lg:backdrop-blur-xl">
-                    {project.github.frontend && (
-                      <a href={project.github.frontend} target="_blank" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Frontend</a>
-                    )}
-                    {project.github.backend && (
-                      <a href={project.github.backend} target="_blank" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Backend</a>
-                    )}
-                    {project.github.full && (
-                      <a href={project.github.full} target="_blank" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Fullstack</a>
-                    )}
-                  </div>
+                  {isGithubOpen && (
+                    <div className="absolute left-0 bottom-full mb-3 bg-[#0a0a0a]/95 border border-white/10 rounded-xl shadow-2xl p-2 z-30 min-w-[140px] backdrop-blur-xl">
+                      {project.github.frontend && (
+                        <a href={project.github.frontend} target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Frontend</a>
+                      )}
+                      {project.github.backend && (
+                        <a href={project.github.backend} target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Backend</a>
+                      )}
+                      {project.github.full && (
+                        <a href={project.github.full} target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Fullstack</a>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -301,13 +322,13 @@ const ProjectCard = ({ project, index, isMobile }) => {
               {project.demo && project.demo.endsWith(".mp4") ? (
                 <button
                   onClick={() => setIsVideoOpen(true)}
-                  className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl group"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl group shrink-0"
                 >
                   <PiVideoFill className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                 </button>
               ) : (
                 project.demo && (
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl group">
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl group shrink-0">
                     <PiVideoFill className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                   </a>
                 )
@@ -343,7 +364,7 @@ const ProjectCard = ({ project, index, isMobile }) => {
               {/* Screen Content */}
               <div className="relative aspect-video lg:aspect-[4/3] p-0 overflow-hidden bg-[#0a0a0a]">
                 {project.live && project.live !== "#" ? (
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative flex items-center justify-center group">
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative flex items-center justify-center group cursor-pointer" style={{ zIndex: 5 }}>
                     <Image
                       src={project.image}
                       alt={project.title}
