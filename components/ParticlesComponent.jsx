@@ -24,7 +24,7 @@ const ParticlesComponent = (props) => {
       background: {
         color: { value: "transparent" }, // Keep the background transparent
       },
-      fpsLimit: 120,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: { enable: true, mode: "push" },
@@ -52,15 +52,10 @@ const ParticlesComponent = (props) => {
           speed: 0.3,
           straight: false,
         },
-        number: { density: { enable: true }, value: 100 },
-        opacity: { value: 0 }, // Reduce opacity for transparency
-        shape: { type: "star" },
-        size: { value: { min: 1, max: 4 } }, // Increase size for blur effect
-        shadow: {
-          enable: true,
-          color: "#ffffff",
-          blur: 10, // Increase blur effect
-        },
+        number: { density: { enable: true }, value: 40 },
+        opacity: { value: 0.15 },
+        shape: { type: "circle" },
+        size: { value: { min: 1, max: 3 } },
       },
       detectRetina: true,
     }),

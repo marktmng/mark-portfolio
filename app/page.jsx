@@ -76,7 +76,7 @@ const Home = () => {
             <motion.div variants={cardVariants} className="flex flex-col xl:flex-row items-start xl:items-end justify-between gap-6 mb-4">
               <div>
                 <span className="inline-block text-xs uppercase tracking-[0.2em] font-medium text-[#B5892D] mb-4 bg-[#B5892D]/10 px-4 py-2 rounded-full border border-[#B5892D]/20">
-                  Full-Stack Software Developer &amp; Founder
+                  Full-Stack Software Developer
                 </span>
                 <h1 className="text-[48px] sm:text-[64px] xl:text-[90px] leading-[0.9] font-bold tracking-tight">
                   MARK <br className="hidden sm:block" />

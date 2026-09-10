@@ -91,7 +91,7 @@ const about = {
     },
     {
       fieldName: "Address",
-      fieldValue: "Glen Eden, Auckland, New Zealand",
+      fieldValue: "Auckland, New Zealand",
     },
   ],
 };
@@ -251,7 +251,7 @@ const Resume = () => {
           <div className="min-h-[60vh] w-full max-w-[800px] mx-auto xl:mx-0">
             {/* Experience */}
             <TabsContent value="experience" className="w-full mt-0 focus-visible:outline-none focus-visible:ring-0">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
                 className="flex flex-col gap-[30px]"
               >
@@ -294,7 +294,7 @@ const Resume = () => {
 
             {/* Education */}
             <TabsContent value="education" className="w-full mt-0 focus-visible:outline-none focus-visible:ring-0">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
                 className="flex flex-col gap-[30px]"
               >
@@ -330,7 +330,7 @@ const Resume = () => {
 
             {/* Skills */}
             <TabsContent value="skills" className="w-full mt-0 focus-visible:outline-none focus-visible:ring-0">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
                 className="flex flex-col gap-[40px]"
               >
@@ -341,24 +341,24 @@ const Resume = () => {
                   </p>
                 </div>
                 <ScrollArea className="h-[550px] w-full pr-4">
-                    <ul className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 pb-10">
+                  <ul className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 pb-10">
                     {skills.skillList.map((skill, index) => (
-                        <li key={index}>
+                      <li key={index}>
                         <TooltipProvider delayDuration={100}>
-                            <Tooltip>
+                          <Tooltip>
                             <TooltipTrigger className="w-full aspect-square bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center group rounded-2xl hover:bg-white/10 hover:border-[#B5892D]/50 hover:-translate-y-1 transition-all duration-300">
-                                <div className="text-4xl text-white/50 group-hover:text-[#B5892D] transition-colors duration-300 drop-shadow-lg">
+                              <div className="text-4xl text-white/50 group-hover:text-[#B5892D] transition-colors duration-300 drop-shadow-lg">
                                 {skill.icon}
-                                </div>
+                              </div>
                             </TooltipTrigger>
                             <TooltipContent className="bg-[#111110] border border-white/10 text-white shadow-2xl">
-                                <p className="font-medium tracking-wider text-xs uppercase">{skill.name}</p>
+                              <p className="font-medium tracking-wider text-xs uppercase">{skill.name}</p>
                             </TooltipContent>
-                            </Tooltip>
+                          </Tooltip>
                         </TooltipProvider>
-                        </li>
+                      </li>
                     ))}
-                    </ul>
+                  </ul>
                 </ScrollArea>
               </motion.div>
             </TabsContent>
@@ -368,7 +368,7 @@ const Resume = () => {
               value="about"
               className="w-full mt-0 focus-visible:outline-none focus-visible:ring-0"
             >
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}
                 className="flex flex-col gap-[40px]"
               >
@@ -378,23 +378,23 @@ const Resume = () => {
                     {about.description}
                   </p>
                 </div>
-                
+
                 <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-3xl p-8 sm:p-10">
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-8">
                     {about.info.map((item, index) => (
-                        <li
+                      <li
                         key={index}
                         className="flex flex-col gap-1 border-b border-white/5 pb-4 last:border-0 sm:last:border-b-0"
-                        >
+                      >
                         <span className="text-[#B5892D] text-xs font-semibold uppercase tracking-widest">
-                            {item.fieldName}
+                          {item.fieldName}
                         </span>
                         <span className="text-white/90 font-medium text-lg">
-                            {item.fieldValue}
+                          {item.fieldValue}
                         </span>
-                        </li>
+                      </li>
                     ))}
-                    </ul>
+                  </ul>
                 </div>
               </motion.div>
             </TabsContent>

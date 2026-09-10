@@ -1,18 +1,19 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Github, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { PiVideoFill } from "react-icons/pi";
 
 const projects = [
   {
     num: "01",
-    category: "Full-Stack SaaS Development",
-    title: "Pakhreen Digital Solutions Platform",
+    category: "Full-Stack Software Development",
+    title: "Pakhreen Business Website",
     description:
-      "Pakhreen is a production-ready full-stack digital solutions platform built with Next.js, TypeScript, Prisma, and PostgreSQL. Beyond a modern company website, it provides a powerful admin dashboard with secure Clerk authentication, role-based access control, blog and career management, inquiry management, Stripe payment integration, Cloudflare R2 media storage, and a scalable content management system. The platform features rich text editing, dynamic service pages, responsive UI, premium animations, SEO optimization, and cloud deployment using Vercel. Designed with scalability and maintainability in mind, Pakhreen serves as the digital foundation for managing clients, projects, content, careers, and future SaaS services from a single platform.",
+      "Pakhreen is a production-ready full-stack digital solutions platform built with Next.js, TypeScript, Prisma, and PostgreSQL. Beyond a modern company website, it provides a powerful admin dashboard with secure Clerk authentication, role-based access control, blog and career management, inquiry management, Stripe payment integration, Cloudflare R2 media storage, and a scalable content management system. The platform also integrates Make.com automation with AI-powered workflows to process Get Started inquiries and streamline lead notifications. It features rich text editing, dynamic service pages, responsive UI, premium animations, SEO optimization, and cloud deployment using Vercel. Designed with scalability and maintainability in mind, Pakhreen serves as the digital foundation for managing clients, projects, content, careers, and future SaaS services from a single platform.",
     stack: [
       { name: "Next.js" },
       { name: "TypeScript" },
@@ -28,10 +29,10 @@ const projects = [
       { name: "Lucide React" },
       { name: "Vercel" },
       { name: "Cloudflare" },
+      { name: "Make.com" },
     ],
     image: "/assets/work/pakhreen.png",
     live: "https://pakhreen.com",
-    github: { full: "https://github.com/marktmng/pakhrin.git" },
   },
   {
     num: "02",
@@ -172,13 +173,6 @@ const ProjectCard = ({ project, index }) => {
   const imageY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
   const numScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
 
-  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  const smoothOpacity = useSpring(opacity, springConfig);
-  const smoothScale = useSpring(scale, springConfig);
-  const smoothContentY = useSpring(contentY, springConfig);
-  const smoothImageY = useSpring(imageY, springConfig);
-  const smoothNumScale = useSpring(numScale, springConfig);
-
   const isEven = index % 2 === 0;
   const customEase = [0.25, 0.1, 0.25, 1.0];
 
@@ -186,19 +180,19 @@ const ProjectCard = ({ project, index }) => {
     <>
       <motion.div
         ref={cardRef}
-        style={{ opacity: smoothOpacity, scale: smoothScale }}
+        style={{ opacity: opacity, scale: scale }}
         className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 py-20 relative z-10"
       >
         <div className={`max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center`}>
 
           {/* Content Section */}
           <motion.div
-            style={{ y: smoothContentY }}
+            style={{ y: contentY }}
             className={`space-y-6 z-10 lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2 lg:col-start-8"}`}
           >
             <div className="relative">
               <motion.div
-                style={{ scale: smoothNumScale, WebkitTextStroke: "1px rgba(255,255,255,0.1)" }}
+                style={{ scale: numScale, WebkitTextStroke: "1px rgba(255,255,255,0.1)" }}
                 className="absolute -top-16 -left-8 text-8xl md:text-9xl font-extrabold text-transparent select-none z-[-1]"
               >
                 {project.num}
@@ -309,7 +303,7 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Image Section */}
           <motion.div
-            style={{ y: smoothImageY }}
+            style={{ y: imageY }}
             className={`relative lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1 lg:col-start-1"}`}
           >
             <motion.div
@@ -335,11 +329,13 @@ const ProjectCard = ({ project, index }) => {
               {/* Screen Content */}
               <div className="relative aspect-video lg:aspect-[4/3] p-0 overflow-hidden bg-[#0a0a0a]">
                 {project.live && project.live !== "#" ? (
-                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative flex items-center justify-center">
-                    <motion.img
+                  <a href={project.live} target="_blank" rel="noopener noreferrer" className="block w-full h-full relative flex items-center justify-center group">
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                      className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                     />
 
                     {/* Hover Overlay */}
@@ -350,11 +346,13 @@ const ProjectCard = ({ project, index }) => {
                     </div>
                   </a>
                 ) : (
-                  <div className="w-full h-full relative flex items-center justify-center">
-                    <motion.img
+                  <div className="w-full h-full relative flex items-center justify-center group">
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                      className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
                 )}
