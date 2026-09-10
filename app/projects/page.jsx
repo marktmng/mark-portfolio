@@ -206,22 +206,22 @@ const ProjectCard = ({ project, index, isMobile }) => {
     <>
       <motion.div
         ref={cardRef}
-        style={isMobile ? { opacity } : { opacity, scale }}
+        style={{ opacity, scale: isMobile ? 1 : scale }}
         className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 py-20 relative z-10"
       >
         <div className={`max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center`}>
 
           {/* Content Section */}
           <motion.div
-            style={isMobile ? undefined : { y: contentY }}
+            style={{ y: isMobile ? 0 : contentY }}
             className={`space-y-6 z-10 lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2 lg:col-start-8"}`}
           >
             <div className="relative">
               <motion.div
-                style={isMobile
-                  ? { WebkitTextStroke: "1px rgba(255,255,255,0.1)" }
-                  : { scale: numScale, WebkitTextStroke: "1px rgba(255,255,255,0.1)" }
-                }
+                style={{
+                  scale: isMobile ? 1 : numScale,
+                  WebkitTextStroke: "1px rgba(255,255,255,0.1)",
+                }}
                 className="absolute -top-16 -left-8 text-8xl md:text-9xl font-extrabold text-transparent select-none z-[-1]"
               >
                 {project.num}
@@ -338,7 +338,7 @@ const ProjectCard = ({ project, index, isMobile }) => {
 
           {/* Image Section */}
           <motion.div
-            style={isMobile ? undefined : { y: imageY }}
+            style={{ y: isMobile ? 0 : imageY }}
             className={`relative lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1 lg:col-start-1"}`}
           >
             <motion.div
