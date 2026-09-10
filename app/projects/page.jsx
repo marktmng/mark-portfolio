@@ -4,8 +4,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Github, X } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PiVideoFill } from "react-icons/pi";
+
+// Detect mobile to disable expensive effects
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+};
 
 const projects = [
   {
@@ -157,7 +169,7 @@ const projects = [
   },
 ];
 
-const ProjectCard = ({ project, index }) => {
+const ProjectCard = ({ project, index, isMobile }) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const cardRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -165,10 +177,9 @@ const ProjectCard = ({ project, index }) => {
     offset: ["start end", "end start"],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  // Always call all hooks unconditionally (Rules of Hooks)
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]);
-
-  // Parallax effects
   const contentY = useTransform(scrollYProgress, [0, 1], [100, -100]);
   const imageY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
   const numScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
@@ -180,19 +191,22 @@ const ProjectCard = ({ project, index }) => {
     <>
       <motion.div
         ref={cardRef}
-        style={{ opacity: opacity, scale: scale }}
+        style={isMobile ? { opacity } : { opacity, scale }}
         className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 py-20 relative z-10"
       >
         <div className={`max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center`}>
 
           {/* Content Section */}
           <motion.div
-            style={{ y: contentY }}
+            style={isMobile ? undefined : { y: contentY }}
             className={`space-y-6 z-10 lg:col-span-5 ${isEven ? "lg:order-1" : "lg:order-2 lg:col-start-8"}`}
           >
             <div className="relative">
               <motion.div
-                style={{ scale: numScale, WebkitTextStroke: "1px rgba(255,255,255,0.1)" }}
+                style={isMobile
+                  ? { WebkitTextStroke: "1px rgba(255,255,255,0.1)" }
+                  : { scale: numScale, WebkitTextStroke: "1px rgba(255,255,255,0.1)" }
+                }
                 className="absolute -top-16 -left-8 text-8xl md:text-9xl font-extrabold text-transparent select-none z-[-1]"
               >
                 {project.num}
@@ -200,8 +214,8 @@ const ProjectCard = ({ project, index }) => {
               <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: customEase }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, ease: customEase }}
                 className="text-[#B5892D] font-medium tracking-widest uppercase text-xs md:text-sm"
               >
                 {project.category}
@@ -209,8 +223,8 @@ const ProjectCard = ({ project, index }) => {
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.1, ease: customEase }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: 0.05, ease: customEase }}
                 className="text-3xl md:text-5xl font-light text-white mt-2 leading-tight tracking-tight"
               >
                 {project.title}
@@ -220,9 +234,9 @@ const ProjectCard = ({ project, index }) => {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: customEase }}
-              className="text-white/60 text-base md:text-lg leading-relaxed bg-white/5 p-6 md:p-8 rounded-3xl border border-white/10 backdrop-blur-xl shadow-2xl font-light"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: 0.1, ease: customEase }}
+              className="text-white/60 text-base md:text-lg leading-relaxed bg-white/5 p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl font-light lg:backdrop-blur-xl"
             >
               {project.description}
             </motion.p>
@@ -231,14 +245,14 @@ const ProjectCard = ({ project, index }) => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3, ease: customEase }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: 0.15, ease: customEase }}
               className="flex flex-wrap gap-2"
             >
               {project.stack.map((item, idx) => (
                 <span
                   key={idx}
-                  className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[#B5892D] text-xs md:text-sm font-medium tracking-wide backdrop-blur-md"
+                  className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[#B5892D] text-xs md:text-sm font-medium tracking-wide"
                 >
                   {item.name}
                 </span>
@@ -249,8 +263,8 @@ const ProjectCard = ({ project, index }) => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.4, ease: customEase }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: 0.2, ease: customEase }}
               className="flex items-center gap-4 pt-6"
             >
               <a
@@ -265,11 +279,11 @@ const ProjectCard = ({ project, index }) => {
               {/* GitHub */}
               {project.github && Object.keys(project.github).length > 0 && (
                 <div className="relative group">
-                  <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center cursor-pointer hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-md">
+                  <div className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center cursor-pointer hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl">
                     <Github className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                   </div>
                   <div className="absolute bottom-full left-1/2 -translate-x-1/2 h-4 w-full"></div>
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl p-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-20 min-w-[140px] translate-y-2 group-hover:translate-y-0">
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-4 bg-[#0a0a0a]/95 border border-white/10 rounded-xl shadow-2xl p-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 z-20 min-w-[140px] translate-y-2 group-hover:translate-y-0 lg:backdrop-blur-xl">
                     {project.github.frontend && (
                       <a href={project.github.frontend} target="_blank" className="block text-white/70 hover:text-[#B5892D] text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">Frontend</a>
                     )}
@@ -287,13 +301,13 @@ const ProjectCard = ({ project, index }) => {
               {project.demo && project.demo.endsWith(".mp4") ? (
                 <button
                   onClick={() => setIsVideoOpen(true)}
-                  className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-md group"
+                  className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl group"
                 >
                   <PiVideoFill className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                 </button>
               ) : (
                 project.demo && (
-                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl backdrop-blur-md group">
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex justify-center items-center hover:bg-white/10 hover:border-[#B5892D]/50 hover:scale-110 transition-all duration-300 shadow-xl group">
                     <PiVideoFill className="text-white w-5 h-5 group-hover:text-[#B5892D] transition-colors duration-300" />
                   </a>
                 )
@@ -303,15 +317,15 @@ const ProjectCard = ({ project, index }) => {
 
           {/* Image Section */}
           <motion.div
-            style={{ y: imageY }}
+            style={isMobile ? undefined : { y: imageY }}
             className={`relative lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1 lg:col-start-1"}`}
           >
             <motion.div
-              initial={{ opacity: 0, clipPath: isEven ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)" }}
-              whileInView={{ opacity: 1, clipPath: "inset(0 0 0 0)" }}
-              transition={{ duration: 1.2, ease: customEase }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#121212] group flex flex-col backdrop-blur-md"
+              initial={{ opacity: 0, scale: 0.95, y: 40 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              viewport={{ once: true, margin: "-80px" }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#121212] group flex flex-col"
             >
               {/* Computer Screen Header */}
               <div className="flex items-center px-4 py-3 bg-white/5 border-b border-white/10">
@@ -334,16 +348,21 @@ const ProjectCard = ({ project, index }) => {
                       src={project.image}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                      sizes={isMobile ? "100vw" : "(max-width: 1200px) 50vw, 50vw"}
+                      priority={index === 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      quality={isMobile ? 60 : 80}
                       className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                     />
 
-                    {/* Hover Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#0a0a0a]/40 backdrop-blur-[2px]">
-                      <div className="w-16 h-16 rounded-full bg-[#B5892D] flex items-center justify-center shadow-2xl scale-50 group-hover:scale-100 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
-                        <ArrowUpRight className="text-white w-8 h-8" />
+                    {/* Hover Overlay - desktop only */}
+                    {!isMobile && (
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[#0a0a0a]/40 backdrop-blur-[2px]">
+                        <div className="w-16 h-16 rounded-full bg-[#B5892D] flex items-center justify-center shadow-2xl scale-50 group-hover:scale-100 transition-transform duration-500" style={{ transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}>
+                          <ArrowUpRight className="text-white w-8 h-8" />
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </a>
                 ) : (
                   <div className="w-full h-full relative flex items-center justify-center group">
@@ -351,7 +370,10 @@ const ProjectCard = ({ project, index }) => {
                       src={project.image}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
+                      sizes={isMobile ? "100vw" : "(max-width: 1200px) 50vw, 50vw"}
+                      priority={index === 0}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      quality={isMobile ? 60 : 80}
                       className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                     />
                   </div>
@@ -365,10 +387,10 @@ const ProjectCard = ({ project, index }) => {
       {/* Video Modal */}
       {isVideoOpen && (
         <motion.div
-          initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
-          exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-          className="fixed inset-0 bg-[#0a0a0a]/90 flex justify-center items-center z-50 p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 bg-[#0a0a0a]/90 flex justify-center items-center z-50 p-4 lg:backdrop-blur-sm"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -399,6 +421,7 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const Work = () => {
+  const isMobile = useIsMobile();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -410,14 +433,14 @@ const Work = () => {
 
   return (
     <div ref={containerRef} className="relative min-h-screen overflow-hidden">
-      {/* Background elements */}
-      <div className="fixed top-[10%] right-[-5%] w-[500px] h-[500px] bg-[#B5892D]/10 blur-[150px] rounded-full pointer-events-none z-0" />
-      <div className="fixed bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-white/5 blur-[120px] rounded-full pointer-events-none z-0" />
+      {/* Background elements - smaller on mobile */}
+      <div className={`fixed top-[10%] right-[-5%] ${isMobile ? 'w-[250px] h-[250px] blur-[80px]' : 'w-[500px] h-[500px] blur-[150px]'} bg-[#B5892D]/10 rounded-full pointer-events-none z-0`} />
+      <div className={`fixed bottom-[-10%] left-[-5%] ${isMobile ? 'w-[250px] h-[250px] blur-[60px]' : 'w-[500px] h-[500px] blur-[120px]'} bg-white/5 rounded-full pointer-events-none z-0`} />
 
       {/* Progress Bar */}
       <motion.div className="fixed top-0 left-0 right-0 h-1 z-50 overflow-hidden bg-white/5">
         <motion.div
-          style={{ width: progressBarWidth }}
+          style={{ width: progressBarWidth, willChange: "width" }}
           className="h-full bg-gradient-to-r from-[#B5892D]/50 to-[#B5892D] shadow-[0_0_10px_rgba(181,137,45,0.8)]"
         />
       </motion.div>
@@ -446,7 +469,7 @@ const Work = () => {
       <div className="space-y-0 relative z-10">
         <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/5 -translate-x-1/2 hidden lg:block" />
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} index={index} />
+          <ProjectCard key={index} project={project} index={index} isMobile={isMobile} />
         ))}
       </div>
 
@@ -459,7 +482,7 @@ const Work = () => {
         className="relative py-32 px-4 text-center z-10"
       >
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-tight">
-          Think I’d Be a Good Fit for Your{" "}
+          Think I'd Be a Good Fit for Your{" "}
           <span className="text-[#B5892D] font-medium relative inline-block">
             Team?
             <div className="absolute -bottom-2 left-0 w-full h-[2px] bg-[#B5892D]/50"></div>
