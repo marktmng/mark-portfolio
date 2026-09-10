@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const highlights = [
   {
     num: "01",
-    title: "Full-Stack Web Development",
+    title: "Full-Stack Software Development",
     description:
       "Experienced in developing modern, responsive web applications across both frontend and backend technologies. Skilled in React.js, Next.js, TypeScript, ASP.NET Core, .NET, Node.js, REST APIs, SQL databases, and authentication systems. Focused on building reliable, user-friendly applications with clean architecture and practical development workflows.",
   },
@@ -83,7 +83,7 @@ const Highlights = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
