@@ -66,7 +66,7 @@ const projects = [
     image: "/assets/work/rossgrove.png",
     live: "https://rossgrovechurch.nz",
     // github: { full: "https://github.com/marktmng/rossgrove_church_website.git" },
-    demo: "/assets/videos/rossgrove-video.mp4",
+    // demo: "#",
   },
   {
     num: "03",
@@ -111,7 +111,7 @@ const projects = [
       backend: "https://github.com/marktmng/handi_hub.git",
       frontend: "https://github.com/marktmng/handi-hub-front.git",
     },
-    demo: "/assets/videos/handi-hub.mp4",
+    // demo: "#",
   },
   {
     num: "05",
@@ -143,7 +143,7 @@ const projects = [
     image: "/assets/work/scheduler.png",
     live: "#",
     github: { full: "https://github.com/marktmng/Scheduler-BruntonNZ.git" },
-    demo: "/assets/videos/scheduler.mp4",
+    // demo: "#",
   },
   {
     num: "07",
