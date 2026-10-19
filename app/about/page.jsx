@@ -126,10 +126,10 @@ const experience = {
     },
     {
       company: "ECEC Innovation in Education",
-      position: "IT Specialist",
+      position: "Graphic Designer",
       duration: "Jan 2019 – Apr 2023",
       description:
-        "Provided IT support for hardware, software, and network issues. Performed system maintenance, troubleshooting, and technical support.",
+        "Designed advertisements, brochures, banners, posters, storybooks, and educational materials. Produced illustrations, photography, and video content, combining creative design with visual storytelling to support educational and promotional projects.",
     },
   ],
 };

@@ -35,9 +35,9 @@ const highlights = [
   },
   {
     num: "06",
-    title: "IT Specialist & Graphic Design",
+    title: "Graphic Design",
     description:
-      "A combined background in technical support and creative digital work. Experienced in troubleshooting hardware, software, Windows systems, applications, networking, and office technology, alongside professional graphic design experience creating logos, storybooks, posters, brochures, illustrations, and digital content.",
+      "Experienced in creating visually compelling designs for branding, advertising, and digital communication. Skilled in designing brochures, posters, banners, storybooks, educational materials, and social media graphics, with additional expertise in photography, photo retouching, and video editing. Proficient in Adobe Creative Suite, Affinity Designer, Canva, and modern creative tools, with a focus on visual storytelling, strong typography, and effective communication.",
   },
 ];
 

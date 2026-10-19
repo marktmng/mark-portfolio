@@ -47,7 +47,7 @@ const Photo = () => {
         <div className="relative w-32 h-32 xl:w-40 xl:h-40 rounded-full border-[3px] border-[#B5892D]/80 p-1 shadow-[0_0_20px_rgba(181,137,45,0.3)] mb-4 shrink-0 overflow-hidden bg-black/40">
           <div className="relative w-full h-full rounded-full overflow-hidden">
             <Image
-              src={"/assets/portfolio-profile.png"}
+              src={"/assets/professional-profile.png"}
               priority
               quality={100}
               fill
@@ -67,9 +67,9 @@ const Photo = () => {
         <div className="w-full text-center flex flex-col gap-1 z-10 flex-grow">
           <h2 className="text-white font-bold text-2xl xl:text-3xl tracking-tight m-0 uppercase">MARK TAMANG</h2>
           <p className="text-[#B5892D] text-[10px] xl:text-xs font-medium tracking-widest uppercase mb-4">Software Engineer</p>
-          
+
           <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-2" />
-          
+
           <div className="flex justify-between w-full px-2 mt-auto">
             <div className="flex flex-col items-start">
               <span className="text-white/40 text-[8px] uppercase">ID Number</span>
