@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
+import { playTechScrollSound, playTechChirp, playTechTick } from "@/lib/techSound";
 
 const links = [
   { name: "home", path: "/", file: "index.tsx", activeCmd: "cd ~", inactiveCmd: "cd ~" },
@@ -31,15 +32,34 @@ const MobileNav = () => {
     setIsOpen(false);
   }, [pathname]);
 
+  const handleOpenChange = (open) => {
+    setIsOpen(open);
+    if (open) {
+      playTechScrollSound("down");
+    } else {
+      playTechScrollSound("up");
+    }
+  };
+
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger className="flex justify-center items-center group">
-        <div className="bg-[#0a0a0a]/80 p-2.5 sm:p-3 rounded-xl border border-white/10 backdrop-blur-md group-hover:bg-[#B5892D]/10 group-hover:border-[#B5892D]/30 transition-all shadow-xl font-mono flex items-center gap-2">
-          <FiTerminal className="text-lg sm:text-xl text-[#B5892D]" />
-          <span className="text-white/70 text-xs hidden sm:inline">./nav.sh</span>
-        </div>
+    <Sheet open={isOpen} onOpenChange={handleOpenChange}>
+      <SheetTrigger asChild>
+        <button
+          type="button"
+          onClick={() => playTechTick()}
+          className="flex justify-center items-center group focus-visible:outline-none"
+          aria-label="Open Mobile Terminal Menu"
+        >
+          <div className="bg-[#0a0a0a]/80 p-2.5 sm:p-3 rounded-xl border border-white/10 backdrop-blur-md group-hover:bg-[#B5892D]/10 group-hover:border-[#B5892D]/40 transition-all shadow-xl font-mono flex items-center gap-2">
+            <FiTerminal className="text-lg sm:text-xl text-[#B5892D]" />
+            <span className="text-white/70 text-xs hidden sm:inline">./nav.sh</span>
+          </div>
+        </button>
       </SheetTrigger>
-      <SheetContent side="top" className="flex flex-col bg-[#0a0a0a]/98 backdrop-blur-3xl border-b border-[#B5892D]/30 font-mono max-h-[92vh] overflow-y-auto pb-8 pt-5 px-4 sm:px-8">
+      <SheetContent
+        side="top"
+        className="flex flex-col bg-[#0a0a0a]/98 backdrop-blur-3xl border-b border-[#B5892D]/30 font-mono max-h-[92vh] overflow-y-auto pb-8 pt-5 px-4 sm:px-8"
+      >
         <SheetHeader>
           <SheetTitle>
             <VisuallyHidden>Mobile Navigation Menu</VisuallyHidden>
@@ -68,6 +88,7 @@ const MobileNav = () => {
               <div key={index} className="w-full">
                 <Link
                   href={link.path}
+                  onClick={() => playTechChirp()}
                   className="flex items-center gap-2.5 w-full group cursor-pointer whitespace-nowrap"
                 >
                   <span className="text-[#B5892D] text-base sm:text-lg font-bold select-none">~</span>
