@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { FiTerminal } from "react-icons/fi";
+import { playTechTick, playTechChirp } from "@/lib/techSound";
 
 const links = [
   { name: "home", path: "/", file: "index.tsx", activeCmd: "cd ~" },
@@ -32,6 +33,8 @@ const Nav = () => {
           <Link
             key={index}
             href={link.path}
+            onMouseEnter={() => playTechTick()}
+            onClick={() => playTechChirp()}
             className={`relative px-2.5 xl:px-3 py-1.5 rounded-lg text-[11px] xl:text-xs tracking-wide transition-all duration-300 z-10 flex items-center gap-1.5 whitespace-nowrap group ${
               isActive ? "text-white font-medium" : "text-white/40 hover:text-white/80 hover:bg-white/5"
             }`}
