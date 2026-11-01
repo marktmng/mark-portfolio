@@ -7,6 +7,7 @@
   src: url('https://adamroberts.dev/fonts/basis33.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
