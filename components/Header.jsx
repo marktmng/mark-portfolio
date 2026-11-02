@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
 import Nav from "./Nav";
@@ -53,8 +52,8 @@ const Header = () => {
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1.0] }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#111110]/85 backdrop-blur-xl border-b border-[#B5892D]/30 shadow-2xl shadow-black/60 py-3.5"
-          : "bg-transparent py-7 xl:py-10"
+          ? "bg-[#111110]/85 backdrop-blur-xl border-b border-[#B5892D]/30 shadow-2xl shadow-black/60 py-3"
+          : "bg-transparent py-6 xl:py-9"
       }`}
     >
       {/* Subtle tech border illumination when scrolled */}
@@ -63,21 +62,39 @@ const Header = () => {
       )}
 
       <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+        {/* High-Tech Text Logo Section */}
         <Link
           href="/"
           onMouseEnter={() => playTechTick()}
-          className="relative group"
+          className="relative group flex items-center py-1 select-none focus-visible:outline-none"
+          aria-label="Mark Tamang - Home"
         >
-          <Image
-            src="/assets/mark.png"
-            alt="Mark Logo"
-            width={scrolled ? 75 : 95}
-            height={190}
-            priority
-            className="object-contain transition-all duration-500 group-hover:scale-105"
-          />
-          <div className="absolute -inset-2 bg-[#B5892D]/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+          {/* Ambient Gold Glow Aura */}
+          <div className="absolute -inset-x-3 -inset-y-1.5 bg-[#B5892D]/15 blur-xl rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
+
+          {/* Sleek Corner HUD Reticle Brackets on hover */}
+          <span className="absolute -top-1 -left-2 w-2 h-2 border-t-2 border-l-2 border-transparent group-hover:border-[#fac70f] transition-all duration-300 pointer-events-none" />
+          <span className="absolute -top-1 -right-2 w-2 h-2 border-t-2 border-r-2 border-transparent group-hover:border-[#fac70f] transition-all duration-300 pointer-events-none" />
+          <span className="absolute -bottom-1 -left-2 w-2 h-2 border-b-2 border-l-2 border-transparent group-hover:border-[#fac70f] transition-all duration-300 pointer-events-none" />
+          <span className="absolute -bottom-1 -right-2 w-2 h-2 border-b-2 border-r-2 border-transparent group-hover:border-[#fac70f] transition-all duration-300 pointer-events-none" />
+
+          <div className="flex flex-col justify-center">
+            {/* Bold Mark. Logo Text */}
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white group-hover:text-white transition-all duration-300 flex items-baseline leading-none">
+              Mark
+              <span className="text-[#fac70f] drop-shadow-[0_0_8px_rgba(250,199,15,0.7)] group-hover:drop-shadow-[0_0_14px_rgba(250,199,15,0.9)] group-hover:scale-125 transition-all duration-300 inline-block ml-0.5 leading-none">
+                .
+              </span>
+            </h1>
+
+            {/* Subtle Tech Telemetry Line */}
+            <div className="flex items-center gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity duration-300 font-mono mt-1.5 leading-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_#34d399]" />
+              <span className="text-[9px] tracking-[0.2em] text-[#B5892D] uppercase font-semibold leading-none">
+                SYS_ONLINE
+              </span>
+            </div>
+          </div>
         </Link>
 
         {/* Desktop nav */}

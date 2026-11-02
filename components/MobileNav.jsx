@@ -13,7 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { playTechScrollSound, playTechChirp, playTechTick } from "@/lib/techSound";
+import { playTechDrawerSlide, playTechCommandTap } from "@/lib/techSound";
 
 const links = [
   { name: "home", path: "/", file: "index.tsx", activeCmd: "cd ~", inactiveCmd: "cd ~" },
@@ -34,11 +34,8 @@ const MobileNav = () => {
 
   const handleOpenChange = (open) => {
     setIsOpen(open);
-    if (open) {
-      playTechScrollSound("down");
-    } else {
-      playTechScrollSound("up");
-    }
+    // Pure mechanical/pneumatic tech slide down sound - NO notification beeps!
+    playTechDrawerSlide(open ? "down" : "up");
   };
 
   return (
@@ -46,7 +43,6 @@ const MobileNav = () => {
       <SheetTrigger asChild>
         <button
           type="button"
-          onClick={() => playTechTick()}
           className="flex justify-center items-center group focus-visible:outline-none"
           aria-label="Open Mobile Terminal Menu"
         >
@@ -67,7 +63,7 @@ const MobileNav = () => {
         </SheetHeader>
 
         {/* Terminal Header */}
-        <div className="flex items-center justify-between px-2 py-2 border-b border-white/10 mb-6 w-full max-w-md mx-auto">
+        <div className="shrink-0 flex items-center justify-between px-2 py-2 border-b border-white/10 mb-4 w-full max-w-md mx-auto">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
             <div className="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
@@ -79,6 +75,33 @@ const MobileNav = () => {
           <div className="w-4" />
         </div>
 
+        {/* Mobile Terminal Logo / Identity Banner - Unclipped, Generous Spacing */}
+        <div className="shrink-0 flex items-center justify-between px-4 py-3.5 mb-5 rounded-xl bg-white/[0.04] border border-white/10 max-w-md mx-auto w-full shadow-lg">
+          <div className="flex flex-col justify-center">
+            <div className="flex items-baseline leading-none">
+              <span className="text-2xl font-bold text-white tracking-tight leading-none font-primary">
+                Mark
+                <span className="text-[#fac70f] drop-shadow-[0_0_8px_rgba(250,199,15,0.7)] ml-0.5 inline-block">
+                  .
+                </span>
+              </span>
+              <span className="text-xs font-mono text-white/50 ml-2 leading-none">
+                Tamang
+              </span>
+            </div>
+            <span className="text-[10px] text-[#B5892D] font-mono tracking-wider uppercase mt-2 leading-none">
+              PORTFOLIO // FULLSTACK DEV
+            </span>
+          </div>
+
+          <div className="shrink-0 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#B5892D]/15 border border-[#B5892D]/30 font-mono leading-none">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_4px_#34d399]" />
+            <span className="text-[10px] text-[#fac70f] font-semibold tracking-wider leading-none">
+              ONLINE
+            </span>
+          </div>
+        </div>
+
         {/* Navigation list */}
         <nav className="flex flex-col justify-center items-start gap-4 sm:gap-5 px-3 sm:px-6 w-full max-w-md mx-auto">
           {links.map((link, index) => {
@@ -88,7 +111,7 @@ const MobileNav = () => {
               <div key={index} className="w-full">
                 <Link
                   href={link.path}
-                  onClick={() => playTechChirp()}
+                  onClick={() => playTechCommandTap()}
                   className="flex items-center gap-2.5 w-full group cursor-pointer whitespace-nowrap"
                 >
                   <span className="text-[#B5892D] text-base sm:text-lg font-bold select-none">~</span>
